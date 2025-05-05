@@ -3,17 +3,67 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/assets/css/style.css" />
     <title>Educação Financeira</title>
   </head>
   <body>
-    <header></header>
+    <header>
+      <div class="menu__nav">
+        <div class="logo">
+          <img src="src/assets/images/navbar/logo.svg" alt="Logo" />
+        </div>
 
-    <section class="Hero"></section>
+        <nav class="nav">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Mentorias</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Princípios</a></li>
+            <li><a href="#">Depoimentos</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </nav>
+      </div>
+      <button class="menu-toggle" aria-label="Abrir menu">☰</button>
+    </header>
+
+    <section class="Hero">
+      <div class="Hero__title">
+        <h1>Educação Financeira Pessoal e Familiar</h1>
+        <p>
+          Liberte-se das preocupações financeiras e prospere com princípios
+          cristãos que transformam sua vida!
+        </p>
+        <a href="#plans" class="cta-button">Quero Começar Agora</a>
+      </div>
+      <div class="comments">
+        <div class="card">
+          <h1>Carlos e Beatriz</h1>
+          <p>
+            Graças a mentoria, conseguimos organizar nossas finanças e
+            fortalecer nosso casamento
+          </p>
+        </div>
+        <div class="card">
+          <h1>Familia Castro</h1>
+          <p>
+            Aprendemos a cuidar do nosso dinheiro com próposito, sem perder de
+            vista nossos valores cristãos
+          </p>
+        </div>
+        <div class="card">
+          <h1>Eduardo e Cíntia</h1>
+          <p>"Nos surpreendeu de forma positiva"</p>
+        </div>
+      </div>
+    </section>
     <section class="Plans"></section>
     <section class="Mentoring"></section>
     <section class="Principles"></section>
     <section class="Feedback"></section>
     <section class="Tips"></section>
     <footer></footer>
+
+    <script src="src/assets/js/menu.js"></script>
   </body>
 </html>
