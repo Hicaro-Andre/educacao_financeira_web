@@ -12,7 +12,6 @@ html, body {
 }
 body{
   font-family: sans-serif;
-  overflow: hidden;
   background: linear-gradient(270deg, #FFFFFF 0%, #FFF6D1 50%, #FAEAA5 100%);
 }
 
@@ -77,23 +76,135 @@ header {
   color: #0077cc;
 }
 
+/**? HERO */
+.Hero{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5.625rem;
+}
 
+.Hero__title{
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 0.9375rem;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5625rem;
+  flex: 1 0 0;
+}
+.Hero__h1{
+  max-width: 32.375rem;
+  align-self: stretch;
+}
 .Hero__title h1{
-  font-family: Playfair Display;
-  font-weight: 700;
-  font-size: 42px;
-  line-height: 100%;
-  letter-spacing: 5%;
+  color: #1C4140;
   text-align: center;
-  color:rgba(28, 65, 64, 1);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: "Playfair Display";
+  font-size: 2.625rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.13125rem;
+  margin-top: 50px;
+}
+.Hero__p{
+  max-width: 32.375rem;
+  align-self: stretch;
 }
 .Hero__title p{
-font-family: Lato;
-font-weight: 700;
-font-size: 16px;
-line-height: 100%;
-letter-spacing: 0%;
-text-align: center;
-vertical-align: middle;
+  color: #000;
+  text-align: center;
+  font-family: Lato;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
+.Hero__comments{
+  display: flex;
+  padding: 0rem 5.375rem;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 3.125rem;
+  align-self: stretch;
+  flex-wrap: wrap;
+   padding-bottom: 50px;
+}
+
+.btn_hero{
+  display: flex;
+padding-right: 1rem;
+align-items: center;
+gap: 0.65625rem;
+border-radius: 1.1875rem 0.6875rem 0.6875rem 1.1875rem;
+border: 1px solid var(--ouro-2, rgba(125, 96, 0, 0.71));
+background: #FFF;
+box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.60);
+color: #1C4140;
+font-family: Lato;
+font-size: 1rem;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: 0.09rem;
+}
+.card{
+  width: 14rem;
+}
+
+.card h1{
+  color: #000;
+  text-align: center;
+  font-family: Lato;
+  font-size: 0.875rem;
+  font-style: italic;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.card p {
+  color: #000;
+  font-family: Lato;
+  font-size: 0.875rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+}
+
+/**? PLANS */
+
+.Plans{
+  display: flex;
+ padding: 5rem 6.25rem;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ gap: 5rem;
+ align-self: stretch;
+ background: #FFFDF9;
+}
+
+.Plans h1 {
+  color: #000;
+  text-align: center;
+  font-family: "Playfair Display";
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 2.5rem;
+  border: solid;
+}
+.Plans p {
+ color: #000;
+  text-align: center;
+  font-family: Lato;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.0625rem; /* 106.25% */
+}
