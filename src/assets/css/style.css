@@ -32,7 +32,7 @@ header {
   padding: 1rem;
 }
 
-/* Botão visível apenas no mobile */
+/*! Botão visível apenas no mobile */
 .menu-toggle {
   position: absolute;
   right: 1rem;
@@ -44,7 +44,7 @@ header {
   cursor: pointer;
   color: #1C4140;
 }
-/* Navegação Mobile */
+/*! Navegação Mobile */
 .nav {
   display: none;
   flex-direction: column;
@@ -77,14 +77,14 @@ header {
 }
 
 /**? HERO */
-.Hero{
+.hero{
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 5.625rem;
 }
 
-.Hero__title{
+.hero__content{
   display: flex;
   flex-direction: column;
   padding: 0rem 0.9375rem;
@@ -93,11 +93,11 @@ header {
   gap: 1.5625rem;
   flex: 1 0 0;
 }
-.Hero__h1{
+.hero__title{
   max-width: 32.375rem;
   align-self: stretch;
 }
-.Hero__title h1{
+.hero__content h1{
   color: #1C4140;
   text-align: center;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -109,11 +109,11 @@ header {
   letter-spacing: 0.13125rem;
   margin-top: 50px;
 }
-.Hero__p{
+.hero__sub-title{
   max-width: 32.375rem;
   align-self: stretch;
 }
-.Hero__title p{
+.hero__content p{
   color: #000;
   text-align: center;
   font-family: Lato;
@@ -123,7 +123,7 @@ header {
   line-height: normal;
 }
 
-.Hero__comments{
+.hero__comments{
   display: flex;
   padding: 0rem 5.375rem;
   justify-content: center;
@@ -132,31 +132,30 @@ header {
   gap: 3.125rem;
   align-self: stretch;
   flex-wrap: wrap;
-   padding-bottom: 50px;
+  padding-bottom: 50px;
 }
 
 .btn_hero{
-display: flex;
-padding-right: 1rem;
-align-items: center;
-gap: 0.65625rem;
-border-radius: 1.1875rem 0.6875rem 0.6875rem 1.1875rem;
-border: 1px solid var(--ouro-2, rgba(125, 96, 0, 0.71));
-background: #FFF;
-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.60);
-color: #1C4140;
-font-family: Lato;
-font-size: 1rem;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-letter-spacing: 0.09rem;
+  display: flex;
+  padding-right: 1rem;
+  align-items: center;
+  gap: 0.65625rem;
+  border-radius: 1.1875rem 0.6875rem 0.6875rem 1.1875rem;
+  border: 1px solid var(--ouro-2, rgba(125, 96, 0, 0.71));
+  background: #FFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.60);
+  color: #1C4140;
+  font-family: Lato;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.09rem;
 }
 .card{
   width: 14rem;
 }
-
-.card h1{
+.card h2{
   color: #000;
   text-align: center;
   font-family: Lato;
@@ -165,7 +164,6 @@ letter-spacing: 0.09rem;
   font-weight: 700;
   line-height: normal;
 }
-
 .card p {
   color: #000;
   font-family: Lato;
@@ -177,774 +175,118 @@ letter-spacing: 0.09rem;
 }
 
 /**? PLANS */
-.Plans{
+.plans{
+	display: flex;
+	background-color: #fffdf9;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+  padding: 40px 16px;
+	gap: 80px;
+	text-align: center;
+	font-size: 32px;
+	color: #000;
+	font-family: 'Playfair Display';
+}
+.plans__title{
+	line-height: 40px;
+	font-size: 1.25rem;
+	font-weight: 600;
+	font-family: 'Playfair Display';
+}
+.plans__sub-title{
+	font-size: 20px;
+	font-family: Lato;
+	text-align: center;
+	line-height: 17px;
+}
+.plans__container{
+	width: 100%;
+	position: relative;
+	height: 641px;
+	text-align: left;
+	font-size: 14px;
+	color: #000;
+	font-family: Lato;
+}
+.plans__carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 550px;
+}
+.plans__carousel-wrapper {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+  will-change: transform;
+}
+.plans__free {
+  min-width: 100%;
+  flex-shrink: 0;
+  box-shadow: 0px 3px 9.7px 2px #000;
+  border-radius: 30px;
   background-color: #fff;
+  height: 442px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 10px 30px;
+  box-sizing: border-box;
+  gap: 5px;
+}
+.arrow-esq,
+.arrow-dir {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px; 
+  height: 40px;
+  cursor: pointer;
+  z-index: 10;
+}
+.arrow-esq {
+  left: -30px; 
+}
+.arrow-dir {
+  right: -30px;
+}
+.plans__buttons-select {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 5;
+}
+.plans__buttons-select img {
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+}
+.arrow-dir{
+	position: absolute;
+	height: 2.96%;
+	width: 3.45%;
+	top: 31.75%;
+	right: 8.33%;
+	bottom: 65.29%;
+	left: 88.22%;
+	max-width: 100%;
+	overflow: hidden;
+	max-height: 100%;
+	object-fit: contain;
+}
+.arrow-esq{
+	position: absolute;
+	height: 2.96%;
+	width: 3.45%;
+	top: 31.75%;
+	right: 88.22%;
+	bottom: 65.29%;
+	left: 8.33%;
+	max-width: 100%;
+	overflow: hidden;
+	max-height: 100%;
+	object-fit: contain;
 }
-.degrad {
-  	width: 100%;
-  	position: absolute;
-  	margin: 0 !important;
-  	height: calc(100% + 270px);
-  	top: 671px;
-  	right: 0%;
-  	bottom: -941px;
-  	left: 0%;
-  	filter: blur(30px);
-  	background: linear-gradient(90deg, #f9ecb8, #fffefb);
-  	display: none;
-  	z-index: 0;
-}
-.mentorias-e-planos {
-  	align-self: stretch;
-  	position: relative;
-  	line-height: 40px;
-  	font-weight: 600;
-}
-.transforme-a-realidade {
-  	align-self: stretch;
-  	position: relative;
-  	font-size: 16px;
-  	line-height: 17px;
-  	font-family: Lato;
-}
-.titulo-e-sub {
-  	align-self: stretch;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: center;
-  	justify-content: center;
-  	gap: 20px;
-  	min-width: 205px;
-  	z-index: 1;
-  	text-align: center;
-  	font-size: 32px;
-  	font-family: 'Playfair Display';
-}
-.plano {
-  	margin: 0;
-}
-.plano-essencial {
-  	position: relative;
-  	font-size: 20px;
-  	line-height: 30px;
-  	z-index: 0;
-}
-.gratuito1 {
-  	align-self: stretch;
-  	position: relative;
-  	font-size: 25.5px;
-  	line-height: 36px;
-  	color: #1c4140;
-  	z-index: 1;
-}
-.ideal-para-quem {
-  	align-self: stretch;
-  	position: relative;
-  	line-height: 20px;
-  	color: #4b5563;
-  	z-index: 2;
-}
-.durao-1-sesso {
-  	align-self: stretch;
-  	position: relative;
-  	line-height: 30px;
-  	z-index: 3;
-}
-.exerccio-prtico-para {
-  	align-self: stretch;
-  	position: relative;
-  	line-height: 20px;
-  	z-index: 0;
-}
-.conceitos-bsicos {
-  	align-self: stretch;
-  	position: relative;
-  	line-height: 30px;
-  	z-index: 1;
-}
-.frame-icon {
-  	width: 20px;
-  	position: relative;
-  	height: 20px;
-  	overflow: hidden;
-  	flex-shrink: 0;
-}
-.frame-parent {
-  	margin: 0 !important;
-  	position: absolute;
-  	top: 20px;
-  	left: -15px;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: flex-start;
-  	justify-content: center;
-  	gap: 52px;
-  	z-index: 2;
-}
-.exerccio-prtico-para-identif-parent {
-  	align-self: stretch;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: flex-start;
-  	justify-content: flex-start;
-  	padding: 20px 15px 0px;
-  	position: relative;
-  	gap: 5px;
-  	z-index: 4;
-}
-.frame-icon2 {
-  	position: absolute;
-  	top: 12px;
-  	left: 23px;
-  	width: 14px;
-  	height: 18px;
-  	overflow: hidden;
-}
-.agendar {
-  	position: absolute;
-  	top: 3px;
-  	left: 46px;
-  	line-height: 24px;
-  	font-weight: 500;
-  	display: flex;
-  	align-items: center;
-  	justify-content: center;
-  	width: 62.1px;
-  	height: 21px;
-}
-.sesso {
-  	position: absolute;
-  	top: 18px;
-  	left: 53px;
-  	line-height: 24px;
-  	font-weight: 500;
-  	display: flex;
-  	align-items: center;
-  	justify-content: center;
-  	width: 48.9px;
-  	height: 21px;
-}
-.button {
-  	width: 131px;
-  	position: absolute;
-  	margin: 0 !important;
-  	top: 421px;
-  	left: 55px;
-  	border-radius: 20px;
-  	background-color: #1c4140;
-  	border: 1px solid rgba(125, 96, 0, 0.71);
-  	box-sizing: border-box;
-  	height: 42px;
-  	z-index: 5;
-  	text-align: center;
-  	font-size: 13.6px;
-  	color: #fff;
-  	font-family: 'Playfair Display';
-}
-.gratuito {
-  	width: 240px;
-  	box-shadow: 0px 3px 9.7px 2px #000;
-  	border-radius: 30px;
-  	background-color: #fff;
-  	height: 442px;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: flex-start;
-  	justify-content: flex-start;
-  	padding: 10px 30px;
-  	box-sizing: border-box;
-  	position: relative;
-  	gap: 5px;
-}
-.button1 {
-  	width: 131px;
-  	position: absolute;
-  	margin: 0 !important;
-  	top: 538px;
-  	left: 55px;
-  	border-radius: 20px;
-  	background-color: #fff;
-  	border: 1px solid rgba(125, 96, 0, 0.71);
-  	box-sizing: border-box;
-  	height: 42px;
-  	z-index: 0;
-  	text-align: center;
-  	font-size: 13.6px;
-  	color: #1c4140;
-  	font-family: 'Playfair Display';
-}
-.plano-bsico {
-  	position: relative;
-  	font-size: 20px;
-  	line-height: 30px;
-  	z-index: 1;
-}
-.r-450 {
-  	align-self: stretch;
-  	position: relative;
-  	font-size: 25.5px;
-  	line-height: 36px;
-  	z-index: 2;
-}
-.ideal-para-casais {
-  	align-self: stretch;
-  	position: relative;
-  	line-height: 20px;
-  	z-index: 3;
-}
-.durao-3-sesses {
-  	position: relative;
-  	line-height: 30px;
-  	z-index: 4;
-}
-.como-alinhar-a {
-  	align-self: stretch;
-  	position: relative;
-  	line-height: 20px;
-}
-.como-alinhar-a-viso-financeir-parent {
-  	align-self: stretch;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: flex-start;
-  	justify-content: flex-start;
-  	padding: 10px 10px 0px;
-  	gap: 7px;
-  	z-index: 5;
-}
-.frame-icon4 {
-  	width: 20px;
-  	position: absolute;
-  	margin: 0 !important;
-  	top: 180px;
-  	left: 5px;
-  	height: 20px;
-  	overflow: hidden;
-  	flex-shrink: 0;
-  	z-index: 0;
-}
-.frame-icon5 {
-  	width: 20px;
-  	position: absolute;
-  	margin: 0 !important;
-  	top: 114px;
-  	left: 0px;
-  	height: 20px;
-  	overflow: hidden;
-  	flex-shrink: 0;
-  	z-index: 1;
-}
-.frame-icon6 {
-  	width: 20px;
-  	position: absolute;
-  	margin: 0 !important;
-  	top: 69px;
-  	left: 0px;
-  	height: 20px;
-  	overflow: hidden;
-  	flex-shrink: 0;
-  	z-index: 2;
-}
-.frame-icon7 {
-  	width: 20px;
-  	position: absolute;
-  	margin: 0 !important;
-  	top: 2px;
-  	left: 0px;
-  	height: 20px;
-  	overflow: hidden;
-  	flex-shrink: 0;
-  	z-index: 3;
-}
-.frame-group {
-  	width: 31px;
-  	margin: 0 !important;
-  	position: absolute;
-  	top: 249px;
-  	left: 14px;
-  	height: 200px;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: flex-start;
-  	justify-content: center;
-  	gap: 40px;
-  	z-index: 6;
-}
-.basico {
-  	width: 240px;
-  	box-shadow: 0px 3px 9.7px 2px #000;
-  	border-radius: 30px;
-  	background-color: #1c4140;
-  	height: 559px;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: flex-start;
-  	justify-content: flex-start;
-  	padding: 10px 30px;
-  	box-sizing: border-box;
-  	position: relative;
-  	gap: 5px;
-  	color: #fff;
-}
-.plano-intermedirio {
-  	position: relative;
-  	font-size: 20.4px;
-  	line-height: 30px;
-  	z-index: 0;
-}
-.ou-2x-sem {
-  	margin: 0;
-  	font-size: 14px;
-}
-.r-600-ou-container {
-  	align-self: stretch;
-  	position: relative;
-  	line-height: 20px;
-  	color: #1c4140;
-  	z-index: 1;
-  	font-size: 25.5px;
-}
-.durao-5-sesso {
-  	position: relative;
-  	line-height: 30px;
-  	z-index: 3;
-}
-.tudo-do-plano {
-  	align-self: stretch;
-  	position: relative;
-  	line-height: 30px;
-}
-.acompanhamento-por-whatsapp {
-  	align-self: stretch;
-  	position: relative;
-  	line-height: 15px;
-}
-.como-construir-uma {
-  	align-self: stretch;
-  	position: relative;
-  	line-height: 19px;
-}
-.tudo-do-plano-anterior-parent {
-  	align-self: stretch;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: flex-start;
-  	justify-content: flex-start;
-  	padding: 10px 10px 0px;
-  	gap: 10px;
-  	z-index: 4;
-}
-.frame-icon8 {
-  	width: 20px;
-  	position: absolute;
-  	margin: 0 !important;
-  	top: -43px;
-  	left: 0px;
-  	height: 20px;
-  	overflow: hidden;
-  	flex-shrink: 0;
-  	z-index: 0;
-}
-.frame-icon9 {
-  	width: 20px;
-  	position: absolute;
-  	margin: 0 !important;
-  	top: -6px;
-  	left: 0px;
-  	height: 20px;
-  	overflow: hidden;
-  	flex-shrink: 0;
-  	z-index: 1;
-}
-.frame-icon10 {
-  	width: 20px;
-  	position: absolute;
-  	margin: 0 !important;
-  	top: 49px;
-  	left: 0px;
-  	height: 20px;
-  	overflow: hidden;
-  	flex-shrink: 0;
-  	z-index: 2;
-}
-.frame-icon11 {
-  	width: 20px;
-  	position: absolute;
-  	margin: 0 !important;
-  	top: 114px;
-  	left: 0px;
-  	height: 20px;
-  	overflow: hidden;
-  	flex-shrink: 0;
-  	z-index: 3;
-}
-.frame-icon12 {
-  	width: 20px;
-  	position: absolute;
-  	margin: 0 !important;
-  	top: 168px;
-  	left: 0px;
-  	height: 20px;
-  	overflow: hidden;
-  	flex-shrink: 0;
-  	z-index: 4;
-}
-.frame-icon13 {
-  	width: 20px;
-  	position: absolute;
-  	margin: 0 !important;
-  	top: 224px;
-  	left: 0px;
-  	height: 20px;
-  	overflow: hidden;
-  	flex-shrink: 0;
-  	z-index: 5;
-}
-.frame-container {
-  	width: 20px;
-  	margin: 0 !important;
-  	position: absolute;
-  	top: 312px;
-  	left: 13px;
-  	height: 275px;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: flex-start;
-  	justify-content: flex-start;
-  	gap: 31px;
-  	z-index: 5;
-}
-.button2 {
-  	width: 131px;
-  	position: absolute;
-  	margin: 0 !important;
-  	top: 616px;
-  	left: 55px;
-  	border-radius: 20px;
-  	background-color: #1c4140;
-  	border: 1px solid rgba(125, 96, 0, 0.71);
-  	box-sizing: border-box;
-  	height: 42px;
-  	z-index: 6;
-  	text-align: center;
-  	font-size: 13.6px;
-  	color: #fff;
-  	font-family: 'Playfair Display';
-}
-.intermedio {
-  	width: 240px;
-  	box-shadow: 0px 3px 9.7px 2px #000;
-  	border-radius: 30px;
-  	background-color: #fff;
-  	height: 638px;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: flex-start;
-  	justify-content: flex-start;
-  	padding: 10px 30px;
-  	box-sizing: border-box;
-  	position: relative;
-  	gap: 7px;
-}
-.r-1000-ou-container {
-  	align-self: stretch;
-  	position: relative;
-  	line-height: 20px;
-  	z-index: 1;
-  	font-size: 25.5px;
-}
-.ideal-para-casais2 {
-  	align-self: stretch;
-  	position: relative;
-  	line-height: 20px;
-  	z-index: 2;
-}
-.durao-8-sesso-container {
-  	align-self: stretch;
-  	position: relative;
-  	line-height: 16px;
-  	z-index: 3;
-}
-.tudo-dos-planos-anteriores-parent {
-  	align-self: stretch;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: flex-start;
-  	justify-content: flex-start;
-  	padding: 15px 10px 0px;
-  	gap: 10px;
-  	z-index: 4;
-}
-.frame-icon15 {
-  	position: absolute;
-  	top: -57px;
-  	left: 1px;
-  	width: 20px;
-  	height: 20px;
-  	overflow: hidden;
-}
-.frame-icon16 {
-  	position: absolute;
-  	top: -14px;
-  	left: 1px;
-  	width: 20px;
-  	height: 20px;
-  	overflow: hidden;
-}
-.frame-icon17 {
-  	position: absolute;
-  	top: 233px;
-  	left: 1px;
-  	width: 20px;
-  	height: 20px;
-  	overflow: hidden;
-}
-.frame-icon18 {
-  	position: absolute;
-  	top: 174px;
-  	left: 0px;
-  	width: 20px;
-  	height: 20px;
-  	overflow: hidden;
-}
-.frame-icon19 {
-  	position: absolute;
-  	top: 120px;
-  	left: 0px;
-  	width: 20px;
-  	height: 20px;
-  	overflow: hidden;
-}
-.frame-icon20 {
-  	position: absolute;
-  	top: 80px;
-  	left: 0px;
-  	width: 20px;
-  	height: 20px;
-  	overflow: hidden;
-}
-.frame-icon21 {
-  	position: absolute;
-  	top: 26px;
-  	left: 0px;
-  	width: 20px;
-  	height: 20px;
-  	overflow: hidden;
-}
-.frame-div {
-  	width: 21px;
-  	position: absolute;
-  	margin: 0 !important;
-  	top: 341px;
-  	left: 9px;
-  	height: 322px;
-  	z-index: 5;
-}
-.button3 {
-  	width: 131px;
-  	position: absolute;
-  	margin: 0 !important;
-  	top: 659px;
-  	left: 55px;
-  	border-radius: 20px;
-  	background-color: #fff;
-  	border: 1px solid rgba(125, 96, 0, 0.71);
-  	box-sizing: border-box;
-  	height: 42px;
-  	z-index: 6;
-  	text-align: center;
-  	font-size: 13.6px;
-  	color: #1c4140;
-  	font-family: 'Playfair Display';
-}
-.avanado {
-  	width: 240px;
-  	box-shadow: 0px 3px 9.7px 2px #000;
-  	border-radius: 30px;
-  	background-color: #1c4140;
-  	height: 681px;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: flex-start;
-  	justify-content: flex-start;
-  	padding: 10px 30px;
-  	box-sizing: border-box;
-  	position: relative;
-  	gap: 7px;
-  	color: #fff;
-}
-.conteiner-planos {
-  	position: absolute;
-  	top: 0px;
-  	left: calc(50% - 121px);
-  	height: 771.2px;
-  	display: flex;
-  	flex-direction: row;
-  	align-items: flex-start;
-  	justify-content: flex-start;
-  	gap: 44px;
-}
-.conteiner-planos-wrapper {
-  	position: absolute;
-  	top: 69px;
-  	left: calc(50% - 139px);
-  	width: 278px;
-  	height: 772px;
-  	overflow: hidden;
-}
-.vector-icon {
-  	position: absolute;
-  	height: 2.96%;
-  	width: 3.45%;
-  	top: 31.75%;
-  	right: 8.33%;
-  	bottom: 65.29%;
-  	left: 88.22%;
-  	max-width: 100%;
-  	overflow: hidden;
-  	max-height: 100%;
-  	object-fit: contain;
-}
-.vector-icon1 {
-  	position: absolute;
-  	height: 2.96%;
-  	width: 3.45%;
-  	top: 31.75%;
-  	right: 88.22%;
-  	bottom: 65.29%;
-  	left: 8.33%;
-  	max-width: 100%;
-  	overflow: hidden;
-  	max-height: 100%;
-  	object-fit: contain;
-}
-.proiconsbutton {
-  	position: absolute;
-  	width: 20.34%;
-  	top: 0px;
-  	right: 79.66%;
-  	left: 0%;
-  	max-width: 100%;
-  	overflow: hidden;
-  	height: 36px;
-}
-.proiconsbutton1 {
-  	position: absolute;
-  	width: 20.34%;
-  	top: 0px;
-  	right: 53.11%;
-  	left: 26.55%;
-  	max-width: 100%;
-  	overflow: hidden;
-  	height: 36px;
-}
-.proiconsbutton2 {
-  	position: absolute;
-  	width: 20.34%;
-  	top: 0px;
-  	right: 26.55%;
-  	left: 53.11%;
-  	max-width: 100%;
-  	overflow: hidden;
-  	height: 36px;
-}
-.proiconsbutton3 {
-  	position: absolute;
-  	width: 20.34%;
-  	top: 0px;
-  	right: 0%;
-  	left: 79.66%;
-  	max-width: 100%;
-  	overflow: hidden;
-  	height: 36px;
-}
-.proiconsbutton-parent {
-  	position: absolute;
-  	width: 50.86%;
-  	top: 0px;
-  	right: 27.87%;
-  	left: 21.26%;
-  	height: 36px;
-}
-.component-2 {
-  	width: 348px;
-  	position: relative;
-  	height: 641px;
-  	z-index: 2;
-}
-.conteiner-planos1 {
-  	width: 120px;
-  	display: none;
-  	flex-direction: row;
-  	align-items: flex-start;
-  	justify-content: center;
-  	flex-wrap: wrap;
-  	align-content: flex-start;
-  	padding: 0px 20px;
-  	box-sizing: border-box;
-  	gap: 35px;
-  	z-index: 3;
-}
-.mentoria-child {
-  	width: 461.1px;
-  	position: absolute;
-  	margin: 0 !important;
-  	top: 549.84px;
-  	left: 446px;
-  	height: 287.1px;
-  	display: none;
-  	z-index: 4;
-}
-.wpp-icon {
-  	width: 29px;
-  	position: absolute;
-  	margin: 0 !important;
-  	top: 729.54px;
-  	right: 5px;
-  	border-radius: 400px;
-  	max-height: 100%;
-  	overflow: hidden;
-  	z-index: 5;
-}
-.ioncaret-back-outline-icon {
-  	width: 29px;
-  	position: absolute;
-  	margin: 0 !important;
-  	top: 782.54px;
-  	right: 5px;
-  	border-radius: 400px;
-  	max-height: 100%;
-  	object-fit: contain;
-  	z-index: 6;
-}
-.mentoria-item {
-  	width: 106.81%;
-  	position: absolute;
-  	margin: 0 !important;
-  	height: 5.22%;
-  	top: 98.08%;
-  	right: -3.41%;
-  	bottom: -3.31%;
-  	left: -3.4%;
-  	filter: blur(66.8px);
-  	background: linear-gradient(180deg, #fffefb, #faeebd);
-  	display: none;
-  	z-index: 7;
-}
-.mentoria {
-  	width: 100%;
-  	position: relative;
-  	background-color: #fffdf9;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: center;
-  	justify-content: center;
-  	padding: 80px 100px;
-  	box-sizing: border-box;
-  	gap: 80px;
-  	text-align: left;
-  	font-size: 14px;
-  	color: #000;
-  	font-family: Lato;
-}
-
