@@ -182,6 +182,7 @@ header {
   align-items: center;
   gap: 5.625rem;
   padding-top: 50px;
+  height: auto;
 }
 
 .hero__content{
@@ -289,7 +290,8 @@ header {
   display: flex;
   border: solid;
   height: 2.1875rem;
-  background: linear-gradient(90deg, #FAEEBD 0%, #FCF6DC 49.49%, #FFFEFB 99.99%);
+  /* background: linear-gradient(90deg, #FAEEBD 0%, #FCF6DC 49.49%, #FFFEFB 99.99%); */
+background-color: red;
   filter: blur(22.5px);
 }
 /*! Responsivo do Hero */
