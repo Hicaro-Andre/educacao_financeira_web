@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 html, body {
   width: 100%;
@@ -10,10 +11,11 @@ html, body {
   overflow-x: hidden;
   font-family: sans-serif;
   scroll-behavior: smooth;
+  background: linear-gradient(270deg, #FFFFFF 0%, #FFF6D1 50%, #FAEAA5 100%);
 }
 body{
   font-family: sans-serif;
-  background: linear-gradient(270deg, #FFFFFF 0%, #FFF6D1 50%, #FAEAA5 100%);
+  /* background: linear-gradient(270deg, #FFFFFF 0%, #FFF6D1 50%, #FAEAA5 100%); */
 }
 
 /*? Menu NavBar */
@@ -290,8 +292,7 @@ header {
   display: flex;
   border: solid;
   height: 2.1875rem;
-  /* background: linear-gradient(90deg, #FAEEBD 0%, #FCF6DC 49.49%, #FFFEFB 99.99%); */
-background-color: red;
+  background: linear-gradient(90deg, #FAEEBD 0%, #FCF6DC 49.49%, #FFFEFB 99.99%);
   filter: blur(22.5px);
 }
 /*! Responsivo do Hero */
