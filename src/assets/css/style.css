@@ -9,6 +9,7 @@ html, body {
   height: 100%;
   overflow-x: hidden;
   font-family: sans-serif;
+  scroll-behavior: smooth;
 }
 body{
   font-family: sans-serif;
@@ -17,12 +18,12 @@ body{
 
 /*? Menu NavBar */
 header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  position: relative;
-  gap: 1rem; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: linear-gradient(270deg, #FFFFFF 0%, #FFF6D1 50%, #FAEAA5 100%);
 }
 .menu__nav {
   position: relative;
@@ -72,8 +73,106 @@ header {
   font-size: 1rem;
   transition: color 0.2s ease;
 }
-.nav li a:hover {
-  color: #0077cc;
+
+
+/*! Responsivo do Menu */
+@media (min-width: 769px) {
+  header{
+    position: fixed;
+    height: 60px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 10px;
+  }
+  .menu-toggle {
+    display: none;
+  }
+  .menu__nav {
+    display: flex;
+    align-items: center;
+    padding: 0px 30px;
+    gap: 22px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #fff;
+    font-family: "Lato", sans-serif;
+  }
+  .nav {
+    display: flex;
+    justify-content: center;
+    background: #1C4140;
+    min-width: 0;
+    overflow: hidden;
+    position: relative;
+    flex-direction: row;
+    padding: 0;
+    width: min(90%, 700px);
+    z-index: auto;
+    border-radius: 0.9375rem 0rem;
+    background: #1C4140;
+  }
+  .nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: clamp(0.5rem, 2vw, 1.5rem);
+    padding: 5px;
+    flex-wrap: nowrap; 
+    overflow: hidden;;
+  }
+  .nav li {
+    flex-shrink: 0;
+    min-width: 0;
+  }
+  .nav li a {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+    max-width: 100%;
+    flex: 1 1 auto;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    line-height: 1.5rem;
+    font-style: normal;
+    font-size: 1rem; 
+  }
+  .logo {
+    flex: 0 0 auto;
+    min-width: 100px;
+    max-width: 30%;
+  }
+  .nav li a.active {
+   border-bottom: 2px solid #fff;
+  }
+
+}
+
+/*! Responsivo dos Links */
+@media (min-width: 900px) and (max-width: 1000px) {
+  .nav ul {
+    gap: clamp(2.1rem, 3vw, 4rem);
+    padding: 5px;
+    flex-wrap: nowrap; 
+    overflow: hidden;;
+  }
+}
+@media (min-width: 1001px) and (max-width: 1440px) {
+  .nav ul {
+    gap: clamp(3rem, 3vw, 4rem);
+    padding: 5px;
+    flex-wrap: nowrap; 
+    overflow: hidden;
+  }
+}
+@media (min-width: 1440px) {
+    .nav ul {
+    gap: clamp(3.2rem, 3vw, 4rem);
+    padding: 5px;
+    flex-wrap: nowrap; 
+    overflow: hidden;
+  }
 }
 
 /**? HERO */
@@ -82,12 +181,13 @@ header {
   flex-direction: column;
   align-items: center;
   gap: 5.625rem;
+  padding-top: 50px;
 }
 
 .hero__content{
   display: flex;
   flex-direction: column;
-  padding: 0rem 0.9375rem;
+  margin-top: 50px;
   justify-content: center;
   align-items: center;
   gap: 1.5625rem;
@@ -95,7 +195,7 @@ header {
 }
 .hero__title{
   max-width: 32.375rem;
-  align-self: stretch;
+  align-self: center;
 }
 .hero__content h1{
   color: #1C4140;
@@ -108,21 +208,21 @@ header {
   line-height: normal;
   letter-spacing: 0.13125rem;
   margin-top: 50px;
+  width: 18.125rem;
 }
 .hero__sub-title{
   max-width: 32.375rem;
-  align-self: stretch;
+  align-self: center;
 }
 .hero__content p{
   color: #000;
   text-align: center;
-  font-family: Lato;
+  font-family: "Lato", sans-serif;
   font-size: 1rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
 }
-
 .hero__comments{
   display: flex;
   padding: 0rem 5.375rem;
@@ -134,7 +234,6 @@ header {
   flex-wrap: wrap;
   padding-bottom: 50px;
 }
-
 .btn_hero{
   display: flex;
   padding-right: 1rem;
@@ -151,6 +250,18 @@ header {
   font-weight: 700;
   line-height: normal;
   letter-spacing: 0.09rem;
+  transition: background-color 0.8s ease;
+}
+.btn_hero:hover{
+  background-color: #1C4140;
+  color: #fff;
+  cursor: pointer;
+}
+.btn_hero img {
+  transition: transform 0.8s ease;
+}
+.btn_hero:hover img {
+  transform: scale(1.1);
 }
 .card{
   width: 14rem;
@@ -158,7 +269,7 @@ header {
 .card h2{
   color: #000;
   text-align: center;
-  font-family: Lato;
+  font-family: "Lato", sans-serif;
   font-size: 0.875rem;
   font-style: italic;
   font-weight: 700;
@@ -166,15 +277,39 @@ header {
 }
 .card p {
   color: #000;
-  font-family: Lato;
+  font-family: "Lato", sans-serif;
   font-size: 0.875rem;
   font-style: italic;
   font-weight: 400;
   line-height: normal;
   text-align: center;
 }
+/*? Degradê do hero pro plans */
+.degrade{
+  display: flex;
+  border: solid;
+  height: 2.1875rem;
+  background: linear-gradient(90deg, #FAEEBD 0%, #FCF6DC 49.49%, #FFFEFB 99.99%);
+  filter: blur(22.5px);
+}
+/*! Responsivo do Hero */
+@media (min-width: 600px) {
+.hero__content h1{
+  width: 32.375rem;
+ font-size: 3rem;
+ max-width: 32.375rem;
+}
+}
+@media (min-width: 1440px) {
+.hero{
+ height: 100vh;
+}
+}
 
 /**? PLANS */
+#plans {
+  scroll-margin-top: 70px; 
+}
 .plans{
 	display: flex;
 	background-color: #fffdf9;
@@ -196,7 +331,7 @@ header {
 }
 .plans__sub-title{
 	font-size: 20px;
-	font-family: Lato;
+	font-family: "Lato", sans-serif;
 	text-align: center;
 	line-height: 17px;
 }
@@ -207,7 +342,7 @@ header {
 	text-align: left;
 	font-size: 14px;
 	color: #000;
-	font-family: Lato;
+	font-family: "Lato", sans-serif;
 }
 .plans__carousel {
   position: relative;
