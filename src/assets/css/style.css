@@ -14,6 +14,7 @@ html, body {
 body{
   font-family: sans-serif;
   overflow-x: hidden;
+  background-color: #1C4140;
   background: linear-gradient(270deg, #FFFFFF 0%, #FFF6D1 50%, #FAEAA5 100%);
 }
 
