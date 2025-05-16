@@ -1,84 +1,62 @@
-//TODO: menu toggle responsivo
+//TODO: MENU RESPONSIVO
 const toggleBtn = document.querySelector('.menu-toggle');
+const closeBtn = document.getElementById('closeMenu');
 const nav = document.querySelector('.nav');
+const navLinks = document.querySelectorAll('.nav a');
+const sections = document.querySelectorAll('section[id]');
 
+//TODO: Abrir o menu
 toggleBtn.addEventListener('click', () => {
   nav.classList.toggle('open');
 });
 
-//TODO: navegação ativa dos links Mobile
-document.addEventListener("DOMContentLoaded", function () {
-    const menuToggle = document.querySelector(".menu-toggle");
-    const nav = document.querySelector(".nav");
-    const closeBtn = document.getElementById("closeMenu");
-    const links = document.querySelectorAll(".nav a");
-    const sections = document.querySelectorAll("section[id]");
+//TODO: Fechar o menu
+//! trecho a observar
+closeBtn.addEventListener('click', () => {
+  nav.classList.remove('open');
+  closeBtn.classList.add('rotate');
+  setTimeout(() => closeBtn.classList.remove('rotate'), 300);
+});
 
-    // Abre o menu
-    menuToggle.addEventListener("click", () => {
-      nav.classList.add("open");
-    });
+//TODO: Fechar o menu ao clicar nos links
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('open');
+  });
+});
 
-    // Fecha o menu e roda o X
-    closeBtn.addEventListener("click", () => {
-      nav.classList.remove("open");
-      closeBtn.classList.add("rotate");
-      setTimeout(() => closeBtn.classList.remove("rotate"), 300);
-    });
+//TODO: CLIQUE MANUAL - Destacar link
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.forEach(l => l.classList.remove('active'));
+    link.classList.add('active');
+  });
+});
 
-    // Scroll Spy
-    window.addEventListener("scroll", () => {
-      let current = "";
+//TODO: SCROLLSPY COMPRECISO
+function updateActiveLinkOnScroll() {
+  let currentSectionId = null;
 
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        const sectionHeight = section.clientHeight;
+  sections.forEach(section => {
+    const rect = section.getBoundingClientRect();
 
-        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-          current = section.getAttribute("id");
-        }
-      });
-
-      links.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href").includes(current)) {
-          link.classList.add("active");
-        }
-      });
-    });
+    //TODO: Considera a seção como ativa se o topo está acima do meio da tela
+    if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+      currentSectionId = section.id;
+    }
   });
 
-  
-//TODO: navegação ativa dos links Desktop
-  const navLinks = document.querySelectorAll('.nav a');
-
-  //? Clique: marcar link ativo
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.forEach(l => l.classList.remove('active'));
-      link.classList.add('active');
-    });
-  });
-
-  //? ScrollSpy: destacar link baseado na seção visível
-  const sections = document.querySelectorAll('section[id]');
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${id}`) {
-            link.classList.add('active');
-          }
-        });
+  if (currentSectionId) {
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${currentSectionId}`) {
+        link.classList.add('active');
       }
     });
-  }, {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.6 //? 60% visível
-  });
+  }
 
-  sections.forEach(section => observer.observe(section));
+  requestAnimationFrame(updateActiveLinkOnScroll);
+}
+
+//TODO: Iniciar loop de atualização do ScrollSpy
+requestAnimationFrame(updateActiveLinkOnScroll);
