@@ -414,18 +414,24 @@ header {
   	gap: 20px;
 }
 .mentoring__content h3{
-  	align-self: stretch;
-  	position: relative;
-  	font-weight: 600;
+  	color: #050505;
+    text-align: center;
+    font-family: "Playfair Display";
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 }
 .mentoring__content p {
-  	width: 508px;
-  	position: relative;
-  	font-size: 16px;
-  	font-weight: 500;
-  	font-family: Lato;
-  	display: inline-block;
-  	max-width: 510px;
+    max-width: 31.875rem;
+    align-self: center;
+  	color: #050505;
+    text-align: center;
+    font-family: "Lato", sans-serif;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
 .mentoring__content__cards {
   	width: 100%;
@@ -436,7 +442,7 @@ header {
   	gap: 50px;
   	max-width: 1179px;
   	font-size: 16px;
-  	font-family: Lato;
+  	font-family: "Lato", sans-serif;
 }
 .mentoring__cards {
   	width: 100%;
@@ -466,17 +472,7 @@ header {
   	object-fit: cover;
   	z-index: 0;
 }
-
-
-
-
-/*! A FAZER */
-.minha-misso {
-  	flex: 1;
-  	position: relative;
-  	letter-spacing: 0.05em;
-}
-.texto-1 {
+.mentoring__text-card{
   	flex: 1;
   	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   	border-radius: 20px;
@@ -490,56 +486,232 @@ header {
   	padding: 15px;
   	z-index: 1;
 }
-
-
-.sou-gisele-almeida {
-  	flex: 1;
+.mentoring__text-card p{
+    flex: 1;
   	position: relative;
   	letter-spacing: 0.05em;
-  	line-height: 122.6%;
 }
-.texto-2 {
-  	flex: 1;
-  	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  	border-radius: 20px;
-  	background-color: #fff;
+@media screen and (min-width: 1024px) {
+  .mentoring__content__cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    justify-items: center;
+  }
+
+  .mentoring__cards {
+    max-width: 100%;
+  }
+}
+
+
+/**? PRINCIPLES */
+.principles {
+  	width: 100%;
+  	position: relative;
+  	background-color: #fffdf9;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	padding: 40px 16px;
+  	box-sizing: border-box;
+  	gap: 40px;
+  	text-align: center;
+  	font-size: 16px;
+  	color: #050505;
+  	font-family: Lato;
+}
+.principles__title {
+  	align-self: stretch;
   	display: flex;
   	flex-direction: row;
   	align-items: center;
   	justify-content: center;
-  	padding: 22px 12px;
-  	z-index: 1;
+  	font-size: 32px;
+  	font-family: 'Playfair Display';
 }
-.ter-a-viso {
+.principles__title h3 {
   	flex: 1;
   	position: relative;
-  	letter-spacing: 0.05em;
-  	line-height: 124.14%;
+  	font-weight: 600;
 }
-.texto-3 {
-  	flex: 1;
-  	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  	border-radius: 20px;
+
+/*! A REFAZER INICIO AQUI */
+/* .texto {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: flex-start;
+  	justify-content: center;
+  	flex-wrap: wrap;
+  	align-content: flex-start;
+}
+.carrossel {
+  	width: 288px;
+  	position: relative;
+  	height: 141px;
+  	overflow: hidden;
+  	flex-shrink: 0;
+}
+.administrao-responsvel-acr-container {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	display: inline-block;
+  	width: 288px;
+  	min-width: 265px;
+}
+.administrao-responsvel {
+  	margin: 0;
+}
+.acreditamos-que-os-recursos-s {
+  	margin: 0;
+  	font-size: 14px;
+}
+.generosidade-ensinamos-que-container {
+  	position: absolute;
+  	top: 141px;
+  	left: 0px;
+  	display: inline-block;
+  	width: 288px;
+  	min-width: 265px;
+}
+.planejamento-com-propsito-container {
+  	position: absolute;
+  	top: 282px;
+  	left: 0px;
+  	display: inline-block;
+  	width: 288px;
+  	min-width: 265px;
+} */
+/*! A REFAZER TERMINA AQUI */
+
+
+
+.principles__content {
+  	width: 100%;
+  	box-shadow: 0px 0px 4px 5px rgba(0, 0, 0, 0.50);
+  	border-radius: 1.875rem;
   	background-color: #fff;
   	display: flex;
   	flex-direction: row;
   	align-items: center;
   	justify-content: center;
-  	padding: 22px 37px;
-  	z-index: 1;
+  	flex-wrap: wrap;
+  	align-content: center;
+  	padding: 15px 16px;
+  	box-sizing: border-box;
+  	max-width: 1150px;
 }
-.texto-4 {
+.principles__card {
   	flex: 1;
-  	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  	border-radius: 20px;
-  	background-color: #fff;
   	display: flex;
   	flex-direction: row;
   	align-items: center;
   	justify-content: center;
-  	padding: 12px 21px;
-  	z-index: 1;
+  	flex-wrap: wrap;
+  	align-content: center;
+  	gap: 15px;
 }
+.principles__perfil {
+  	flex: 1;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: flex-start;
+  	gap: 15px;
+  	min-width: 215px;
+  	max-width: 215px;
+}
+.perfil-foto {
+  	width: 160px;
+  	position: relative;
+  	border-radius: 300px;
+  	max-height: 260.44px;
+  	object-fit: cover;
+  	max-width: 215px;
+}
+.principles__perfil p{
+    align-self: stretch;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: center;
+    font-style: italic;
+    flex: 1;
+  	position: relative;
+  	font-weight: 500;
+}
+
+.principles__container {
+  	flex: 0.8154;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: flex-start;
+  	padding: 0px 30px;
+  	box-sizing: border-box;
+  	gap: 15px;
+  	min-width: 325px;
+  	font-size: 14px;
+}
+.principles__diferencial {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: center;
+  	font-size: 16px;
+}
+.principles__diferencial-container {
+  	align-self: stretch;
+  	position: relative;
+}
+#diferencial {
+  	font-weight: 600;
+  	font-family: "Lato", sans-serif;
+    font-size: 1.25rem;
+}
+#oferecemos {
+  	font-weight: 600;
+  	font-family: "Lato", sans-serif;
+}
+.principles__topicos {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: center;
+  	text-align: left;
+}
+.principles__diferencial-container ul{
+  	margin: 0;
+  	font-family: inherit;
+  	font-size: inherit;
+  	padding-left: 19px;
+}
+.principles__diferencial-container ul li{
+    margin-bottom: 0px;
+}
+.principles__metodologia {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: center;
+}
+.principles__metodologia p {
+  	align-self: stretch;
+  	position: relative;
+  	line-height: 123.32%;
+  	font-weight: 500;
+    font-style: italic;
+}
+
+
+
+
 
 
 
