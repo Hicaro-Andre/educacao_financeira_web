@@ -336,8 +336,7 @@
   	font-weight: 600;
 }
 
-/*! A REFAZER INICIO AQUI */
-/* .texto {
+.principles__sub-title {
   	align-self: stretch;
   	display: flex;
   	flex-direction: row;
@@ -345,48 +344,31 @@
   	justify-content: center;
   	flex-wrap: wrap;
   	align-content: flex-start;
-}
-.carrossel {
-  	width: 288px;
-  	position: relative;
-  	height: 141px;
-  	overflow: hidden;
-  	flex-shrink: 0;
-}
-.administrao-responsvel-acr-container {
-  	position: absolute;
-  	top: 0px;
-  	left: 0px;
-  	display: inline-block;
-  	width: 288px;
-  	min-width: 265px;
-}
-.administrao-responsvel {
-  	margin: 0;
-}
-.acreditamos-que-os-recursos-s {
-  	margin: 0;
-  	font-size: 14px;
-}
-.generosidade-ensinamos-que-container {
-  	position: absolute;
-  	top: 141px;
-  	left: 0px;
-  	display: inline-block;
-  	width: 288px;
-  	min-width: 265px;
-}
-.planejamento-com-propsito-container {
-  	position: absolute;
-  	top: 282px;
-  	left: 0px;
-  	display: inline-block;
-  	width: 288px;
-  	min-width: 265px;
-} */
-/*! A REFAZER TERMINA AQUI */
 
-
+		border: solid;
+}
+.principles__carrossel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.principles__carrossel__track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+.principles__content-card {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 16px;
+  flex-shrink: 0;
+  text-align: left;
+}
+.principles__content-card h3 {
+    margin: 0;
+}
+.principles__content-card p {
+ 
+}
 
 .principles__content {
   	width: 100%;
@@ -508,6 +490,48 @@
     font-style: italic;
 }
 
+@media (min-width: 768px) {
+  .principles__carrossel {
+    position: static;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    overflow: visible;
+  }
+
+  .principles__content-card {
+    position: static;
+    width: 100%;
+    min-width: unset;
+  }
+
+  .principles__title h3 {
+    font-size: 2rem;
+  }
+
+  .principles__content {
+    padding: 32px;
+    gap: 32px;
+  }
+
+  .principles__perfil {
+    max-width: 240px;
+  }
+
+  .principles__container {
+    min-width: 400px;
+    font-size: 16px;
+    gap: 20px;
+  }
+
+  .principles__content-card p {
+    font-size: 15px;
+  }
+}
+
+
 /**? DICAS */
 .dicas {
   	width: 100%;
@@ -590,22 +614,80 @@
   	display: inline-block;
   	min-width: 12.6875rem;
 }
-/* @media (min-width: 1025px) {
-  
-  
-  .dicas__books {
-    display: flex;
-  	flex-direction: row;	 
-}
-  .books__card{ 
-      width: 27rem;
-      border: solid;
-  }
-  .books__text {
-    width: 12.6875rem;
-  }
-} */
 
+@media (min-width: 768px) {
+  .dicas {
+    padding: 80px 60px;
+    gap: 60px;
+    font-size: 34px;
+  }
+
+  .dicas__content h3 {
+    font-size: 2rem;
+  }
+
+  .dicas__content p {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .dicas__books {
+    justify-content: center;
+    padding: 0 60px;
+    gap: 48px 60px;
+  }
+
+  .books {
+    max-width: 240px;
+  }
+
+  .books__images {
+    max-width: 150px;
+    height: 200px;
+    min-width: 150px;
+  }
+
+  .books__text {
+    font-size: 1rem;
+    text-align: center;
+    max-width: 240px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dicas {
+    padding: 100px 100px;
+    gap: 70px;
+    font-size: 36px;
+  }
+
+  .dicas__content {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .dicas__books {
+    justify-content: center;
+    padding: 0 100px;
+    gap: 60px 80px;
+  }
+
+  .books {
+    max-width: 280px;
+  }
+
+  .books__images {
+    max-width: 180px;
+    height: 240px;
+    min-width: 180px;
+  }
+
+  .books__text {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    max-width: 280px;
+  }
+}
 
 
 
