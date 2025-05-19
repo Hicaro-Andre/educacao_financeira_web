@@ -1,4 +1,11 @@
 
+
+h3{
+  font-family: 'Playfair Display';
+}
+p{
+	font-family: "Lato", sans-serif;
+}
 .blog {
   	width: 100%;
   	position: relative;
@@ -13,7 +20,7 @@
   	font-size: 20px;
   	color: #050505;
     background-color: #ffff;
-  	font-family: 'Playfair Display';
+  	
 }
 .blog__container-title {
   	align-self: stretch;
@@ -29,7 +36,6 @@
 .blog__container-title h3{
     color: #050505;
     text-align: center;
-    font-family: "Playfair Display";
     font-size: 1.5rem;
     font-style: normal;
     font-weight: 600;
@@ -38,48 +44,20 @@
 .blog__container-title p{
    	color: #050505;
     text-align: center;
-    font-family: Lato;
     font-size: 1rem;
     font-style: normal;
     font-weight: 500;
-    line-height: 1.5rem; /* 150% */
+    line-height: 1.5rem; 
 }
-
-
-
-
-
-
-
-
-
-
-
-/*! A FAZER INICIO AQUI */
-.wpp-icon {
-  	width: 25px;
-  	position: absolute;
-  	margin: 0 !important;
-  	top: 373px;
-  	left: 275px;
-  	border-radius: 400px;
-  	max-height: 100%;
-  	overflow: hidden;
-  	z-index: 2;
+.blog__card {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: center;
+  	gap: 20px;
 }
-.voltar-icon {
-  	width: 25px;
-  	position: absolute;
-  	margin: 0 !important;
-  	top: 418px;
-  	left: 275px;
-  	border-radius: 400px;
-  	max-height: 100%;
-  	object-fit: contain;
-  	z-index: 3;
-}
-
-.child {
+.blog__card img {
   	align-self: stretch;
   	position: relative;
   	border-radius: 20px;
@@ -89,25 +67,7 @@
   	flex-shrink: 0;
   	object-fit: cover;
 }
-.a-verdadeira-prosperidade {
-  	width: 100%;
-  	position: relative;
-  	line-height: 24px;
-  	font-weight: 600;
-  	display: inline-block;
-  	max-width: 544px;
-}
-.dzimos-e-ofertas {
-  	width: 100%;
-  	position: relative;
-  	font-size: 16px;
-  	line-height: 24px;
-  	font-weight: 500;
-  	font-family: Lato;
-  	display: inline-block;
-  	max-width: 544px;
-}
-.a-verdadeira-prosperidade-parent {
+.blog__card-text {
   	width: 100%;
   	display: flex;
   	flex-direction: column;
@@ -116,105 +76,132 @@
   	gap: 20px;
   	max-width: 544px;
 }
-.div1 {
-  	align-self: stretch;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: center;
-  	justify-content: center;
-  	gap: 20px;
-}
-.erros-financeiros-que {
-  	width: 100%;
+.blog__card-text h3{
+	  width: 100%;
   	position: relative;
   	line-height: 24px;
   	font-weight: 600;
   	display: inline-block;
-  	max-width: 525px;
-}
-.no-contexto-dos {
-  	width: 100%;
-  	position: relative;
-  	font-size: 16px;
-  	line-height: 24px;
-  	font-weight: 500;
-  	font-family: Lato;
-  	display: inline-block;
-  	max-width: 543px;
-}
-.erros-financeiros-que-ameaam-parent {
-  	width: 100%;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: flex-start;
-  	justify-content: flex-start;
-  	gap: 20px;
   	max-width: 544px;
 }
-.inner {
-  	width: 100%;
-  	position: relative;
-  	border-radius: 20px;
-  	max-width: 335px;
-  	overflow: hidden;
-  	height: 215px;
-  	flex-shrink: 0;
-  	object-fit: cover;
-}
-.f-e-planejamento {
-  	width: 100%;
-  	position: relative;
-  	line-height: 24px;
-  	font-weight: 600;
-  	display: inline-block;
-  	max-width: 551px;
-}
-.a-bblia-nos {
-  	width: 100%;
+.blog__card-text p {
+ 	  width: 100%;
   	position: relative;
   	font-size: 16px;
   	line-height: 24px;
   	font-weight: 500;
-  	font-family: Lato;
   	display: inline-block;
-  	max-width: 551px;
-}
-.f-e-planejamento-caminham-jun-parent {
-  	width: 100%;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: center;
-  	justify-content: flex-start;
-  	gap: 20px;
-  	max-width: 569px;
-}
-.frame-child {
-  	width: 166px;
-  	position: relative;
-  	border-radius: 50%;
-  	height: 188px;
-  	object-fit: cover;
-  	display: none;
-}
-.uma-vida-financeira {
-  	align-self: stretch;
-  	position: relative;
-  	line-height: 24px;
-  	font-weight: 600;
-}
-.ellipse-parent {
-  	width: 555px;
-  	display: none;
-  	flex-direction: column;
-  	align-items: center;
-  	justify-content: center;
-  	padding: 0px 31px;
-  	box-sizing: border-box;
-  	gap: 30px;
-  	max-width: 555px;
-  	font-size: 16px;
-  	color: #000;
-  	font-family: Lato;
+  	max-width: 544px;
 }
 
+@media (min-width: 768px) {
+  .blog {
+    padding: 40px 60px;
+    gap: 60px;
+    font-size: 22px;
+  }
 
+  .blog__container-title {
+    font-size: 28px;
+    padding-bottom: 60px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .blog__container-title h3 {
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+
+  .blog__container-title p {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .blog__card {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 30px;
+    justify-content: center;
+  }
+
+  .blog__card:nth-child(even) {
+    flex-direction: row-reverse; /*! alterna a posição imagem/texto */
+  }
+
+  .blog__card img {
+    width: 50%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+
+  .blog__card-text {
+    width: 50%;
+		align-self: center;
+    align-items: flex-start;
+    text-align: left;
+    max-width: none;
+  }
+
+  .blog__card-text h3,
+  .blog__card-text p {
+    max-width: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .blog {
+    padding: 60px 100px;
+    gap: 80px;
+  }
+
+  .blog__container-title {
+    max-width: 1000px;
+  }
+
+  .blog__container-title h3 {
+    font-size: 2.25rem;
+  }
+
+  .blog__container-title p {
+    font-size: 1.25rem;
+  }
+
+  .blog__card {
+    gap: 40px;
+  }
+
+  .blog__card-text p {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+}
+
+@media (min-width: 2000px) {
+  
+  .blog__container-title h3 {
+    font-size: 4.25rem;
+		line-height: 4.35rem;
+  }
+
+  .blog__container-title p {
+    font-size: 2.200rem;
+    line-height: 2.75rem;
+  }
+
+  .blog__card {
+    gap: 70px;
+  }
+	 .blog__card-text h3 {
+    font-size: 3.500rem;
+		text-align: center;
+    line-height: 3.00rem;
+  }
+  .blog__card-text p {
+    font-size: 2.200rem;
+    line-height: 2.75rem;
+  }
+
+
+}
