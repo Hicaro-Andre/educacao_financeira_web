@@ -1,0 +1,220 @@
+
+.blog {
+  	width: 100%;
+  	position: relative;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	padding: 20px 15px;
+  	box-sizing: border-box;
+  	gap: 40px;
+  	text-align: center;
+  	font-size: 20px;
+  	color: #050505;
+    background-color: #ffff;
+  	font-family: 'Playfair Display';
+}
+.blog__container-title {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: flex-start;
+  	padding: 0px 0px 40px;
+  	position: relative;
+  	gap: 20px;
+  	font-size: 24px;
+}
+.blog__container-title h3{
+    color: #050505;
+    text-align: center;
+    font-family: "Playfair Display";
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 2.5rem;
+}
+.blog__container-title p{
+   	color: #050505;
+    text-align: center;
+    font-family: Lato;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5rem; /* 150% */
+}
+
+
+
+
+
+
+
+
+
+
+
+/*! A FAZER INICIO AQUI */
+.wpp-icon {
+  	width: 25px;
+  	position: absolute;
+  	margin: 0 !important;
+  	top: 373px;
+  	left: 275px;
+  	border-radius: 400px;
+  	max-height: 100%;
+  	overflow: hidden;
+  	z-index: 2;
+}
+.voltar-icon {
+  	width: 25px;
+  	position: absolute;
+  	margin: 0 !important;
+  	top: 418px;
+  	left: 275px;
+  	border-radius: 400px;
+  	max-height: 100%;
+  	object-fit: contain;
+  	z-index: 3;
+}
+
+.child {
+  	align-self: stretch;
+  	position: relative;
+  	border-radius: 20px;
+  	max-width: 100%;
+  	overflow: hidden;
+  	height: 215px;
+  	flex-shrink: 0;
+  	object-fit: cover;
+}
+.a-verdadeira-prosperidade {
+  	width: 100%;
+  	position: relative;
+  	line-height: 24px;
+  	font-weight: 600;
+  	display: inline-block;
+  	max-width: 544px;
+}
+.dzimos-e-ofertas {
+  	width: 100%;
+  	position: relative;
+  	font-size: 16px;
+  	line-height: 24px;
+  	font-weight: 500;
+  	font-family: Lato;
+  	display: inline-block;
+  	max-width: 544px;
+}
+.a-verdadeira-prosperidade-parent {
+  	width: 100%;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: center;
+  	gap: 20px;
+  	max-width: 544px;
+}
+.div1 {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: center;
+  	gap: 20px;
+}
+.erros-financeiros-que {
+  	width: 100%;
+  	position: relative;
+  	line-height: 24px;
+  	font-weight: 600;
+  	display: inline-block;
+  	max-width: 525px;
+}
+.no-contexto-dos {
+  	width: 100%;
+  	position: relative;
+  	font-size: 16px;
+  	line-height: 24px;
+  	font-weight: 500;
+  	font-family: Lato;
+  	display: inline-block;
+  	max-width: 543px;
+}
+.erros-financeiros-que-ameaam-parent {
+  	width: 100%;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 20px;
+  	max-width: 544px;
+}
+.inner {
+  	width: 100%;
+  	position: relative;
+  	border-radius: 20px;
+  	max-width: 335px;
+  	overflow: hidden;
+  	height: 215px;
+  	flex-shrink: 0;
+  	object-fit: cover;
+}
+.f-e-planejamento {
+  	width: 100%;
+  	position: relative;
+  	line-height: 24px;
+  	font-weight: 600;
+  	display: inline-block;
+  	max-width: 551px;
+}
+.a-bblia-nos {
+  	width: 100%;
+  	position: relative;
+  	font-size: 16px;
+  	line-height: 24px;
+  	font-weight: 500;
+  	font-family: Lato;
+  	display: inline-block;
+  	max-width: 551px;
+}
+.f-e-planejamento-caminham-jun-parent {
+  	width: 100%;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: flex-start;
+  	gap: 20px;
+  	max-width: 569px;
+}
+.frame-child {
+  	width: 166px;
+  	position: relative;
+  	border-radius: 50%;
+  	height: 188px;
+  	object-fit: cover;
+  	display: none;
+}
+.uma-vida-financeira {
+  	align-self: stretch;
+  	position: relative;
+  	line-height: 24px;
+  	font-weight: 600;
+}
+.ellipse-parent {
+  	width: 555px;
+  	display: none;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 0px 31px;
+  	box-sizing: border-box;
+  	gap: 30px;
+  	max-width: 555px;
+  	font-size: 16px;
+  	color: #000;
+  	font-family: Lato;
+}
+
+
