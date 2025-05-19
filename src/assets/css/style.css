@@ -300,7 +300,6 @@
   }
 }
 
-
 /**? PRINCIPLES */
 #principles {
   scroll-margin-top: 70px; 
@@ -490,46 +489,6 @@
     font-style: italic;
 }
 
-@media (min-width: 768px) {
-  .principles__carrossel {
-    position: static;
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    overflow: visible;
-  }
-
-  .principles__content-card {
-    position: static;
-    width: 100%;
-    min-width: unset;
-  }
-
-  .principles__title h3 {
-    font-size: 2rem;
-  }
-
-  .principles__content {
-    padding: 32px;
-    gap: 32px;
-  }
-
-  .principles__perfil {
-    max-width: 240px;
-  }
-
-  .principles__container {
-    min-width: 400px;
-    font-size: 16px;
-    gap: 20px;
-  }
-
-  .principles__content-card p {
-    font-size: 15px;
-  }
-}
 
 
 /**? DICAS */
@@ -688,6 +647,3 @@
     max-width: 280px;
   }
 }
-
-
-
