@@ -78,6 +78,7 @@
   line-height: normal;
   letter-spacing: 0.09rem;
   transition: background-color 0.8s ease;
+	height: 27px;
 }
 .btn_hero:hover{
   background-color: #1C4140;
@@ -113,8 +114,6 @@
 }
 /*? Degradê do hero pro plans */
 .degrade{
-  display: flex;
-  border: solid;
   height: 2.1875rem;
   background: linear-gradient(90deg, #FAEEBD 0%, #FCF6DC 49.49%, #FFFEFB 99.99%);
   filter: blur(22.5px);
