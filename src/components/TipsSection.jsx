@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/TipsSection.css'
 import livro1 from '../assets/images/dicas/livro1.png';
 import livro2 from '../assets/images/dicas/livro2.png';
 import livro3 from '../assets/images/dicas/livro3.png';

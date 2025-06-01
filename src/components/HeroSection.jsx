@@ -1,5 +1,6 @@
 import React from 'react';
 import wppIcon from '../assets/images/hero/WPP.svg';
+import '../styles/HeroSection.css'
 
 //* componente filho
 function HeroSection(){

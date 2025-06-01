@@ -1,0 +1,134 @@
+/**? HERO */
+.hero{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5.625rem;
+  padding-top: 50px;
+  height: auto;
+}
+
+.hero__content{
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5625rem;
+  flex: 1 0 0;
+}
+.hero__title{
+  max-width: 32.375rem;
+  align-self: center;
+}
+.hero__content h1{
+  color: #1C4140;
+  text-align: center;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: "Playfair Display";
+  font-size: 2.625rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.13125rem;
+  margin-top: 50px;
+  width: 18.125rem;
+}
+.hero__sub-title{
+  max-width: 32.375rem;
+  align-self: center;
+}
+.hero__content p{
+  color: #000;
+  text-align: center;
+  font-family: "Lato", sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  width: 290px;
+}
+.hero__comments{
+  display: flex;
+  padding: 0rem 5.375rem;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 3.125rem;
+  align-self: stretch;
+  flex-wrap: wrap;
+  padding-bottom: 50px;
+}
+.btn_hero{
+  display: flex;
+  padding-right: 1rem;
+  align-items: center;
+  gap: 0.65625rem;
+  border-radius: 1.1875rem 0.6875rem 0.6875rem 1.1875rem;
+  border: 1px solid var(--ouro-2, rgba(125, 96, 0, 0.71));
+  background: #FFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.60);
+  color: #1C4140;
+  font-family: "Lato", sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.09rem;
+  transition: background-color 0.8s ease;
+	height: 27px;
+}
+.btn_hero:hover{
+  background-color: #1C4140;
+  color: #fff;
+  cursor: pointer;
+}
+.btn_hero img {
+  transition: transform 0.8s ease;
+}
+.btn_hero:hover img {
+  transform: scale(1.1);
+}
+.card{
+  width: 14rem;
+}
+.card h2{
+  color: #000;
+  text-align: center;
+  font-family: "Lato", sans-serif;
+  font-size: 0.875rem;
+  font-style: italic;
+  font-weight: 700;
+  line-height: normal;
+}
+.card p {
+  color: #000;
+  font-family: "Lato", sans-serif;
+  font-size: 0.875rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+}
+/*? Degradê do hero pro plans */
+.degrade{
+  height: 2.1875rem;
+  background: linear-gradient(90deg, #FAEEBD 0%, #FCF6DC 49.49%, #FFFEFB 99.99%);
+  filter: blur(22.5px);
+}
+/*! Responsivo do Hero */
+@media (min-width: 600px) {
+.hero__content h1{
+ width: 32.375rem;
+ font-size: 3rem;
+ max-width: 32.375rem;
+}
+.hero__content p{
+  width: 400px;
+}
+}
+@media (min-width: 1440px) {
+.hero{
+ height: 100vh;
+}
+}

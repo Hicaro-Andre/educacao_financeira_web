@@ -1,4 +1,5 @@
 import React from 'react';
+import "../styles/AboutSection.css"
 import foto1 from '../assets/images/mentoring/foto1.png';
 import foto2 from '../assets/images/mentoring/foto2.png';
 import foto3 from '../assets/images/mentoring/foto3.png';

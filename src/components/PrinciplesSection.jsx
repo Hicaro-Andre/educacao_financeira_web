@@ -1,4 +1,5 @@
 import React from 'react';
+import "../styles/PrinciplesSection.css"
 import giseliImage from '../assets/images/principles/foto-giseli.png';
 
 //* componente filho

@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/Footer.css'
 import logoFooter from '../assets/images/footer/logo-footer.svg';
 import faceIcon from '../assets/images/footer/face.svg';
 import instaIcon from '../assets/images/footer/insta.svg';

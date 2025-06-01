@@ -1,26 +1,30 @@
+import React, { useRef } from 'react';
 import logo from '../assets/images/navbar/logo.svg';
+import '../styles/NavBar.css';
 
-//* componente filho
-function NavBar (){
+function NavBar() {
+  const mobileMenuRef = useRef(null);
 
   const toggleMenu = () => {
-    const mobileMenu = document.getElementById('mobileMenu');
-    mobileMenu.classList.toggle('active');
+    if (mobileMenuRef.current) {
+      mobileMenuRef.current.classList.toggle('open');
+    }
   };
 
   const closeMenu = () => {
-    const mobileMenu = document.getElementById('mobileMenu');
-    mobileMenu.classList.remove('active');
+    if (mobileMenuRef.current) {
+      mobileMenuRef.current.classList.remove('open');
+    }
   };
-  
-  return(
-     <header>
+
+  return (
+    <header>
       <div className="menu__nav">
         <div className="logo">
           <img src={logo} alt="Logo" />
         </div>
 
-        <nav className="nav" id="mobileMenu">
+        <nav className="nav" ref={mobileMenuRef} id="mobileMenu">
           <svg
             className="nav-close"
             id="closeMenu"
@@ -41,9 +45,7 @@ function NavBar (){
           </svg>
           <ul>
             <li><a href="#hero" className="menu-link" onClick={closeMenu}>Home</a></li>
-            <li>
-              <a href="/agenda" className="menu-link" onClick={closeMenu}>Planos</a>
-            </li>
+            <li><a href="/agenda" className="menu-link" onClick={closeMenu}>Planos</a></li>
             <li><a href="#mentoring" className="menu-link" onClick={closeMenu}>Sobre</a></li>
             <li><a href="#principles" className="menu-link" onClick={closeMenu}>Princípios</a></li>
             <li><a href="#depoimentos" className="menu-link" onClick={closeMenu}>Depoimentos</a></li>
@@ -53,7 +55,7 @@ function NavBar (){
       </div>
       <button className="menu-toggle" aria-label="Abrir menu" onClick={toggleMenu}>☰</button>
     </header>
-  )
+  );
 }
 
 export default NavBar;

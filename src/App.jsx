@@ -1,29 +1,18 @@
-//* componente pai
-import "./App.css";
-
-//* Importar o componente filho
-import NavBar from "./components/NavBar";
-import HeroSection from "./components/HeroSection";
-import PlansSection from "./components/PlansSection";
-import AboutSection from "./components/AboutSection";
-import PrinciplesSection from "./components/PrinciplesSection";
-import FeedbackSection from "./FeedbackSection";
-import TipsSection from "./components/TipsSection";
-import Footer from "./components/Footer"
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home'
+import Blog from './pages/Blog';
+import Agendamento from './pages/Agendamento';
 
 
 function App() {
   return (
-    <>
-      <NavBar/>
-      <HeroSection/>
-      <PlansSection/>
-      <AboutSection/>
-      <PrinciplesSection/>
-      <FeedbackSection/>
-      <TipsSection/>
-      <Footer/>
-    </>
+     <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/agenda" element={<Agendamento />} />
+      </Routes>
+    </Router>
   );
 }
 
