@@ -89,10 +89,10 @@
 .btn_hero:hover img {
   transform: scale(1.1);
 }
-.card{
+.card-hero{
   width: 14rem;
 }
-.card h2{
+.card-hero h2{
   color: #000;
   text-align: center;
   font-family: "Lato", sans-serif;
@@ -101,7 +101,7 @@
   font-weight: 700;
   line-height: normal;
 }
-.card p {
+.card-hero p {
   color: #000;
   font-family: "Lato", sans-serif;
   font-size: 0.875rem;

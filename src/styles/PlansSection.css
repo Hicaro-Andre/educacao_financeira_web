@@ -1,0 +1,174 @@
+.mentoria-container {
+  text-align: center;
+  padding: 1.5rem;
+  background: #fdfaf5;
+ 
+}
+.mentoria-container h1{
+  color: #050505;
+  text-align: center;
+  font-family: "Playfair Display";
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 2.5rem; /* 125% */
+}
+.mentoria-container p {
+  color: #050505;
+  text-align: center;
+  font-family: Lato;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.0625rem; /* 121.429% */
+}
+.subtitle {
+  font-size: 0.85rem;
+  max-width: 80%;
+  margin: 0.5rem auto 1.5rem;
+  color: #333;
+}
+
+.indicator-container {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.indicator {
+  width: 26px;
+  height: 12px;
+  border-radius: 8px;
+  border: 1.5px solid #000;
+  background: transparent;
+}
+
+.indicator.active {
+  background: #26433b;
+}
+
+.carousel-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  width: 15rem;
+  
+  padding: 0.625rem 1.875rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3125rem;
+
+  border-radius: 1.875rem;
+  background: #FFF;
+  box-shadow: 0px 3px 9.7px 2px #000;
+
+  min-height: 27.625rem; 
+  height: auto;
+}
+
+.card h2 {
+  width: 5.0625rem;
+  height: 3.75rem;
+  color: #050505;
+  font-family: Lato;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.875rem; 
+  text-align: start;
+
+}
+
+.card .price {
+  color: #1C4140;
+  font-family: Lato;
+  font-size: 1.59375rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 2.25rem; 
+}
+
+.card .desc {
+  color: #4B5563;
+  font-family: Lato;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25rem; 
+  text-align: start;
+  }
+
+.card .duration {
+  font-family: Lato;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.875rem; 
+}
+
+.card ul {
+  color: #050505;
+  font-family: Lato;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25rem; 
+  text-align: start;
+}
+
+.card ul li {
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+  list-style: none;
+}
+.card-0 {
+  background: #fff; /* cor do Plano Essencial */
+}
+.card-1 {
+  background: #1C4140; /* cor do Plano Básico */
+}
+.card-2 {
+  background: #fff; /* Plano Intermediário */
+}
+.card-3 {
+  background: #1C4140; /* Plano Avançado */
+}
+
+
+.cta-btn {
+    width: 8.1875rem;
+    height: 2.625rem;
+    position: absolute;
+    right: 4.100rem;
+    bottom: -1.3125rem;
+    border-radius: 1.25rem;
+    border: 1px solid var(--ouro-2, rgba(125, 96, 0, 0.71));
+    background: linear-gradient(180deg, #1C4140 0%, #2A5B5A 100%);
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #1d5c54;
+  cursor: pointer;
+  padding: 0 1rem;
+}
+
+.left {
+  position: absolute;
+  left: 0;
+}
+
+.right {
+  position: absolute;
+  right: 0;
+}
+
+
