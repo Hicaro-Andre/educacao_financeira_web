@@ -1,0 +1,94 @@
+/**? FOOTER */
+footer {
+  	display: flex;
+  	background: linear-gradient(180deg, #1c4140, #2a5b5a);
+  	height: auto;
+  	overflow: hidden;
+  	flex-shrink: 0;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 20px 0px;
+  	box-sizing: border-box;
+  	gap: 6px;
+  	text-align: center;
+  	font-size: 10px;
+  	color: #fff;
+  	font-family: "Lato", sans-serif;
+}
+.footer__content{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+}
+.footer__rede-socias {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer__rede-socias img {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.footer__rede-socias img:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.footer__nav {
+  width: 100%;
+  padding: 20px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer__nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer__nav li {
+  margin: 0;
+}
+.footer__nav a {
+  text-decoration: none;
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.750rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+.footer__nav ul {
+    gap: 1.25rem;
+  }
+.footer__nav a {
+    font-size: 0.875rem;
+}
+}
+
+@media (min-width: 1025px) {
+.footer__content{
+  flex-direction: row;
+  gap: 3.75rem;
+  padding: 20px;
+}
+.footer__nav ul {
+    gap: 3.125rem;
+  }
+.footer__nav a {
+    font-size: 1rem;
+}
+
+}

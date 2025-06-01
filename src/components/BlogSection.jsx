@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../assets/css/globals.css" />
-    <link rel="stylesheet" href="../assets/css/blog.css" />
-    <title>Blog</title>
-  </head>
-  <body>
-    <section class="blog" id="blog">
-      <div class="blog__container-title">
+import "../styles/BlogSection.css"
+import foto1 from "../assets/images/blog/foto1-blog.png"
+import foto2 from "../assets/images/blog/foto2-blog.png"
+import foto3 from "../assets/images/blog/foto3-blog.png"
+
+
+function BlogSection(){
+
+  return(
+    <section className="blog" id="blog">
+      <div className="blog__container-title">
         <h3>Finanças e Fé: Equilíbrio para uma Vida Próspera</h3>
         <p>
           A administração financeira é um dos pilares para uma vida equilibrada,
@@ -21,10 +20,10 @@
         </p>
       </div>
 
-      <div class="blog__card">
-        <img alt="" src="../assets/images/blog/foto1-blog.png" />
+      <div className="blog__card">
+        <img alt="" src={foto1} />
 
-        <div class="blog__card-text">
+        <div className="blog__card-text">
           <h3>A Verdadeira Prosperidade</h3>
           <p>
             Dízimos e ofertas não são garantias de enriquecimento instantâneo,
@@ -37,10 +36,10 @@
         </div>
       </div>
 
-      <div class="blog__card">
-        <img class="child" alt="" src="../assets/images/blog/foto2-blog.png" />
+      <div className="blog__card">
+        <img className="child" alt="" src={foto2} />
 
-        <div class="blog__card-text">
+        <div className="blog__card-text">
           <h3>Erros Financeiros que Ameaçam Relacionamentos</h3>
           <p>
             No contexto dos relacionamentos, a falta de transparência e o
@@ -53,10 +52,10 @@
         </div>
       </div>
 
-      <div class="blog__card">
-        <img class="inner" alt="" src="../assets/images/blog/foto3-blog.png" />
+      <div className="blog__card">
+        <img className="inner" alt="" src={foto3} />
 
-        <div class="blog__card-text">
+        <div className="blog__card-text">
           <h3>Fé e Planejamento Caminham Juntos</h3>
           <p>
             A Bíblia nos ensina que confiar em Deus não exclui a necessidade de
@@ -69,5 +68,7 @@
         </div>
       </div>
     </section>
-  </body>
-</html>
+  )
+}
+
+export default BlogSection;
