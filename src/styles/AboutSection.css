@@ -1,121 +1,112 @@
-/**? MENTORING */
 #mentoring {
-  scroll-margin-top: 70px; 
+  scroll-margin-top: 70px;
 }
-.mentoring {
-  	width: 100%;
-  	position: relative;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: center;
-  	justify-content: flex-start;
-  	padding: 60px 24px;
-  	box-sizing: border-box;
-  	gap: 40px;
-  	text-align: center;
-  	font-size: 32px;
-  	color: #050505;
-  	font-family: 'Playfair Display';
-}
-.mentoring__content {
-  	align-self: stretch;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: center;
-  	justify-content: flex-start;
-  	gap: 20px;
-}
-.mentoring__content h3{
-  	color: #050505;
-    text-align: center;
-    font-family: "Playfair Display";
-    font-size: 2rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-}
-.mentoring__content p {
-    max-width: 31.875rem;
-    align-self: center;
-  	color: #050505;
-    text-align: center;
-    font-family: "Lato", sans-serif;
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-}
-.mentoring__content__cards {
-  	width: 100%;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: center;
-  	justify-content: center;
-  	gap: 50px;
-  	max-width: 1179px;
-  	font-size: 16px;
-  	font-family: "Lato", sans-serif;
-}
-.mentoring__cards {
-  	width: 100%;
-  	display: flex;
-  	flex-direction: row;
-  	align-items: flex-start;
-  	justify-content: flex-start;
-  	padding: 135px 0px 0px;
-  	box-sizing: border-box;
-  	position: relative;
-  	min-width: 300px;
-  	max-width: 455px;
-    
-    border: solid 2px green;
-}
-.image-cards {
-  	width: 100%;
-  	position: absolute;
-  	margin: 0 !important;
-  	height: 83.32%;
-  	top: 0%;
-  	right: 0%;
-  	bottom: 16.68%;
-  	left: 0%;
-  	border-radius: 20px 20px 0px 0px;
-  	max-width: 100%;
-  	overflow: hidden;
-  	max-height: 100%;
-  	object-fit: cover;
-  	z-index: 0;
-}
-.mentoring__text-card{
-  	flex: 1;
-  	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  	border-radius: 20px;
-  	background-color: #fff;
-  	display: flex;
-  	flex-direction: row;
-  	align-items: center;
-  	justify-content: center;
-  	flex-wrap: wrap;
-  	align-content: center;
-  	padding: 15px;
-  	z-index: 1;
 
-    border: solid 2px red;
+.mentoring {
+  width: 100%;
+  padding: 60px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  font-family: 'Playfair Display';
 }
-.mentoring__text-card p{
-    flex: 1;
-  	position: relative;
-  	letter-spacing: 0.05em;
+
+.mentoring__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
 }
-@media screen and (min-width: 1024px) {
-  .mentoring__content__cards {
+
+.mentoring__content h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #050505;
+}
+
+.mentoring__content p {
+  max-width: 31.875rem;
+  font-size: 0.875rem;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  color: #050505;
+}
+
+.mentoring__carousel {
+  display: flex;
+	padding: 10px;
+	height: auto;
+	width: 100%;
+	gap:15px;
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 0 24px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.mentoring__carousel::-webkit-scrollbar {
+  display: none; 
+}
+
+.mentoring__cards {
+  flex: 0 0 100%;
+	padding: 5px;
+  scroll-snap-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 135px;
+  position: relative;
+	border: solid;
+}
+
+.image-cards {
+  width: 100%;
+  height: 83.32%;
+	
+  position: absolute;
+  top: 0;
+  border-radius: 20px 20px 0 0;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.mentoring__text-card {
+  height: 165px;
+	width: 100%;
+  background-color: white;
+  border-radius: 20px;
+  padding: 15px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+	
+  z-index: 1;
+
+}
+
+.mentoring__text-card p {
+  letter-spacing: 0.05em;
+	text-align: center;
+	font-size:12px;
+}
+
+/* Layout padrão em telas ≥ 768px */
+@media screen and (min-width: 768px) {
+  .mentoring__carousel {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 50px;
-    justify-items: center;
+    overflow: unset;
   }
 
   .mentoring__cards {
+    width: 100%;
     max-width: 100%;
   }
 }

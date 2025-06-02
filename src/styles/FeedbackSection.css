@@ -1,5 +1,5 @@
 .depoimentos-container {
-  background: #fdfaf5;
+  background: #e48f05;
   padding: 2rem 1rem;
   text-align: center;
   font-family: 'Arial', sans-serif;
@@ -79,4 +79,37 @@
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
+}
+
+/* === Desktop Responsivo === */
+@media (min-width: 768px) {
+  .depoimento-card {
+    max-width: 600px;
+    padding: 2rem;
+  }
+
+  .conteudo {
+    padding: 0 2rem;
+  }
+
+  .destaque {
+    font-size: 1.2rem;
+  }
+
+  .texto {
+    font-size: 1rem;
+  }
+
+  .autor img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .seta-esq {
+    left: -1.5rem;
+  }
+
+  .seta-dir {
+    right: -1.5rem;
+  }
 }

@@ -20,6 +20,7 @@ function PrinciplesSection (){
     }
   ];
 
+  
   return(
     <section className="principles" id="principles">
       <div className="principles__title">

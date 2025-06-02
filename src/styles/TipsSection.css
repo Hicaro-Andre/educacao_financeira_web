@@ -1,86 +1,84 @@
-/**? DICAS */
 .dicas {
-  	width: 100%;
-  	position: relative;
-  	background-color: #fffdf9;
-  	overflow: hidden;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: center;
-  	justify-content: flex-start;
-  	padding: 60px 24px;
-  	box-sizing: border-box;
-  	gap: 50px;
-  	text-align: center;
-  	font-size: 32px;
-  	color: #050505;
-  	font-family: 'Playfair Display';
-}
-.dicas__content {
-  	align-self: stretch;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: center;
-  	justify-content: flex-start;
-  	gap: 20px;
-}
-.dicas__content h3 {
-  	align-self: stretch;
-  	position: relative;
-  	letter-spacing: 0.05em;
-  	font-weight: 600;
-}
-.dicas__content p {
-  	width: 100%;
-  	position: relative;
-  	font-size: 16px;
-  	letter-spacing: 0.05em;
-  	font-weight: 500;
-  	font-family: "Lato", sans-serif;
-  	display: inline-block;
-  	max-width: 990px;
-}
-.dicas__books {
-  	align-self: stretch;
-  	display: flex;
-  	flex-direction: row;
-  	align-items: center;
-  	justify-content: center;
-  	flex-wrap: wrap;
-  	align-content: center;
-  	padding: 0px 120px;
-  	gap: 48px 50px;
-  	font-size: 14px;
-  	font-family: Inter;
-}
-.books {
-  	flex: 1;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: center;
-  	justify-content: center;
-  	flex-wrap: wrap;
-  	align-content: center;
-  	gap: 20px;
-  	min-width: 192px;
-}
-.books__images {
-  	position: relative;
-  	border-radius: 10px;
-  	max-width: 120px;
-  	overflow: hidden;
-  	height: 155px;
-  	object-fit: cover;
-  	min-width: 120px;
-}
-.books__text {
-  	flex: 1;
-  	position: relative;
-  	letter-spacing: 0.05em;
-  	display: inline-block;
-  	min-width: 12.6875rem;
+  width: 100%;
+  background-color: #fffdf9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 24px;
+  gap: 50px;
+  text-align: center;
+  font-size: 32px;
+  color: #050505;
+  font-family: 'Playfair Display';
+  box-sizing: border-box;
+  overflow-x: hidden; /* evita estouro do corpo */
 }
 
+.dicas__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.dicas__content h3 {
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.dicas__content p {
+  width: 100%;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  font-family: "Lato", sans-serif;
+  max-width: 990px;
+}
+
+/* === MOBILE: carrossel === */
+.dicas__books {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 0 0.5rem;
+  margin: 0 auto;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.dicas__books::-webkit-scrollbar {
+  display: none;
+}
+
+.books {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 85%;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.books__images {
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.books__text {
+  font-size: 0.9rem;
+  text-align: center;
+  color: #333;
+  max-width: 220px;
+  padding: 0 10px;
+}
+
+/* === DESKTOP (≥768px) === */
 @media (min-width: 768px) {
   .dicas {
     padding: 80px 60px;
@@ -88,34 +86,29 @@
     font-size: 34px;
   }
 
-  .dicas__content h3 {
-    font-size: 2rem;
-  }
-
-  .dicas__content p {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-  }
-
   .dicas__books {
+    overflow: visible;
+    flex-wrap: wrap;
     justify-content: center;
+    scroll-snap-type: none;
     padding: 0 60px;
     gap: 48px 60px;
   }
 
   .books {
+    flex: 1;
     max-width: 240px;
+    width: 100%;
+    height: 360px;
   }
 
   .books__images {
-    max-width: 150px;
+    width: 150px;
     height: 200px;
-    min-width: 150px;
   }
 
   .books__text {
     font-size: 1rem;
-    text-align: center;
     max-width: 240px;
   }
 }
@@ -127,25 +120,13 @@
     font-size: 36px;
   }
 
-  .dicas__content {
-    max-width: 960px;
-    margin: 0 auto;
-  }
-
   .dicas__books {
-    justify-content: center;
     padding: 0 100px;
     gap: 60px 80px;
   }
 
   .books {
     max-width: 280px;
-  }
-
-  .books__images {
-    max-width: 180px;
-    height: 240px;
-    min-width: 180px;
   }
 
   .books__text {

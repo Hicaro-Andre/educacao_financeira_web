@@ -1,14 +1,45 @@
 import React, { useState } from 'react';
 import "../styles/FeedbackSection.css"
 
+import casal1 from "../assets/images/feedback/foto-feed-1.png"
+
 const depoimentos = [
   {
-    destaque: 'Uma transformação que vai além das finanças!',
+    destaque: '1-Uma transformação que vai além das finanças!',
     texto: 'A mentoria da Gisele não apenas nos ajudou a organizar nossas finanças, mas também trouxe uma nova perspectiva sobre como gerenciar o dinheiro dentro do nosso casamento.',
     autor: 'Carlos e Mariana, São Paulo',
-    imagem: 'https://via.placeholder.com/50x50.png?text=👫' // substitua pela imagem real
+    imagem: casal1, // substitua pela imagem real
   },
-  // Adicione mais depoimentos aqui
+   {
+    destaque: '2-Uma transformação que vai além das finanças!',
+    texto: 'A mentoria da Gisele não apenas nos ajudou a organizar nossas finanças, mas também trouxe uma nova perspectiva sobre como gerenciar o dinheiro dentro do nosso casamento.',
+    autor: 'Carlos e Mariana, São Paulo',
+    imagem: casal1, // substitua pela imagem real
+  },
+   {
+    destaque: '3-Uma transformação que vai além das finanças!',
+    texto: 'A mentoria da Gisele não apenas nos ajudou a organizar nossas finanças, mas também trouxe uma nova perspectiva sobre como gerenciar o dinheiro dentro do nosso casamento.',
+    autor: 'Carlos e Mariana, São Paulo',
+   imagem: casal1,// substitua pela imagem real
+  },
+   {
+    destaque: '4-Uma transformação que vai além das finanças!',
+    texto: 'A mentoria da Gisele não apenas nos ajudou a organizar nossas finanças, mas também trouxe uma nova perspectiva sobre como gerenciar o dinheiro dentro do nosso casamento.',
+    autor: 'Carlos e Mariana, São Paulo',
+    imagem: casal1, // substitua pela imagem real
+  },
+   {
+    destaque: '5-Uma transformação que vai além das finanças!',
+    texto: 'A mentoria da Gisele não apenas nos ajudou a organizar nossas finanças, mas também trouxe uma nova perspectiva sobre como gerenciar o dinheiro dentro do nosso casamento.',
+    autor: 'Carlos e Mariana, São Paulo',
+    imagem: casal1, // substitua pela imagem real
+  },
+   {
+    destaque: '6-Uma transformação que vai além das finanças!',
+    texto: 'A mentoria da Gisele não apenas nos ajudou a organizar nossas finanças, mas também trouxe uma nova perspectiva sobre como gerenciar o dinheiro dentro do nosso casamento.',
+    autor: 'Carlos e Mariana, São Paulo',
+    imagem: casal1, // substitua pela imagem real
+  },
 ];
 
 

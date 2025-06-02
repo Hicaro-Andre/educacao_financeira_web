@@ -1,13 +1,40 @@
-import React from 'react';
-import '../styles/TipsSection.css'
+import React, { useEffect, useRef } from 'react';
+import '../styles/TipsSection.css';
+
 import livro1 from '../assets/images/dicas/livro1.png';
 import livro2 from '../assets/images/dicas/livro2.png';
 import livro3 from '../assets/images/dicas/livro3.png';
 
-//* componente filho
-function TipsSection (){
+function TipsSection() {
+  const booksRef = useRef();
 
-   const books = [
+  useEffect(() => {
+    const isMobile = window.innerWidth < 768;
+    if (!isMobile) return;
+
+    const container = booksRef.current;
+    let scrollAmount = 0;
+
+    const interval = setInterval(() => {
+      if (!container) return;
+
+      const scrollStep = container.clientWidth * 0.85;
+      scrollAmount += scrollStep;
+
+      if (scrollAmount >= container.scrollWidth - container.clientWidth) {
+        scrollAmount = 0;
+      }
+
+      container.scrollTo({
+        left: scrollAmount,
+        behavior: 'smooth',
+      });
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const books = [
     {
       id: 1,
       image: livro1,
@@ -25,8 +52,8 @@ function TipsSection (){
     }
   ];
 
-  return(
-     <section className="dicas">
+  return (
+    <section className="dicas">
       <div className="dicas__content">
         <h3>Conteúdo e Dicas</h3>
         <p>
@@ -37,7 +64,7 @@ function TipsSection (){
         </p>
       </div>
 
-      <div className="dicas__books">
+      <div className="dicas__books" ref={booksRef}>
         {books.map((book) => (
           <div className="books" key={book.id}>
             <img
@@ -52,7 +79,7 @@ function TipsSection (){
         ))}
       </div>
     </section>
-  )
+  );
 }
 
 export default TipsSection;
