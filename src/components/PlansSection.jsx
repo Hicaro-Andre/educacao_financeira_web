@@ -72,7 +72,7 @@ function PlansSection (){
   };
 
   return(
-    <section className="mentoria-container">
+    <section className="mentoria-container" id='plans'>
       <h1>Mentorias e Planos</h1>
       <p className="subtitle">
         Transforme a realidade financeira do seu casamento com nossas mentorias personalizadas.

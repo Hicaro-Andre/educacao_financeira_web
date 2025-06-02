@@ -1,9 +1,10 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import logo from '../assets/images/navbar/logo.svg';
 import '../styles/NavBar.css';
 
 function NavBar() {
   const mobileMenuRef = useRef(null);
+  const [activeLink, setActiveLink] = useState('');
 
   const toggleMenu = () => {
     if (mobileMenuRef.current) {
@@ -16,6 +17,33 @@ function NavBar() {
       mobileMenuRef.current.classList.remove('open');
     }
   };
+
+  useEffect(() => {
+    const sections = document.querySelectorAll('section[id]');
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setActiveLink(entry.target.id);
+          }
+        });
+      },
+      {
+        threshold: 0.6, // quanto da seção precisa estar visível
+      }
+    );
+
+    sections.forEach(section => observer.observe(section));
+    return () => sections.forEach(section => observer.unobserve(section));
+  }, []);
+
+  const menuItems = [
+    { id: 'hero', label: 'Home' },
+    { id: 'plans', label: 'Planos' },
+    { id: 'mentoring', label: 'Sobre' },
+    { id: 'principles', label: 'Princípios' },
+    { id: 'depoimentos', label: 'Depoimentos' },
+  ];
 
   return (
     <header>
@@ -44,12 +72,26 @@ function NavBar() {
             />
           </svg>
           <ul>
-            <li><a href="#hero" className="menu-link" onClick={closeMenu}>Home</a></li>
-            <li><a href="/agenda" className="menu-link" onClick={closeMenu}>Planos</a></li>
-            <li><a href="#mentoring" className="menu-link" onClick={closeMenu}>Sobre</a></li>
-            <li><a href="#principles" className="menu-link" onClick={closeMenu}>Princípios</a></li>
-            <li><a href="#depoimentos" className="menu-link" onClick={closeMenu}>Depoimentos</a></li>
-            <li><a href="/blog" className="menu-link" onClick={closeMenu}>Blog</a></li>
+            {menuItems.map(item => (
+              <li key={item.id}>
+                <a
+                  href={`#${item.id}`}
+                  className={`menu-link ${activeLink === item.id ? 'active' : ''}`}
+                  onClick={closeMenu}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+            <li>
+              <a
+                href="/blog"
+                className="menu-link"
+                onClick={closeMenu}
+              >
+                Blog
+              </a>
+            </li>
           </ul>
         </nav>
       </div>
