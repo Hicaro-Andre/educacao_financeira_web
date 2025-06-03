@@ -8,31 +8,33 @@ import livro3 from '../assets/images/dicas/livro3.png';
 function TipsSection() {
   const booksRef = useRef();
 
-  useEffect(() => {
-    const isMobile = window.innerWidth < 768;
-    if (!isMobile) return;
+ useEffect(() => {
+  const isMobile = window.innerWidth < 768;
+  if (!isMobile) return;
 
-    const container = booksRef.current;
-    let scrollAmount = 0;
+  const container = booksRef.current;
+  let scrollAmount = 0;
 
-    const interval = setInterval(() => {
-      if (!container) return;
+  const scrollStep = container.clientWidth * 0.8 + 16; // 80% + gap
 
-      const scrollStep = container.clientWidth;
-      scrollAmount += scrollStep;
+  const interval = setInterval(() => {
+    if (!container) return;
 
-      if (scrollAmount >= container.scrollWidth - container.clientWidth) {
-        scrollAmount = 0;
-      }
+    scrollAmount += scrollStep;
 
-      container.scrollTo({
-        left: scrollAmount,
-        behavior: 'smooth',
-      });
-    }, 3000);
+    if (scrollAmount >= container.scrollWidth - container.clientWidth) {
+      scrollAmount = 0;
+    }
 
-    return () => clearInterval(interval);
-  }, []);
+    container.scrollTo({
+      left: scrollAmount,
+      behavior: 'smooth',
+    });
+  }, 3000);
+
+  return () => clearInterval(interval);
+}, []);
+
 
   const books = [
     {
