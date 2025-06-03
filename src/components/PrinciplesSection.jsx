@@ -1,11 +1,9 @@
-import React from 'react';
-import "../styles/PrinciplesSection.css"
+import React, { useState, useEffect, useRef } from 'react';
+import "../styles/PrinciplesSection.css";
 import giseliImage from '../assets/images/principles/foto-giseli.png';
 
-//* componente filho
-function PrinciplesSection (){
-
-   const principles = [
+function PrinciplesSection() {
+  const principles = [
     {
       title: "Administração Responsável",
       description: "Ensinamos a gestão consciente dos recursos como mordomia dada por Deus."
@@ -20,16 +18,41 @@ function PrinciplesSection (){
     }
   ];
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const trackRef = useRef(null);
+
+  useEffect(() => {
+  const mediaQuery = window.matchMedia('(max-width: 600px)');
+  if (!mediaQuery.matches) return;
+
+  const interval = setInterval(() => {
+    setCurrentIndex(prev => (prev + 1) % principles.length);
+  }, 4000);
+
+  return () => clearInterval(interval);
+}, [principles.length]);
+
+useEffect(() => {
+  const mediaQuery = window.matchMedia('(max-width: 787px)');
+  if (!mediaQuery.matches) return;
+
+  const track = trackRef.current;
+  if (track) {
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+}, [currentIndex]);
+
   
-  return(
+
+  return (
     <section className="principles" id="principles">
       <div className="principles__title">
         <h3>Nossos Princípios Financeiros Cristãos:</h3>
       </div>
 
       <div className="principles__sub-title">
-        <div className="principles__carrossel" id="principles__carrossel">
-          <div className="principles__carrossel__track">
+        <div className="principles__carrossel">
+          <div className="principles__carrossel__track" ref={trackRef}>
             {principles.map((principle, index) => (
               <div className="principles__content-card" key={index}>
                 <h3>{principle.title}</h3>
@@ -59,7 +82,6 @@ function PrinciplesSection (){
                   está em integrar princípios bíblicos à educação financeira,
                   proporcionando uma abordagem única que fortalece tanto a vida
                   financeira quanto o relacionamento do casal.
-
                   <span id="oferecemos">Oferecemos:</span>
                 </p>
               </div>
@@ -94,7 +116,7 @@ function PrinciplesSection (){
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 export default PrinciplesSection;

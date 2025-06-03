@@ -18,7 +18,7 @@ function TipsSection() {
     const interval = setInterval(() => {
       if (!container) return;
 
-      const scrollStep = container.clientWidth * 0.85;
+      const scrollStep = container.clientWidth;
       scrollAmount += scrollStep;
 
       if (scrollAmount >= container.scrollWidth - container.clientWidth) {

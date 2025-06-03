@@ -22,6 +22,7 @@
   	align-self: stretch;
   	display: flex;
   	flex-direction: row;
+		align-self: center;
   	align-items: center;
   	justify-content: center;
   	font-size: 32px;
@@ -54,7 +55,6 @@
   transition: transform 0.5s ease-in-out;
 }
 .principles__content-card {
-  min-width: 100%;
   box-sizing: border-box;
   padding: 16px;
   flex-shrink: 0;
@@ -63,9 +63,7 @@
 .principles__content-card h3 {
     margin: 0;
 }
-.principles__content-card p {
- 
-}
+
 
 .principles__content {
   	width: 100%;
@@ -75,6 +73,7 @@
   	display: flex;
   	flex-direction: row;
   	align-items: center;
+		align-self: center;
   	justify-content: center;
   	flex-wrap: wrap;
   	align-content: center;
@@ -185,4 +184,15 @@
   	line-height: 123.32%;
   	font-weight: 500;
     font-style: italic;
+}
+@media (min-width: 787px) {
+  .principles__carrossel__track {
+    transform: none !important;
+    flex-wrap: wrap;
+  }
+
+  .principles__content-card {
+    flex: 1 1 33%;
+    min-width: 250px;
+  }
 }
