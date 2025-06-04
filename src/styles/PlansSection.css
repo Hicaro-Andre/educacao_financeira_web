@@ -123,6 +123,7 @@
   font-weight: 400;
   line-height: 1.25rem; 
   text-align: start;
+  position: relative;
 }
 
 .plans_card ul li {
@@ -130,14 +131,34 @@
   margin-bottom: 0.5rem;
   list-style: none;
 }
+
 .plans_card-0 {
-  background: #fff; /* cor do Plano Essencial */
+  background: #fff; 
 }
+.plans_card-1 h2,
+.plans_card-1 .price,
+.plans_card-1 .type,
+.plans_card-1 .desc,
+.plans_card-1 .duration,
+.plans_card-1 ul,
+.plans_card-1 ul li {
+  color: #fff;
+}
+
 .plans_card-1 {
-  background: #1C4140; /* cor do Plano Básico */
+  background: #1C4140; 
 }
 .plans_card-2 {
   background: #fff; /* Plano Intermediário */
+}
+.plans_card-3 h2,
+.plans_card-3 .price,
+.plans_card-3 .type,
+.plans_card-3 .desc,
+.plans_card-3 .duration,
+.plans_card-3 ul,
+.plans_card-3 ul li {
+  color: #fff;
 }
 .plans_card-3 {
   background: #1C4140; /* Plano Avançado */
@@ -145,16 +166,48 @@
 
 
 .plans_cta-btn {
-    width: 8.1875rem;
-    height: 2.625rem;
-    position: absolute;
-    right: 4.100rem;
-    bottom: -1.3125rem;
-    border-radius: 1.25rem;
-    border: 1px solid var(--ouro-2, rgba(125, 96, 0, 0.71));
-    background: linear-gradient(180deg, #1C4140 0%, #2A5B5A 100%);
+  position: absolute;
+  bottom: -21px; /* já estava bom */
+  left: 50%;
+  transform: translateX(-50%);
+  
+  width: 131px;
+  height: 42px;
+  border-radius: 20px;
+  border: 1px solid rgba(125, 96, 0, 0.71);
+  background: linear-gradient(180deg, #1C4140 0%, #2A5B5A 100%);
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 12px;
+  color: white;
+  font-family: "Lato", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  text-align: left;
 }
 
+.plans_cta-icon {
+  flex-shrink: 0;
+}
+
+.plans_cta-text {
+  display: inline-block;
+  text-align: center;
+  white-space: pre-line;
+}
+.plans_card-1 .plans_cta-icon path,
+.plans_card-3 .plans_cta-icon path {
+  stroke: #1C4140;
+}
+.plans_card-1 .plans_cta-btn,
+.plans_card-3 .plans_cta-btn {
+  background: #fff;
+  border: 1px solid #1C4140;
+  color: #1C4140;
+}
 .plans_nav-btn {
   background: none;
   border: none;
@@ -173,5 +226,4 @@
   position: absolute;
   right: 0;
 }
-
 

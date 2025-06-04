@@ -9,19 +9,17 @@ function TipsSection() {
   const booksRef = useRef(null);
 
   useEffect(() => {
-    const container = booksRef.current;
-    if (!container) return;
+  const container = booksRef.current;
+  if (!container) return;
 
-    const mediaQuery = window.matchMedia('(max-width: 767px)');
+  const mediaQuery = window.matchMedia('(max-width: 767px)');
+  if (!mediaQuery.matches) return;
 
-    if (!mediaQuery.matches) return;
+  let scrollAmount = 0;
+  const scrollStep = 280 + 16;
 
-    let scrollAmount = 0;
-    const scrollStep = container.clientWidth * 0.8 + 16;
-
+  const delay = setTimeout(() => {
     const interval = setInterval(() => {
-      if (!container) return;
-
       scrollAmount += scrollStep;
 
       if (scrollAmount >= container.scrollWidth - container.clientWidth) {
@@ -34,8 +32,12 @@ function TipsSection() {
       });
     }, 3000);
 
+    // Cleanup
     return () => clearInterval(interval);
-  }, []);
+  }, 500); // Espera 500ms antes de começar o auto scroll
+
+  return () => clearTimeout(delay);
+}, []);
 
   const books = [
     {

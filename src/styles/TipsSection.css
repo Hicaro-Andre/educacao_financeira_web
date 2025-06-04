@@ -4,8 +4,7 @@
 /* Base */
 .dicas {
   width: 100%;
-  /* background-color: #fffdf9; */
-  background-color: aqua;
+  background-color: #fffdf9;
   display: flex;
   flex-direction: column;
   align-items: center;
