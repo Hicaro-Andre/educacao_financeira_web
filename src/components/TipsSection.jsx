@@ -6,40 +6,36 @@ import livro2 from '../assets/images/dicas/livro2.png';
 import livro3 from '../assets/images/dicas/livro3.png';
 
 function TipsSection() {
-  const booksRef = useRef();
+  const booksRef = useRef(null);
 
-useEffect(() => {
-  const container = booksRef.current;
-  if (!container) return;
-
-  const isMobile = window.innerWidth < 768;
-  if (!isMobile) return;
-
-  let scrollAmount = 0;
-
-  const scrollStep = container.clientWidth * 0.8 + 16; // 80% + gap
-
-  const interval = setInterval(() => {
+  useEffect(() => {
+    const container = booksRef.current;
     if (!container) return;
 
-    const maxScroll = container.scrollWidth - container.clientWidth;
+    const mediaQuery = window.matchMedia('(max-width: 767px)');
 
-    scrollAmount += scrollStep;
+    if (!mediaQuery.matches) return;
 
-    if (scrollAmount > maxScroll) {
-      scrollAmount = 0;
-    }
+    let scrollAmount = 0;
+    const scrollStep = container.clientWidth * 0.8 + 16;
 
-    container.scrollTo({
-      left: scrollAmount,
-      behavior: 'smooth',
-    });
-  }, 3000);
+    const interval = setInterval(() => {
+      if (!container) return;
 
-  return () => clearInterval(interval);
-}, []);
+      scrollAmount += scrollStep;
 
+      if (scrollAmount >= container.scrollWidth - container.clientWidth) {
+        scrollAmount = 0;
+      }
 
+      container.scrollTo({
+        left: scrollAmount,
+        behavior: 'smooth',
+      });
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const books = [
     {
@@ -79,9 +75,7 @@ useEffect(() => {
               alt={`Capa do livro ${book.id}`}
               src={book.image}
             />
-            <div className="books__text">
-              {book.description}
-            </div>
+            <div className="books__text">{book.description}</div>
           </div>
         ))}
       </div>
