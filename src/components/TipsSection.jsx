@@ -12,16 +12,21 @@ useEffect(() => {
   const container = booksRef.current;
   if (!container) return;
 
-  const mediaQuery = window.matchMedia('(max-width: 767px)');
-  if (!mediaQuery.matches) return;
+  const isMobile = window.innerWidth < 768;
+  if (!isMobile) return;
 
   let scrollAmount = 0;
-  const scrollStep = container.clientWidth * 0.8 + 16;
+
+  const scrollStep = container.clientWidth * 0.8 + 16; // 80% + gap
 
   const interval = setInterval(() => {
+    if (!container) return;
+
+    const maxScroll = container.scrollWidth - container.clientWidth;
+
     scrollAmount += scrollStep;
 
-    if (scrollAmount >= container.scrollWidth - container.clientWidth) {
+    if (scrollAmount > maxScroll) {
       scrollAmount = 0;
     }
 
