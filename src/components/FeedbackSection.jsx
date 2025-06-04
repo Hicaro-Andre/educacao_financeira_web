@@ -94,7 +94,7 @@ function FeedbackSection() {
       cards.push(
         <div
           key={index}
-          className={`card ${isAtual ? "grande" : "pequeno"}`}
+          className={`cardfeed ${isAtual ? "grande" : "pequeno"}`}
         >
           {isAtual && (
             <button className="seta seta-esq" onClick={anterior}>❮</button>

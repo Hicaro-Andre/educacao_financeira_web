@@ -21,7 +21,7 @@ function AboutSection() {
     const carousel = carouselRef.current;
     if (!carousel || window.innerWidth >= 768) return;
 
-    const cardElements = carousel.querySelectorAll(".mentoring__cards");
+    const cardElements = carousel.querySelectorAll(".about_cards");
     const cardWidth = cardElements[0].offsetWidth; 
     let index = 0;
 
@@ -36,9 +36,9 @@ function AboutSection() {
 
       if (index === cards.length) {
         setTimeout(() => {
-          carousel.scrollLeft = 0; // reset instantâneo
+          carousel.scrollLeft = 0; 
           index = 0;
-        }, 500); // tempo para animação smooth
+        }, 500);
       }
     };
 
@@ -48,8 +48,8 @@ function AboutSection() {
   }, []);
 
   return (
-    <section className="mentoring" id="mentoring">
-      <div className="mentoring__content">
+    <section className="about" id="about">
+      <div className="about_content">
         <h3>Sobre a Mentoria </h3>
         <p>
           Conheça mais sobre a Mentora, sua Visão, Missão e Valores, e como ela
@@ -57,11 +57,11 @@ function AboutSection() {
         </p>
       </div>
 
-      <div className="mentoring__carousel" ref={carouselRef}>
+      <div className="about_carousel" ref={carouselRef}>
         {extendedCards.map((card, i) => (
-          <div className="mentoring__cards" key={i}>
-            <img className="image-cards" src={card.image} alt={`Mentoria ${i}`} />
-            <div className="mentoring__text-card">
+          <div className="about_cards" key={i}>
+            <img className="about_cards-image" src={card.image} alt={`Mentoria ${i}`} />
+            <div className="about_text-card">
               <p>{card.text}</p>
             </div>
           </div>

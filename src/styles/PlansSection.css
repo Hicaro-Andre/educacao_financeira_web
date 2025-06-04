@@ -1,10 +1,13 @@
-.mentoria-container {
+.plans_container{
   text-align: center;
   padding: 1.5rem;
   background: #fdfaf5;
+  overflow: hidden;
+  min-height: auto;
+  padding-top: 80px;
  
 }
-.mentoria-container h1{
+.plans_container h1{
   color: #050505;
   text-align: center;
   font-family: "Playfair Display";
@@ -13,7 +16,7 @@
   font-weight: 600;
   line-height: 2.5rem; /* 125% */
 }
-.mentoria-container p {
+.plans_container p {
   color: #050505;
   text-align: center;
   font-family: Lato;
@@ -22,21 +25,21 @@
   font-weight: 400;
   line-height: 1.0625rem; /* 121.429% */
 }
-.subtitle {
+.plans_subtitle {
   font-size: 0.85rem;
   max-width: 80%;
   margin: 0.5rem auto 1.5rem;
   color: #333;
 }
 
-.indicator-container {
+.plans_indicator-container {
   display: flex;
   justify-content: center;
   gap: 0.5rem;
   margin-bottom: 1rem;
 }
 
-.indicator {
+.plans_indicator {
   width: 26px;
   height: 12px;
   border-radius: 8px;
@@ -44,18 +47,18 @@
   background: transparent;
 }
 
-.indicator.active {
+.plans_indicator.active {
   background: #26433b;
 }
 
-.carousel-wrapper {
+.plans_carousel-wrapper {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.card {
+.plans_card {
   display: flex;
   width: 15rem;
   
@@ -72,7 +75,7 @@
   height: auto;
 }
 
-.card h2 {
+.plans_card h2 {
   width: 5.0625rem;
   height: 3.75rem;
   color: #050505;
@@ -85,7 +88,7 @@
 
 }
 
-.card .price {
+.plans_card .price {
   color: #1C4140;
   font-family: Lato;
   font-size: 1.59375rem;
@@ -94,7 +97,7 @@
   line-height: 2.25rem; 
 }
 
-.card .desc {
+.plans_card .desc {
   color: #4B5563;
   font-family: Lato;
   font-size: 0.875rem;
@@ -104,7 +107,7 @@
   text-align: start;
   }
 
-.card .duration {
+.plans_card .duration {
   font-family: Lato;
   font-size: 0.875rem;
   font-style: normal;
@@ -112,7 +115,7 @@
   line-height: 1.875rem; 
 }
 
-.card ul {
+.plans_card ul {
   color: #050505;
   font-family: Lato;
   font-size: 0.875rem;
@@ -122,26 +125,26 @@
   text-align: start;
 }
 
-.card ul li {
+.plans_card ul li {
   font-size: 0.85rem;
   margin-bottom: 0.5rem;
   list-style: none;
 }
-.card-0 {
+.plans_card-0 {
   background: #fff; /* cor do Plano Essencial */
 }
-.card-1 {
+.plans_card-1 {
   background: #1C4140; /* cor do Plano Básico */
 }
-.card-2 {
+.plans_card-2 {
   background: #fff; /* Plano Intermediário */
 }
-.card-3 {
+.plans_card-3 {
   background: #1C4140; /* Plano Avançado */
 }
 
 
-.cta-btn {
+.plans_cta-btn {
     width: 8.1875rem;
     height: 2.625rem;
     position: absolute;
@@ -152,7 +155,7 @@
     background: linear-gradient(180deg, #1C4140 0%, #2A5B5A 100%);
 }
 
-.nav-btn {
+.plans_nav-btn {
   background: none;
   border: none;
   font-size: 1.5rem;
@@ -161,12 +164,12 @@
   padding: 0 1rem;
 }
 
-.left {
+.left-plans {
   position: absolute;
   left: 0;
 }
 
-.right {
+.right-plans {
   position: absolute;
   right: 0;
 }

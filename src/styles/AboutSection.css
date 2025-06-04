@@ -1,18 +1,18 @@
-#mentoring {
+#about {
   scroll-margin-top: 70px;
 }
 
-.mentoring {
+.about {
   width: 100%;
   padding: 60px 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 40px;
-  font-family: 'Playfair Display';
+  font-family: 'Playfair Display', serif;
 }
 
-.mentoring__content {
+.about_content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,13 +20,13 @@
   text-align: center;
 }
 
-.mentoring__content h3 {
+.about_content h3 {
   font-size: 2rem;
   font-weight: 600;
   color: #050505;
 }
 
-.mentoring__content p {
+.about_content p {
   max-width: 31.875rem;
   font-size: 0.875rem;
   font-family: "Lato", sans-serif;
@@ -34,40 +34,40 @@
   color: #050505;
 }
 
-.mentoring__carousel {
+.about_carousel {
   display: flex;
-	padding: 10px;
-	height: auto;
-	width: 100%;
-	gap:15px;
-  overflow-x: hidden;
+  overflow-x: auto; 
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
+  gap: 30px;
+  width: 100%; 
+  max-width: 1200px; 
   padding: 0 24px;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.mentoring__carousel::-webkit-scrollbar {
-  display: none; 
+  margin: 0 auto; 
 }
 
-.mentoring__cards {
-  flex: 0 0 100%;
-	padding: 5px;
-  scroll-snap-align: center;
+.about_carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.about_cards {
+  position: relative;
+  min-width: 200px;
+  max-width: 455px;
   width: 100%;
+  flex: 0 0 auto; 
+  scroll-snap-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 135px;
-  position: relative;
-	border: solid;
+  padding-top: 135px; 
 }
 
-.image-cards {
+.about_cards-image {
   width: 100%;
+  min-width: 200px;
+  max-width: 455px;
   height: 83.32%;
-	
   position: absolute;
   top: 0;
   border-radius: 20px 20px 0 0;
@@ -75,9 +75,11 @@
   z-index: 0;
 }
 
-.mentoring__text-card {
+.about_text-card {
   height: 165px;
-	width: 100%;
+  width: 100%;
+  min-width: 200px;
+  max-width: 455px;
   background-color: white;
   border-radius: 20px;
   padding: 15px;
@@ -85,28 +87,31 @@
   display: flex;
   align-items: center;
   justify-content: center;
-	
   z-index: 1;
-
 }
 
-.mentoring__text-card p {
+.about_text-card p {
   letter-spacing: 0.05em;
-	text-align: center;
-	font-size:12px;
+  text-align: center;
+  font-size: 11px;
 }
 
 /* Layout padrão em telas ≥ 768px */
 @media screen and (min-width: 768px) {
-  .mentoring__carousel {
+  .about_carousel {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 50px;
-    overflow: unset;
+    overflow: visible;
   }
 
-  .mentoring__cards {
+  .about_cards {
+    flex: none;
     width: 100%;
-    max-width: 100%;
+    padding-top: 135px;
   }
+  .about_text-card p {
+  
+  font-size: 13px;
+}
 }

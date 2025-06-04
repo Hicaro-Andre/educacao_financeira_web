@@ -3,6 +3,7 @@
   text-align: center;
   font-family: 'Arial', sans-serif;
   color: #1a1a1a;
+  overflow: hidden;
 }
 
 .depoimentos-container h2 {
@@ -27,7 +28,7 @@
   flex-wrap: nowrap;
 }
 
-.card {
+.cardfeed {
   background: transparent; /* Remove o fundo branco que aparece fora da borda */
   box-shadow: none;        /* Remove a sombra externa */
   cursor: pointer;
@@ -37,12 +38,12 @@
 }
 
 
-.card.grande {
+.cardfeed.grande {
   transform: scale(1.05);
   z-index: 2;
 }
 
-.card.pequeno {
+.cardfeed.pequeno {
   transform: scale(0.92);
   opacity: 0.6;
   z-index: 1;
@@ -61,7 +62,7 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.card.grande .depoimento-card {
+.cardfeed.grande .depoimento-card {
   width: 320px;
 }
 .seta {

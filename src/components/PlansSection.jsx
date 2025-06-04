@@ -72,22 +72,22 @@ function PlansSection (){
   };
 
   return(
-    <section className="mentoria-container" id='plans'>
+    <section className="plans_container" id='plans'>
       <h1>Mentorias e Planos</h1>
-      <p className="subtitle">
+      <p className="plans_subtitle">
         Transforme a realidade financeira do seu casamento com nossas mentorias personalizadas.
       </p>
 
-      <div className="indicator-container">
+      <div className="plans_indicator-container">
         {plans.map((_, idx) => (
-          <div key={idx} className={`indicator ${idx === current ? 'active' : ''}`} />
+          <div key={idx} className={`plans_indicator ${idx === current ? 'active' : ''}`} />
         ))}
       </div>
 
-      <div className="carousel-wrapper">
-        <button className="nav-btn left" onClick={prevSlide}>❮</button>
+      <div className="plans_carousel-wrapper">
+        <button className="plans_nav-btn left-plans" onClick={prevSlide}>❮</button>
 
-        <div className={`card card-${current}`}>
+        <div className={`plans_card plans_card-${current}`}>
           <h2>{plans[current].title}</h2>
           <p className="price">{plans[current].price}</p>
           <p className="type">{plans[current].type}</p>
@@ -98,10 +98,10 @@ function PlansSection (){
               <li key={i}>✔ {item}</li>
             ))}
           </ul>
-          <button className="cta-btn">📅 Agendar Sessão</button>
+          <button className="plans_cta-btn">📅 Agendar Sessão</button>
         </div>
 
-        <button className="nav-btn right" onClick={nextSlide}>❯</button>
+        <button className="plans_nav-btn right-plans" onClick={nextSlide}>❯</button>
       </div>
     </section>
   )

@@ -40,7 +40,7 @@ function NavBar() {
   const menuItems = [
     { id: 'hero', label: 'Home' },
     { id: 'plans', label: 'Planos' },
-    { id: 'mentoring', label: 'Sobre' },
+    { id: 'about', label: 'Sobre' },
     { id: 'principles', label: 'Princípios' },
     { id: 'depoimentos', label: 'Depoimentos' },
   ];
