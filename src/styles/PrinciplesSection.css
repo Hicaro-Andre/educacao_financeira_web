@@ -17,7 +17,6 @@
   	text-align: center;
   	font-size: 16px;
   	color: #050505;
-  	font-family: "Lato", sans-serif;
 }
 .principles__title {
   	align-self: stretch;
@@ -27,7 +26,6 @@
   	align-items: center;
   	justify-content: center;
   	font-size: 32px;
-  	font-family: 'Playfair Display';
 }
 .principles__title h3 {
   	flex: 1;
@@ -152,12 +150,10 @@
 }
 #diferencial {
   	font-weight: 600;
-  	font-family: "Lato", sans-serif;
     font-size: 1.25rem;
 }
 #oferecemos {
   	font-weight: 600;
-  	font-family: "Lato", sans-serif;
 }
 .principles__topicos {
   	align-self: stretch;

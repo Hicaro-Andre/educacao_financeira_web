@@ -68,7 +68,6 @@ header {
   text-decoration: none;
   color: #1C4140;
   text-align: center;
-  font-family: "Inter", sans-serif;
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 600;
@@ -111,7 +110,6 @@ header {
     width: 100%;
     box-sizing: border-box;
     color: #fff;
-    font-family: "Lato", sans-serif;
   }
   .nav {
     display: flex;
@@ -148,7 +146,6 @@ header {
     display: block;
     max-width: 100%;
     flex: 1 1 auto;
-    font-family: "Lato", sans-serif;
     font-weight: 700;
     line-height: 1.5rem;
     font-style: normal;

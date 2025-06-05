@@ -18,14 +18,12 @@
 }
 
 .blog__container-title h3 {
-  font-family: 'Playfair Display';
   font-size: 1.5rem;
   font-weight: 600;
   line-height: 2.25rem;
 }
 
 .blog__container-title p {
-  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.5rem;
@@ -54,14 +52,12 @@
 }
 
 .blog__card-text h3 {
-  font-family: 'Playfair Display';
   font-size: 1.25rem;
   font-weight: 600;
   line-height: 1.75rem;
 }
 
 .blog__card-text p {
-  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.5rem;

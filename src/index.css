@@ -14,3 +14,10 @@ body{
   overflow-x: hidden;
   background: linear-gradient(270deg, #FFFFFF 0%, #FFF6D1 50%, #FAEAA5 100%);
 }
+
+h1, h3 {
+  font-family: "Playfair Display"
+}
+h2 , p , li ,a{
+  font-family: "Lato", sans-serif;
+}
