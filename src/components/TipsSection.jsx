@@ -8,7 +8,7 @@ import livro3 from '../assets/images/dicas/livro3.png';
 function TipsSection() {
   const booksRef = useRef(null);
 
-  useEffect(() => {
+useEffect(() => {
   const container = booksRef.current;
   if (!container) return;
 
@@ -17,27 +17,47 @@ function TipsSection() {
 
   let scrollAmount = 0;
   const scrollStep = 280 + 16;
+  let intervalId;
 
-  const delay = setTimeout(() => {
-    const interval = setInterval(() => {
-      scrollAmount += scrollStep;
+  const startAutoScroll = () => {
+    intervalId = setInterval(() => {
+      if (!container) return;
 
-      if (scrollAmount >= container.scrollWidth - container.clientWidth) {
+      const maxScroll = container.scrollWidth - container.clientWidth;
+
+      if (scrollAmount + scrollStep >= maxScroll) {
         scrollAmount = 0;
+        container.scrollTo({ left: 0, behavior: 'smooth' });
+        return;
       }
 
-      container.scrollTo({
-        left: scrollAmount,
-        behavior: 'smooth',
-      });
+      scrollAmount += scrollStep;
+      container.scrollTo({ left: scrollAmount, behavior: 'smooth' });
     }, 3000);
+  };
 
-    // Cleanup
-    return () => clearInterval(interval);
-  }, 500); // Espera 500ms antes de começar o auto scroll
+  // Start scrolling after small delay
+  const delayTimeout = setTimeout(() => {
+    startAutoScroll();
+  }, 500);
 
-  return () => clearTimeout(delay);
+  // Stop auto scroll on user interaction
+  const handleUserScroll = () => {
+    clearInterval(intervalId);
+    clearTimeout(delayTimeout);
+  };
+
+  container.addEventListener('touchstart', handleUserScroll);
+  container.addEventListener('wheel', handleUserScroll);
+
+  return () => {
+    clearInterval(intervalId);
+    clearTimeout(delayTimeout);
+    container.removeEventListener('touchstart', handleUserScroll);
+    container.removeEventListener('wheel', handleUserScroll);
+  };
 }, []);
+
 
   const books = [
     {
