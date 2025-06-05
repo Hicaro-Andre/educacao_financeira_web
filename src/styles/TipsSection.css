@@ -44,7 +44,7 @@
   
   display: flex;
   overflow-x: auto;
-  
+  scroll-snap-type: x mandatory;
   gap: 1rem;
   padding: 0 16px;
   width: 100%;
@@ -60,13 +60,14 @@
 
 .books {
   flex: 0 0 auto;
-  min-width: 280px; /* importante! */
+ min-width: 280px ;
   scroll-snap-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
   justify-content: center;
+  border: solid;
 }
 
 .books__images {
