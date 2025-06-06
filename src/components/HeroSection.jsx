@@ -8,6 +8,7 @@ function HeroSection(){
 
   return(
     <section className="hero" id="hero">
+      <div className="overlay-image" />
       <div className="hero__content">
         <div className="hero_title">
           <h1>Educação Financeira Pessoal e Familiar</h1>

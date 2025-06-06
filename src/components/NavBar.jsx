@@ -3,6 +3,7 @@ import logo from '../assets/images/navbar/logo.svg';
 import '../styles/NavBar.css';
 
 function NavBar() {
+  
   const mobileMenuRef = useRef(null);
   const [activeLink, setActiveLink] = useState('');
 
