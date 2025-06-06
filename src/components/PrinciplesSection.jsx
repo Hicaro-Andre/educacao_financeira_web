@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import "../styles/PrinciplesSection.css";
 import giseliImage from '../assets/images/principles/foto-giseli.png';
 
@@ -6,112 +6,63 @@ function PrinciplesSection() {
   const principles = [
     {
       title: "Administração Responsável",
-      description: "Ensinamos a gestão consciente dos recursos como mordomia dada por Deus."
+      description: "Acreditamos que os recursos são uma responsabilidade dada por Deus. Nossa abordagem foca na mordomia fiel, ajudando casais a gerenciar suas finanças com sabedoria e alinhados aos princípios cristãos, promovendo unidade no casamento."
     },
+ {
+      title: "Planejamento com Propósito",
+      description: "Nosso planejamento vai além das finanças tradicionais, ajudando casais a alcançar uma prosperidade equilibrada alinhada aos valores cristãos, evitando o endividamento e buscando um futuro sustentável."
+    },
+
     {
       title: "Generosidade",
-      description: "Cultivamos o hábito de compartilhar como expressão de gratidão e fé."
-    },
-    {
-      title: "Planejamento com Propósito",
-      description: "Guiamos na criação de metas financeiras alinhadas com valores cristãos."
+      description: "Ensinamos que a generosidade é uma expressão de fé e gratidão, que fortalece o relacionamento e cria um legado duradouro. Ao invés de apenas focar no acúmulo de bens, mostramos como a generosidade traz prosperidade tanto material quanto espiritual."
     }
+   
   ];
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const trackRef = useRef(null);
-
-  useEffect(() => {
-  const mediaQuery = window.matchMedia('(max-width: 600px)');
-  if (!mediaQuery.matches) return;
-
-  const interval = setInterval(() => {
-    setCurrentIndex(prev => (prev + 1) % principles.length);
-  }, 4000);
-
-  return () => clearInterval(interval);
-}, [principles.length]);
-
-useEffect(() => {
-  const mediaQuery = window.matchMedia('(max-width: 787px)');
-  if (!mediaQuery.matches) return;
-
-  const track = trackRef.current;
-  if (track) {
-    track.style.transform = `translateX(-${currentIndex * 100}%)`;
-  }
-}, [currentIndex]);
-
-  
 
   return (
     <section className="principles" id="principles">
       <div className="principles__title">
-        <h3>Nossos Princípios Financeiros Cristãos:</h3>
+        <h3>Nossos Princípios Financeiros Cristãos</h3>
       </div>
 
-      <div className="principles__sub-title">
-        <div className="principles__carrossel">
-          <div className="principles__carrossel__track" ref={trackRef}>
-            {principles.map((principle, index) => (
-              <div className="principles__content-card" key={index}>
-                <h3>{principle.title}</h3>
-                <p>{principle.description}</p>
-              </div>
-            ))}
+      <div className="principles__cards">
+        {principles.map((principle, index) => (
+          <div className="principles__card-item" key={index}>
+            <h3>{principle.title}</h3>
+            <p>{principle.description}</p>
           </div>
-        </div>
+        ))}
       </div>
 
       <div className="principles__content">
-        <div className="principles__card">
-          <div className="principles__perfil">
-            <img
-              className="perfil-foto"
-              alt="Giseli Almeida"
-              src={giseliImage}
-            />
-            <p>Giseli Almeida</p>
+        <div className="principles__perfil">
+          <img className="perfil-foto" alt="Giseli Almeida" src={giseliImage} />
+          <p>Giseli Almeida</p>
+        </div>
+
+        <div className="principles__container">
+          <div className="principles__diferencial">
+            <span id="diferencial">Nosso diferencial</span>
+            <p>
+              está em integrar princípios bíblicos à educação financeira,
+              proporcionando uma abordagem única que fortalece tanto a vida
+              financeira quanto o relacionamento do casal.
+            </p>
+            <p id='oferecemos'>Oferecemos</p>
           </div>
 
-          <div className="principles__container">
-            <div className="principles__diferencial">
-              <div className="principles__diferencial-container">
-                <span id="diferencial">Nosso diferencial</span>
-                <p>
-                  está em integrar princípios bíblicos à educação financeira,
-                  proporcionando uma abordagem única que fortalece tanto a vida
-                  financeira quanto o relacionamento do casal.
-                  <span id="oferecemos">Oferecemos:</span>
-                </p>
-              </div>
-            </div>
+          <ul className="principles__lista">
+            <li>Abordagem personalizada, adaptada às necessidades do casal.</li>
+            <li>Foco na unidade do casamento, ajudando a tomar decisões financeiras juntos.</li>
+            <li>Legado duradouro, criando um futuro próspero e alinhado com os valores cristãos.</li>
+          </ul>
 
-            <div className="principles__topicos">
-              <div className="principles__diferencial-container">
-                <ul>
-                  <li className="foco-na-unidade">
-                    Abordagem personalizada, adaptada às necessidades do casal.
-                  </li>
-                  <li className="foco-na-unidade">
-                    Foco na unidade do casamento, ajudando a tomar decisões
-                    financeiras juntos.
-                  </li>
-                  <li>
-                    Legado duradouro, criando um futuro próspero e alinhado com
-                    os valores cristãos.
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="principles__metodologia">
-              <p>
-                A nossa metodologia transforma não apenas as finanças, mas
-                também fortalece o casamento, promovendo um crescimento
-                espiritual e familiar.
-              </p>
-            </div>
+          <div className="principles__metodologia">
+            <p>
+              A nossa metodologia transforma não apenas as finanças, mas também fortalece o casamento,
+              promovendo um crescimento espiritual e familiar.
+            </p>
           </div>
         </div>
       </div>

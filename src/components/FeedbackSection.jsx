@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import "../styles/FeedbackSection.css";
 
@@ -57,12 +58,8 @@ function FeedbackSection() {
       const largura = window.innerWidth;
       if (largura >= 1400) {
         setCardsVisiveis(5);
-      } else if (largura >= 1200) {
-        setCardsVisiveis(4);
-      } else if (largura >= 990) {
+      } else if (largura >= 768) {
         setCardsVisiveis(3);
-      } else if (largura >= 700) {
-        setCardsVisiveis(2);
       } else {
         setCardsVisiveis(1);
       }
@@ -97,20 +94,20 @@ function FeedbackSection() {
           className={`cardfeed ${isAtual ? "grande" : "pequeno"}`}
         >
           {isAtual && (
-            <button className="seta seta-esq" onClick={anterior}>❮</button>
+            <button className="arrow arrow-esq" onClick={anterior}>❮</button>
           )}
 
-          <div className="depoimento-card">
-            <p className="destaque">"{depoimentos[index].destaque}"</p>
-            <p className="texto">"{depoimentos[index].texto}"</p>
-            <div className="autor">
+          <div className="feedback_depoimento-card">
+            <p className="feedback_destaque">"{depoimentos[index].destaque}"</p>
+            <p className="feedback_texto">"{depoimentos[index].texto}"</p>
+            <div className="feedback_autor">
               <img src={depoimentos[index].imagem} alt="Foto do casal" />
               <p><strong>{depoimentos[index].autor}</strong></p>
             </div>
           </div>
 
           {isAtual && (
-            <button className="seta seta-dir" onClick={proximo}>❯</button>
+            <button className="arrow arrow-dir" onClick={proximo}>❯</button>
           )}
         </div>
       );
@@ -120,16 +117,16 @@ function FeedbackSection() {
   };
 
   return (
-    <section className="depoimentos-container" id="depoimentos">
+    <section className="feedback_container" id="feedback">
       <h2>O Que Nossos Casais Dizem:</h2>
-      <p className="intro">
+      <p className="feedback-subtitle">
         Os casais que passaram pela nossa mentoria compartilham histórias de
         transformação, não apenas financeira, mas também de unidade, paz e
         propósito em seus casamentos. Se você está pronto para escrever sua
         própria história de sucesso, entre em contato conosco.
       </p>
 
-      <div className="carrossel">
+      <div className="feed_carrossel">
         {getCardsVisiveis()}
       </div>
     </section>

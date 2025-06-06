@@ -1,16 +1,16 @@
-.depoimentos-container {
+.feedback_container {
   padding: 2rem 1rem;
   text-align: center;
   color: #1a1a1a;
   overflow: hidden;
 }
 
-.depoimentos-container h2 {
+.feedback_container h2 {
   font-size: 1.4rem;
   margin-bottom: 0.5rem;
 }
 
-.intro {
+.feedback-subtitle {
   font-size: 0.85rem;
   color: #555;
   max-width: 85%;
@@ -18,18 +18,21 @@
   line-height: 1.4;
 }
 
-.carrossel {
+.feed_carrossel {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 2rem;
   position: relative;
   flex-wrap: nowrap;
+  overflow: hidden;
+  padding: 10px;
+  width: 100%;
 }
 
 .cardfeed {
-  background: transparent; /* Remove o fundo branco que aparece fora da borda */
-  box-shadow: none;        /* Remove a sombra externa */
+  background: transparent; 
+  box-shadow: none;        
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -40,16 +43,23 @@
 .cardfeed.grande {
   transform: scale(1.05);
   z-index: 2;
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  box-sizing: border-box;
 }
 
 .cardfeed.pequeno {
   transform: scale(0.92);
   opacity: 0.6;
   z-index: 1;
-  height: 210px;
+  min-width: 300px;
+  width: 310px;
+  max-width: 360px;
+  height: 230px;
 }
 
-.depoimento-card {
+.feedback_depoimento-card {
   background: white; /* Borda e fundo reais do card */
   border: 2px solid var(--ouro-2, rgba(125, 96, 0, 0.71));
   border-radius: 1rem;
@@ -61,10 +71,10 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.cardfeed.grande .depoimento-card {
+.cardfeed.grande .feedback_depoimento-card {
   width: 320px;
 }
-.seta {
+/* .seta {
   background: none;
   border: none;
   font-size: 2rem;
@@ -77,24 +87,56 @@
   stroke-width: 3px;
   stroke: rgba(125, 96, 0, 0.71);
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+} */
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(125, 96, 0, 0.71);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
 }
 
-.seta-esq {
+.arrow:hover {
+  background: rgba(255, 255, 255, 1);
+}
+
+.arrow-esq {
+  left: 10px;
+}
+
+.arrow-dir {
+  right: 10px;
+}
+
+/* .seta-esq {
   left: -2rem;
 }
 
 .seta-dir {
   right: -2rem;
-}
+} */
 
-.destaque {
+.feedback_destaque {
   font-weight: bold;
   font-style: italic;
   margin-bottom: 0.8rem;
   font-size: 0.95rem;
 }
 
-.texto {
+.feedback_texto {
   font-size: 0.85rem;
   margin-bottom: 1rem;
   color: #050505;
@@ -105,7 +147,7 @@
   line-height: normal;
 }
 
-.autor {
+.feedback_autor {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -119,31 +161,3 @@
   object-fit: cover;
 }
 
-/* Responsivo */
-/* @media (min-width: 500px) {
-  .depoimento-card {
-    max-width: 340px;
-    padding: 2rem;
-  }
-
-  .destaque {
-    font-size: 1.2rem;
-  }
-
-  .texto {
-    font-size: 1rem;
-  }
-
-  .autor img {
-    width: 48px;
-    height: 48px;
-  }
-
-  .seta-esq {
-    left: -2rem;
-  }
-
-  .seta-dir {
-    right: -2rem;
-  }
-} */

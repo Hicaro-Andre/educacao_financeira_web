@@ -42,7 +42,7 @@ function NavBar() {
     { id: 'plans', label: 'Planos' },
     { id: 'about', label: 'Sobre' },
     { id: 'principles', label: 'Princípios' },
-    { id: 'depoimentos', label: 'Depoimentos' },
+    { id: 'feedback', label: 'Depoimentos' },
   ];
 
   return (

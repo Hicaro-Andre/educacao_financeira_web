@@ -8,6 +8,7 @@
   padding-top: 50px;
   height: auto;
   overflow: hidden;
+  position: relative;
 }
 
 .hero__content{
@@ -155,3 +156,6 @@
 .btn_hero {
   animation-delay: 0.5s;
 }
+
+
+

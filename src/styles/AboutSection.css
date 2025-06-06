@@ -9,6 +9,7 @@
   flex-direction: column;
   align-items: center;
   gap: 40px;
+  position: relative;
 }
 
 .about_content {
@@ -32,18 +33,19 @@
   color: #050505;
 }
 
+/* Carrossel responsivo com scroll manual */
 .about_carousel {
   display: flex;
-  justify-content: center; /* centraliza os cards no espaço disponível */
-  overflow-x: auto; 
+  overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   gap: 30px;
-  width: 100%; 
-  max-width: 1200px; 
+  width: 100%;
+  max-width: 1200px;
   padding: 20px;
   margin: 0 auto;
   box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
 }
 
 .about_carousel::-webkit-scrollbar {
@@ -55,14 +57,14 @@
   min-width: 250px;
   max-width: 455px;
   width: 100%;
-  flex: 0 0 auto; 
+  flex: 0 0 auto;
   scroll-snap-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 135px; 
-  transition: transform 0.4s ease;
+  padding-top: 135px;
   margin: 0 auto;
+  transition: transform 0.4s ease;
 }
 
 .about_cards-image {
@@ -77,9 +79,11 @@
   z-index: 0;
   transition: transform 0.4s ease;
 }
+
 .about_cards:hover .about_cards-image {
   transform: translateY(-20px);
 }
+
 .about_text-card {
   height: 165px;
   width: 100%;
@@ -101,7 +105,27 @@
   font-size: 11px;
 }
 
-/* Layout padrão em telas ≥ 768px */
+/* Indicadores de navegação (bolinhas) */
+.about_indicators {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #d1d1d1;
+  transition: background 0.3s;
+}
+
+.dot.active {
+  background: #333;
+}
+
+/* Layout para telas maiores (desktop/tablet) */
 @media screen and (min-width: 768px) {
   .about_carousel {
     display: grid;
@@ -115,8 +139,13 @@
     width: 100%;
     padding-top: 135px;
   }
+
   .about_text-card p {
-  
-  font-size: 13px;
+    font-size: 13px;
+  }
+
+  .about_indicators {
+    display: none; /* Oculta as bolinhas no desktop */
+  }
 }
-}
+
