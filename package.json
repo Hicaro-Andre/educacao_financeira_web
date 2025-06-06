@@ -27,6 +27,9 @@
   "dependencies": {
  
    
+  "modern-normalize": "^3.0.1",
+ 
+   
   "react": "^19.1.0",
  
    
