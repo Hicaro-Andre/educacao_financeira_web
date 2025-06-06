@@ -1,4 +1,6 @@
 //* componente pai
+import wpp from "../assets/images/globals_btn/wpp.svg"
+import topo from "../assets/images/globals_btn/topo.svg"
 
 
 //* Importar o componente filho
@@ -23,6 +25,10 @@ function Home() {
       <FeedbackSection/>
       <TipsSection/>
       <Footer/>
+      {/* <div className="floating-buttons">
+        <img src={wpp} alt="Botão 1" className="floating-icon" />
+        <img src={topo} alt="Botão 2" className="floating-icon" />
+      </div> */}
     </>
   );
 }

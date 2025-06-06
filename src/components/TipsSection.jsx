@@ -19,10 +19,7 @@ function TipsSection() {
     let currentIndex = 0;
 
     const scrollToBook = (index) => {
-      const bookWidth = container.querySelector('.books')?.offsetWidth || 280;
-      const gap = 16;
-      const scrollLeft = index * (bookWidth + gap);
-
+      const scrollLeft = index * container.offsetWidth;
       container.scrollTo({
         left: scrollLeft,
         behavior: 'smooth',

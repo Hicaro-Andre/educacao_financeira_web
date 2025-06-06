@@ -1,23 +1,20 @@
-/* CSS (TipsSection.css)
-============================= */
-
-/* Base */
 .dicas {
   width: 100%;
   background-color: #fffdf9;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 60px 24px;
+  padding: 60px 0;
   gap: 50px;
   text-align: center;
   font-size: 32px;
   color: #050505;
-  box-sizing: border-box;
   overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .dicas__content {
+  padding: 0 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,11 +39,10 @@
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  gap: 1rem;
-  padding: 0 16px;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
   width: 100%;
   box-sizing: border-box;
-  -webkit-overflow-scrolling: touch;
 }
 
 .dicas__books::-webkit-scrollbar {
@@ -54,57 +50,57 @@
 }
 
 .books {
-  flex: 0 0 auto;
-  min-width: 250px ;
+  flex: 0 0 100%;
   scroll-snap-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
   justify-content: center;
-  margin: 0 auto;
+  padding: 24px;
+  box-sizing: border-box;
 }
 
 .books__images {
   width: 150px;
+  max-width: 250px;
   height: 200px;
   object-fit: cover;
   border-radius: 10px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition: transform 0.4s ease;
 }
-.books__images:hover{
-   transform: scale(1.05);
+
+.books__images:hover {
+  transform: scale(1.05);
 }
 
 .books__text {
   font-size: 0.9rem;
   text-align: center;
   color: #333;
-  max-width: 220px;
-  padding: 0 10px;
+  max-width: 260px;
+  margin-top: 12px;
+  padding: 0 12px;
 }
 
-/* Desktop */
-@media (min-width: 450px) {
+/* Desktop: mostra vários */
+@media (min-width: 768px) {
   .dicas {
     padding: 80px 60px;
     gap: 60px;
-    font-size: 34px;
   }
 
   .dicas__books {
+    flex-wrap: wrap;
     overflow: visible;
     scroll-snap-type: none;
-    flex-wrap: wrap;
     justify-content: center;
-    padding: 0 60px;
-    gap: 48px 60px;
+    gap: 40px;
+    padding: 0 40px;
   }
 
   .books {
-    width: 100%;
+    flex: 0 0 auto;
     max-width: 240px;
-    height: auto;
   }
 
   .books__text {
@@ -115,14 +111,14 @@
 
 @media (min-width: 1024px) {
   .dicas {
-    padding: 100px 100px;
+    padding: 100px;
     gap: 70px;
     font-size: 36px;
   }
 
   .dicas__books {
+    gap: 60px;
     padding: 0 100px;
-    gap: 60px 80px;
   }
 
   .books {
