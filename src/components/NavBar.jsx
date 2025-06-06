@@ -18,24 +18,24 @@ function NavBar() {
     }
   };
 
-  useEffect(() => {
-    const sections = document.querySelectorAll('section[id]');
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            setActiveLink(entry.target.id);
-          }
-        });
-      },
-      {
-        threshold: 0.6, // quanto da seção precisa estar visível
-      }
-    );
+  // useEffect(() => {
+  //   const sections = document.querySelectorAll('section[id]');
+  //   const observer = new IntersectionObserver(
+  //     entries => {
+  //       entries.forEach(entry => {
+  //         if (entry.isIntersecting) {
+  //           setActiveLink(entry.target.id);
+  //         }
+  //       });
+  //     },
+  //     {
+  //       threshold: 0.6,
+  //     }
+  //   );
 
-    sections.forEach(section => observer.observe(section));
-    return () => sections.forEach(section => observer.unobserve(section));
-  }, []);
+  //   sections.forEach(section => observer.observe(section));
+  //   return () => sections.forEach(section => observer.unobserve(section));
+  // }, []);
 
   const menuItems = [
     { id: 'hero', label: 'Home' },

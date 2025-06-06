@@ -111,6 +111,10 @@
   	max-height: 260.44px;
   	object-fit: cover;
   	max-width: 215px;
+		transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.perfil-foto:hover{
+   transform: scale(1.05);
 }
 .principles__perfil p{
     align-self: stretch;

@@ -72,21 +72,16 @@ header {
   font-style: normal;
   font-weight: 600;
   line-height: 1.875rem; /* 214.286% */ 
-
   position: relative;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
   transition: color 0.3s;
 }
-.nav li a.active::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 70%;
-  height: 2px;
-  background-color: #1C4140;
-  transition: width 0.3s ease;
+.nav li a:hover {
+  text-decoration: underline;
+  /* background-color: #fff; */
+  /* color: #1C4140; */
 }
+
 
 /*! Responsivo do Menu */
 @media (min-width: 769px) {
@@ -152,6 +147,13 @@ header {
     font-size: 1rem; 
     color: #ffff;
   }
+   .nav li a:hover {
+    text-decoration: underline;
+  }
+   .nav li a:active {
+    text-decoration: underline;
+  }
+ 
   .logo {
     flex: 0 0 auto;
     min-width: 100px;
