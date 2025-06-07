@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"
 import "../styles/PlansSection.css";
 
 const plans = [
@@ -64,6 +65,16 @@ const plans = [
 
 function PlansSection() {
   const [current, setCurrent] = useState(0);
+  const navigate = useNavigate();
+
+  const handleAgendar = () => {
+    navigate("/agenda", {
+      state: { selectedPlan: plans[current] },
+    });
+  };
+   const handleScheduleClick = () => {
+    navigate("/agenda");
+  };
 
   const nextSlide = () => {
     setCurrent((prev) => (prev + 1) % plans.length);
@@ -139,41 +150,42 @@ function PlansSection() {
             ))}
           </ul>
 
-          <button className="plans_cta-btn">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="14.031"
-              height="18"
-              viewBox="0 0 15 18"
-              fill="none"
-              className="plans_cta-icon"
-            >
-              <path
-                d="M5.17709 1.5V4.5"
-                stroke="white"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M9.85416 1.5V4.5"
-                stroke="white"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M11.6081 3H3.42318C2.77741 3 2.25391 3.67157 2.25391 4.5V15C2.25391 15.8284 2.77741 16.5 3.42318 16.5H11.6081C12.2538 16.5 12.7773 15.8284 12.7773 15V4.5C12.7773 3.67157 12.2538 3 11.6081 3Z"
-                stroke="white"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M2.25391 7.5H12.7773"
-                stroke="white"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            <span className="plans_cta-text">
+          <button className="plans_cta-btn" onClick={handleAgendar}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14.031"
+                height="18"
+                viewBox="0 0 15 18"
+                fill="none"
+                className="plans_cta-icon"
+              >
+                {" "}
+                <path
+                  d="M5.17709 1.5V4.5"
+                  stroke="white"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />{" "}
+                <path
+                  d="M9.85416 1.5V4.5"
+                  stroke="white"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />{" "}
+                <path
+                  d="M11.6081 3H3.42318C2.77741 3 2.25391 3.67157 2.25391 4.5V15C2.25391 15.8284 2.77741 16.5 3.42318 16.5H11.6081C12.2538 16.5 12.7773 15.8284 12.7773 15V4.5C12.7773 3.67157 12.2538 3 11.6081 3Z"
+                  stroke="white"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />{" "}
+                <path
+                  d="M2.25391 7.5H12.7773"
+                  stroke="white"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />{" "}
+              </svg>
+            <span className="plans_cta-text" onClick={handleScheduleClick}>
               Agendar
               <br />
               Sessão

@@ -86,7 +86,7 @@ function NavBar() {
             ))}
             <li>
               <a
-                href="/blog"
+                href="/agenda"
                 className="menu-link"
                 onClick={closeMenu}
               >

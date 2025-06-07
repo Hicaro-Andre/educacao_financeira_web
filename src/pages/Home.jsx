@@ -11,6 +11,7 @@ import PrinciplesSection from "../components/PrinciplesSection";
 import FeedbackSection from "../components/FeedbackSection";
 import TipsSection from "../components/TipsSection";
 import Footer from "../components/Footer";
+import Degrade from "../components/Degrade";
 
 function Home() {
    // Função para voltar ao topo suavemente
@@ -24,10 +25,15 @@ function Home() {
     <>
       <NavBar />
       <HeroSection />
+      <Degrade />
       <PlansSection />
+      <Degrade />
       <AboutSection />
+      <Degrade />
       <PrinciplesSection />
+      <Degrade />
       <FeedbackSection />
+      <Degrade />
       <TipsSection />
       <Footer />
 

@@ -54,6 +54,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  border: solid;
 }
 
 .plans_card {
@@ -71,6 +73,8 @@
 
   min-height: 27.625rem; 
   height: auto;
+
+  border: solid 2px red;
 }
 
 .plans_card h2 {
@@ -218,3 +222,4 @@
   position: absolute;
   right: 0;
 }
+
