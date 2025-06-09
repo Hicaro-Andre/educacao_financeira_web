@@ -1,11 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import logo from '../assets/images/navbar/logo.svg';
 import '../styles/NavBar.css';
 
 function NavBar() {
-  
   const mobileMenuRef = useRef(null);
-  const [activeLink, setActiveLink] = useState('');
 
   const toggleMenu = () => {
     if (mobileMenuRef.current) {
@@ -19,31 +17,11 @@ function NavBar() {
     }
   };
 
-  // useEffect(() => {
-  //   const sections = document.querySelectorAll('section[id]');
-  //   const observer = new IntersectionObserver(
-  //     entries => {
-  //       entries.forEach(entry => {
-  //         if (entry.isIntersecting) {
-  //           setActiveLink(entry.target.id);
-  //         }
-  //       });
-  //     },
-  //     {
-  //       threshold: 0.6,
-  //     }
-  //   );
-
-  //   sections.forEach(section => observer.observe(section));
-  //   return () => sections.forEach(section => observer.unobserve(section));
-  // }, []);
-
   const menuItems = [
-    { id: 'hero', label: 'Home' },
-    { id: 'plans', label: 'Planos' },
-    { id: 'about', label: 'Sobre' },
-    { id: 'principles', label: 'Princípios' },
-    { id: 'feedback', label: 'Depoimentos' },
+    { path: '/', label: 'Home' },
+    { path: '/about', label: 'Sobre' },
+    { path: '/plans', label: 'Planos' },
+    { path: '/blog', label: 'Blog' },
   ];
 
   return (
@@ -74,25 +52,16 @@ function NavBar() {
           </svg>
           <ul>
             {menuItems.map(item => (
-              <li key={item.id}>
+              <li key={item.path}>
                 <a
-                  href={`#${item.id}`}
-                  className={`menu-link ${activeLink === item.id ? 'active' : ''}`}
+                  href={item.path}
+                  className="menu-link"
                   onClick={closeMenu}
                 >
                   {item.label}
                 </a>
               </li>
             ))}
-            <li>
-              <a
-                href="/agenda"
-                className="menu-link"
-                onClick={closeMenu}
-              >
-                Blog
-              </a>
-            </li>
           </ul>
         </nav>
       </div>

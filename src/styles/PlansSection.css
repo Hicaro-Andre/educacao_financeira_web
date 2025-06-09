@@ -5,7 +5,6 @@
   overflow: hidden;
   min-height: auto;
   padding-top: 80px;
- 
 }
 .plans_container h1{
   color: #050505;
@@ -193,6 +192,7 @@
   display: inline-block;
   text-align: center;
   white-space: pre-line;
+  cursor:pointer;
 }
 .plans_card-1 .plans_cta-icon path,
 .plans_card-3 .plans_cta-icon path {

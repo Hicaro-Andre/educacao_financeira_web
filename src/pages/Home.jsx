@@ -5,13 +5,11 @@ import topo from "../assets/images/globals_btn/topo.svg";
 //* Importar o componente filho
 import NavBar from "../components/NavBar";
 import HeroSection from "../components/HeroSection";
-import PlansSection from "../components/PlansSection";
-import AboutSection from "../components/AboutSection";
-import PrinciplesSection from "../components/PrinciplesSection";
-import FeedbackSection from "../components/FeedbackSection";
 import TipsSection from "../components/TipsSection";
 import Footer from "../components/Footer";
 import Degrade from "../components/Degrade";
+import Benefits from "../components/Benefits";
+import Introduction from "../components/Introduction";
 
 function Home() {
    // Função para voltar ao topo suavemente
@@ -25,15 +23,9 @@ function Home() {
     <>
       <NavBar />
       <HeroSection />
-      <Degrade />
-      <PlansSection />
-      <Degrade />
-      <AboutSection />
-      <Degrade />
-      <PrinciplesSection />
-      <Degrade />
-      <FeedbackSection />
-      <Degrade />
+      <Introduction />
+      {/* <Degrade /> */}
+      <Benefits/>
       <TipsSection />
       <Footer />
 

@@ -1,0 +1,124 @@
+/* Estilo Mobile-First */
+.para-voce-container {
+  font-family: 'Arial', sans-serif;
+  max-width: 100%;
+  padding: 20px;
+  margin: 0 auto;
+  color: #333;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.section-header h2 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.negative-header h2 {
+  color: #e74c3c;
+}
+
+.benefits-list {
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.positive {
+  background-color: #f8f9fa;
+  border-left: 5px solid #2ecc71;
+}
+
+.negative {
+  background-color: #f8f9fa;
+  border-left: 5px solid #e74c3c;
+}
+
+.benefits-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.benefits-list li {
+  padding: 10px 0;
+  position: relative;
+  padding-left: 30px;
+  line-height: 1.5;
+}
+
+.positive li:before {
+  content: "✓";
+  color: #2ecc71;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.negative li:before {
+  content: "✗";
+  color: #e74c3c;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.cta-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.cta-button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+  font-weight: bold;
+}
+
+.cta-button:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(52, 152, 219, 0.4);
+}
+
+/* Media Queries para tablets e desktops */
+@media (min-width: 768px) {
+  .para-voce-container {
+    max-width: 700px;
+    padding: 30px;
+  }
+
+  .benefits-list {
+    padding: 25px 30px;
+  }
+
+  .section-header h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .para-voce-container {
+    max-width: 900px;
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .section-header {
+    grid-column: span 2;
+  }
+}
