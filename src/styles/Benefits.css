@@ -1,5 +1,5 @@
 /* Estilo Mobile-First */
-.para-voce-container {
+.benefits {
   font-family: 'Arial', sans-serif;
   max-width: 100%;
   padding: 20px;
@@ -67,7 +67,7 @@
   font-weight: bold;
 }
 
-.cta-container {
+/* .cta-container {
   text-align: center;
   margin-top: 30px;
 }
@@ -89,7 +89,7 @@
   background-color: #2980b9;
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(52, 152, 219, 0.4);
-}
+} */
 
 /* Media Queries para tablets e desktops */
 @media (min-width: 768px) {

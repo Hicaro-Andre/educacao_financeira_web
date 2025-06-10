@@ -3,7 +3,7 @@ import '../styles/Benefits.css';
 
 const Benefits = () => {
   return (
-    <div className="para-voce-container">
+    <div className="benefits">
       <div className="section-header">
         <h2>Para você se...</h2>
       </div>
@@ -30,10 +30,6 @@ const Benefits = () => {
           <li>Busca apenas soluções mágicas sem esforço pessoal</li>
           <li>Não está disposto a seguir um plano financeiro</li>
         </ul>
-      </div>
-
-      <div className="cta-container">
-        <button className="cta-button">Começar agora mesmo</button>
       </div>
     </div>
   );

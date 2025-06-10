@@ -1,114 +1,31 @@
-/* Mobile First */
-
 .mentoria {
-  display: flex;
-  height: auto;
-  flex-direction: column;
-  gap: 2rem;
-  padding: 1.5rem;
-  background: linear-gradient(to right, #fffbe7, #fff);
-}
-
-.mentoria-texto {
+  padding: 2rem 1rem;
+  background-color: #f9fafb;
   text-align: center;
-  max-width: 600px;
-  margin: 0 auto;
 }
 
-.mentoria h2 {
-  font-size: 1.8rem;
-  color: #163535;
-  margin-bottom: 0.8rem;
+.mentoria-texto h2 {
+  font-size: 2rem;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
 }
 
-.mentoria p {
+.mentoria-texto p {
   font-size: 1rem;
-  color: #333;
-  line-height: 1.5;
+  color: #4b5563;
+  max-width: 600px;
+  margin: 0 auto 2rem;
 }
 
-.mentoria-cards {
+.imagem-completa-container {
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  justify-content: center;
 }
 
-.card {
-  position: relative;
-  border-radius: 1rem;
-  overflow: hidden;
-}
-
-.card img {
+.imagem-completa {
   width: 100%;
+  max-width: 800px;
   height: auto;
-  display: block;
-}
-
-.balao {
-  position: absolute;
-  background: #0b4e4e;
-  color: #fff;
-  font-size: 0.85rem;
-  padding: 0.8rem 1rem;
-  border-radius: 1rem;
-  max-width: 90%;
-  line-height: 1.4;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.balao strong {
-  font-size: 1.1rem;
-}
-
-.balao-top {
-  top: 10px;
-  left: 10px;
-}
-
-.balao-top-right {
-  top: 10px;
-  right: 10px;
-  background: #0b4e4e;
-}
-
-.balao-bottom-left {
-  bottom: 10px;
-  left: 10px;
-  background: #ffffff;
-  color: #163535;
-  font-weight: 600;
-}
-
-.balao-bottom {
-  bottom: 10px;
-  right: 10px;
-}
-
-/* Desktop */
-@media (min-width: 768px) {
-  .mentoria {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .mentoria-texto {
-    text-align: left;
-    flex: 1;
-  }
-
-  .mentoria-cards {
-    flex-direction: row;
-    flex: 2;
-    gap: 1rem;
-  }
-
-  .card {
-    flex: 1;
-  }
-
-  .balao {
-    font-size: 0.9rem;
-  }
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }

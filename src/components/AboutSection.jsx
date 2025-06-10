@@ -36,13 +36,6 @@ function AboutSection() {
 
   return (
     <section className="about" id="about">
-      <div className="about_content">
-        <h3>Sobre a Mentoria</h3>
-        <p>
-          Conheça mais sobre a Mentora, sua Visão, Missão e Valores, e como ela
-          transforma a vida financeira e o casamento de casais cristãos.
-        </p>
-      </div>
 
       <div className="about_carousel" ref={carouselRef}>
         {cards.map((card, i) => (

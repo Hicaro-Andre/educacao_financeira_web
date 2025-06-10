@@ -179,99 +179,105 @@ function AgendaSection() {
   };
 
   return (
-    <div className="form-container">
-      <div className="selected-plan-card">
-        <h3>{selectedPlan.title}</h3>
-        <p className="price">{selectedPlan.price}</p>
-        {selectedPlan.type && <p className="type">{selectedPlan.type}</p>}
-        <p className="description">{selectedPlan.description}</p>
-        <p className="duration">{selectedPlan.duration}</p>
-        <ul>
-          {selectedPlan.items.map((item, index) => (
-            <li key={index}>• {item}</li>
-          ))}
-        </ul>
+    <div className="form-wrapper">
+      <div className="form-container">
+        <div className="form-content">
+          <div className="form-section">
+            <h2 className="plan-title">Agendamento - {selectedPlan.title}</h2>
+
+            <form onSubmit={handleSubmit} className="form">
+              <label>
+                Plano:
+                <select
+                  name="plan"
+                  value={selectedPlan.title}
+                  onChange={handlePlanChange}
+                >
+                  {availablePlans.map((plan) => (
+                    <option key={plan.title} value={plan.title}>
+                      {plan.title} - {plan.price}
+                    </option>
+                  ))}
+                </select>
+              </label>
+
+              <label>
+                Nome:
+                <input
+                  className={formErrors.name ? "error-input" : ""}
+                  type="text"
+                  name="name"
+                  placeholder="Seu nome"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
+                {formErrors.name && <p className="error-text">{formErrors.name}</p>}
+              </label>
+
+              <label>
+                E-mail:
+                <input
+                  className={formErrors.email ? "error-input" : ""}
+                  type="email"
+                  name="email"
+                  placeholder="seu@email.com"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+                {formErrors.email && <p className="error-text">{formErrors.email}</p>}
+              </label>
+
+              <label>
+                Telefone:
+                <input
+                  className={formErrors.phone ? "error-input" : ""}
+                  type="tel"
+                  name="phone"
+                  placeholder="(00) 00000-0000"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                />
+                {formErrors.phone && <p className="error-text">{formErrors.phone}</p>}
+              </label>
+
+              <label>
+                Data:
+                <input
+                  className={formErrors.date ? "error-input" : ""}
+                  type="date"
+                  name="date"
+                  value={formData.date}
+                  onChange={handleChange}
+                  required
+                />
+                {formErrors.date && <p className="error-text">{formErrors.date}</p>}
+              </label>
+
+              <p className="time-note">Horário a combinar</p>
+
+              <button type="submit" className="submit-button">
+                Confirmar Agendamento
+              </button>
+            </form>
+          </div>
+
+          <div className="selected-plan-card">
+            <h3>{selectedPlan.title}</h3>
+            <p className="price">{selectedPlan.price}</p>
+            {selectedPlan.type && <p className="type">{selectedPlan.type}</p>}
+            <p className="description">{selectedPlan.description}</p>
+            <p className="duration">{selectedPlan.duration}</p>
+            <ul>
+              {selectedPlan.items.map((item, index) => (
+                <li key={index}>• {item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
-
-      <h2 className="plan-title">Agendamento - {selectedPlan.title}</h2>
-
-      <form onSubmit={handleSubmit} className="form">
-        <label>
-          Plano:
-          <select
-            name="plan"
-            value={selectedPlan.title}
-            onChange={handlePlanChange}
-          >
-            {availablePlans.map((plan) => (
-              <option key={plan.title} value={plan.title}>
-                {plan.title} - {plan.price}
-              </option>
-            ))}
-          </select>
-        </label>
-
-        <label>
-          Nome:
-          <input
-            className={formErrors.name ? "error-input" : ""}
-            type="text"
-            name="name"
-            placeholder="Seu nome"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-          {formErrors.name && <p className="error-text">{formErrors.name}</p>}
-        </label>
-
-        <label>
-          E-mail:
-          <input
-            className={formErrors.email ? "error-input" : ""}
-            type="email"
-            name="email"
-            placeholder="seu@email.com"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-          {formErrors.email && <p className="error-text">{formErrors.email}</p>}
-        </label>
-
-        <label>
-          Telefone:
-          <input
-            className={formErrors.phone ? "error-input" : ""}
-            type="tel"
-            name="phone"
-            placeholder="(00) 00000-0000"
-            value={formData.phone}
-            onChange={handleChange}
-            required
-          />
-          {formErrors.phone && <p className="error-text">{formErrors.phone}</p>}
-        </label>
-
-        <label>
-          Data:
-          <input
-            className={formErrors.date ? "error-input" : ""}
-            type="date"
-            name="date"
-            value={formData.date}
-            onChange={handleChange}
-            required
-          />
-          {formErrors.date && <p className="error-text">{formErrors.date}</p>}
-        </label>
-
-        <p className="time-note">Horário a combinar</p>
-
-        <button type="submit" className="submit-button">
-          Confirmar Agendamento
-        </button>
-      </form>
 
       {showModal && (
         <div className="modal-overlay">
