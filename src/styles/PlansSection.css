@@ -1,9 +1,9 @@
 .plans_container {
   text-align: center;
   padding: 2rem;
-  background: #fdfaf5;
   overflow: hidden;
   padding-top: 80px;
+  margin-top: 40px;
 }
 .plans_container h1 {
   color: #050505;
@@ -44,6 +44,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 5px;
+  margin-top: 30px;
 }
 
 .plans_cards-wrapper {
@@ -55,9 +57,11 @@
   justify-content: center;
   flex-wrap: nowrap;
   padding-bottom: 1rem;
+  padding: 5px;
 }
 
 .plans_card {
+  position: relative;
   flex: 0 0 auto;
   width: clamp(240px, 100%, 260px);
   padding: 0.625rem 1.875rem;
@@ -70,8 +74,6 @@
   box-shadow: 0px 3px 9.7px 2px #000;
   height: 100%;
   flex-shrink: 0;
-
-  border: solid 2px red;
 }
 .plans_card.hidden {
   display: none;
@@ -137,15 +139,24 @@
   color: #fff;
 }
 .plans_cta-btn {
+  position: absolute;
+  bottom: -25px; /* Metade para fora (ajuste conforme necessário) */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 131px; /* Largura do botão */
+  height: 42px;
   background: #1c4140;
   color: white;
   padding: 0.75rem 1.25rem;
   border-radius: 20px;
   border: 1px solid rgba(125, 96, 0, 0.71);
   cursor: pointer;
-  margin-top: 1rem;
   text-align: center;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para efeito 3D */
+  z-index: 1; /* Garante que fique acima de outros elementos */
 }
+
 .plans_card-1 .plans_cta-btn,
 .plans_card-3 .plans_cta-btn {
   background: #fff;

@@ -120,7 +120,9 @@ function PlansSection() {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`plans_card ${isMobile && index !== current ? "hidden" : ""}`}
+              className={`plans_card ${
+                isMobile && index !== current ? "hidden" : ""
+              } plans_card-${index}`}
             >
               <h2>{plan.title}</h2>
               <p className="price">{plan.price}</p>
@@ -132,8 +134,56 @@ function PlansSection() {
                   <li key={i}>✔ {item}</li>
                 ))}
               </ul>
-              <button className="plans_cta-btn" onClick={() => handleAgendar(plan)}>
-                Agendar<br />Sessão
+              <button
+                className="plans_cta-btn"
+                onClick={() => handleAgendar(plan)}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "8px",
+                  }}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="15"
+                    height="18"
+                    viewBox="0 0 15 18"
+                    fill="none"
+                  >
+                    <path
+                      d="M5.177 1.50006V4.50006"
+                      stroke="white"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M9.85425 1.50006V4.50006"
+                      stroke="white"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M11.6081 3.00006H3.42318C2.77741 3.00006 2.25391 3.67163 2.25391 4.50006V15.0001C2.25391 15.8285 2.77741 16.5001 3.42318 16.5001H11.6081C12.2538 16.5001 12.7773 15.8285 12.7773 15.0001V4.50006C12.7773 3.67163 12.2538 3.00006 11.6081 3.00006Z"
+                      stroke="white"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M2.25391 7.50006H12.7773"
+                      stroke="white"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  <div>
+                    Agendar
+                    <br />
+                    Sessão
+                  </div>
+                </div>
               </button>
             </div>
           ))}

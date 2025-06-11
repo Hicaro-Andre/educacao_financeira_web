@@ -1,9 +1,11 @@
 import React, { useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import logo from '../assets/images/navbar/logo.svg';
 import '../styles/NavBar.css';
 
 function NavBar() {
   const mobileMenuRef = useRef(null);
+  const location = useLocation();
 
   const toggleMenu = () => {
     if (mobileMenuRef.current) {
@@ -27,6 +29,7 @@ function NavBar() {
   return (
     <header>
       <div className="menu__nav">
+        <div className="overlay-image" />
         <div className="logo">
           <img src={logo} alt="Logo" />
         </div>
@@ -55,7 +58,7 @@ function NavBar() {
               <li key={item.path}>
                 <a
                   href={item.path}
-                  className="menu-link"
+                  className={`menu-link ${location.pathname === item.path ? 'active' : ''}`}
                   onClick={closeMenu}
                 >
                   {item.label}

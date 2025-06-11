@@ -1,9 +1,39 @@
-import "../styles/BlogSection.css"
-import foto1 from "../assets/images/blog/foto1-blog.png"
-import foto2 from "../assets/images/blog/foto2-blog.png"
-import foto3 from "../assets/images/blog/foto3-blog.png"
+import { useEffect, useRef } from "react";
+import "../styles/BlogSection.css";
+import foto1 from "../assets/images/blog/foto1-blog.png";
+import foto2 from "../assets/images/blog/foto2-blog.png";
+import foto3 from "../assets/images/blog/foto3-blog.png";
 
 function BlogSection() {
+  const cardRefs = useRef([]);
+
+  useEffect(() => {
+    // Animação para os cards quando entram na viewport
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    cardRefs.current.forEach((card) => {
+      if (card) observer.observe(card);
+    });
+
+    return () => {
+      cardRefs.current.forEach((card) => {
+        if (card) observer.unobserve(card);
+      });
+    };
+  }, []);
+
   return (
     <section className="blog" id="blog">
       <div className="blog__container-title">
@@ -13,7 +43,10 @@ function BlogSection() {
         </p>
       </div>
 
-      <div className="blog__card">
+      <div 
+        className="blog__card" 
+        ref={(el) => (cardRefs.current[0] = el)}
+      >
         <img alt="Imagem 1" src={foto1} />
         <div className="blog__card-text">
           <h3>A Verdadeira Prosperidade</h3>
@@ -23,7 +56,10 @@ function BlogSection() {
         </div>
       </div>
 
-      <div className="blog__card">
+      <div 
+        className="blog__card" 
+        ref={(el) => (cardRefs.current[1] = el)}
+      >
         <img alt="Imagem 2" src={foto2} />
         <div className="blog__card-text">
           <h3>Erros Financeiros que Ameaçam Relacionamentos</h3>
@@ -33,7 +69,10 @@ function BlogSection() {
         </div>
       </div>
 
-      <div className="blog__card">
+      <div 
+        className="blog__card" 
+        ref={(el) => (cardRefs.current[2] = el)}
+      >
         <img alt="Imagem 3" src={foto3} />
         <div className="blog__card-text">
           <h3>Fé e Planejamento Caminham Juntos</h3>
@@ -43,7 +82,7 @@ function BlogSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 export default BlogSection;
