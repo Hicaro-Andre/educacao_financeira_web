@@ -1,12 +1,11 @@
-import React from 'react';
-import wppIcon from '../assets/images/hero/WPP.svg';
+import React from "react";
+import wppIcon from "../assets/images/hero/WPP.svg";
 
-import '../styles/HeroSection.css'
+import "../styles/HeroSection.css";
 
 //* componente filho
-function HeroSection(){
-
-  return(
+function HeroSection() {
+  return (
     <section className="hero" id="hero">
       <div className="overlay-image" />
       <div className="hero__content">
@@ -22,9 +21,12 @@ function HeroSection(){
         </div>
       </div>
 
-      <button className="btn_hero">
-        <img src={wppIcon} alt="WhatsApp" className="icon" />
-        Solicitar mais informações
+      <button
+        className="btn_hero"
+        onClick={() => (window.location.href = "/plans")}
+        aria-label="Encontre seu plano"
+      >
+        Encontre o plano ideal pra você
       </button>
 
       <div className="hero__comments">
@@ -48,7 +50,7 @@ function HeroSection(){
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 export default HeroSection;

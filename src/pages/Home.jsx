@@ -53,7 +53,7 @@ function Home() {
             alt="Voltar ao topo" 
             style={{ width: '16px' }} 
           />
-          Voltar ao Topo
+          <span>Voltar ao Topo</span>
         </button>
       </div>
     </>

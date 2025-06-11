@@ -9,12 +9,10 @@ import youtubeIcon from '../assets/images/footer/youtube.svg';
 function Footer (){
 
     const navLinks = [
-    { id: 1, text: 'Home', href: '#hero' },
-    { id: 2, text: 'Mentorias', href: '#plans' },
-    { id: 3, text: 'Sobre', href: '#sobre' },
-    { id: 4, text: 'Princípios', href: '#principios' },
-    { id: 5, text: 'Depoimentos', href: '#depoimentos' },
-    { id: 6, text: 'Blog', href: '#blog' }
+    { id: 1, text: 'Home', href: '/' },
+    { id: 2, text: 'Sobre', href: '/about' },
+    { id: 3, text: 'Planos', href: '/plans' },
+    { id: 4, text: 'Blog', href: '/blog' },
   ];
 
   const socialIcons = [
