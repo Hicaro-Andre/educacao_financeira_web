@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/PlansSection.css";
+import arrowesq from '../assets/images/plans/arrow-esq.svg';
+import arrowdir from '../assets/images/plans/arrow-dir.svg'
 
 const plans = [
   {
     title: "Plano Essencial",
     price: "Gratuito",
     description:
-      "Ideal para quem está começando e quer dar o primeiro passo sem compromisso.",
+      "Ideal para quem está começando",
     duration: "1 sessão de 1 hora",
     items: [
       "Exercício prático para identificar desafios financeiros do casal",
@@ -18,14 +20,13 @@ const plans = [
     title: "Plano Básico",
     price: "R$ 450",
     description:
-      "Ideal para casais que querem mais controle sobre suas finanças e um plano de ação prático.",
+      "Ideal para casais que querem mais controle",
     duration: "3 sessões de 1 hora",
     items: [
-      "Como alinhar a visão financeira do casal com princípios cristãos",
-      "Planejamento financeiro simples e prático",
-      "Como sair das dívidas e evitar novos endividamentos",
-      "Definição de metas financeiras realistas",
-      "Planilha de controle financeiro personalizada",
+      "Como alinhar a visão financeira do casal",
+      "Planejamento financeiro",
+      "Como sair das dívidas e evitar novas",
+      "Definição de metas",
     ],
   },
   {
@@ -33,15 +34,14 @@ const plans = [
     price: "R$ 600",
     type: "ou 2x sem juros",
     description:
-      "Ideal para casais que querem sair da instabilidade financeira e construir um futuro próspero.",
+      "Ideal para casais que querem sair da instabilidade financeira",
     duration: "5 sessões de 1 hora",
     items: [
       "Tudo do plano anterior +",
-      "Acompanhamento por WhatsApp durante o período da mentoria",
-      "Como construir uma reserva de emergência eficaz",
-      "Introdução a investimentos para casais cristãos",
+      "Acompanhamento por WhatsApp",
+      "Como construir uma reserva de emergência",
+      "Dicas de investimentos",
       "Planejamento financeiro para objetivos de curto, médio e longo prazo",
-      "Como ensinar princípios financeiros cristãos aos filhos",
     ],
   },
   {
@@ -49,12 +49,12 @@ const plans = [
     price: "R$ 1000",
     type: "ou 4x sem juros",
     description:
-      "Ideal para casais que desejam viver a verdadeira liberdade financeira sem abrir mão dos princípios bíblicos.",
+      "Ideal para casais que desejam viver a verdadeira liberdade",
     duration: "8 sessões de 1 hora + acompanhamento",
     items: [
       "Tudo dos planos anterior +",
-      "Diagnóstico financeiro completo do casal",
-      "Planejamento para aposentadoria e herança financeira",
+      "Diagnóstico financeiro",
+      "Planejamento para aposentadoria e herança",
       "Estratégias avançadas de investimentos",
       "Como empreender ou gerar novas fontes de renda juntos",
       "Sessão exclusiva sobre doação e generosidade cristã",
@@ -112,8 +112,8 @@ function PlansSection() {
       <div className="plans_carousel-wrapper">
         {isMobile && (
           <button className="plans_nav-btn left-plans" onClick={prevSlide}>
-            ←
-          </button>
+  <img src={arrowesq} alt="Voltar" />
+</button>
         )}
 
         <div className="plans_cards-wrapper">
@@ -131,7 +131,25 @@ function PlansSection() {
               <p className="duration">{plan.duration}</p>
               <ul>
                 {plan.items.map((item, i) => (
-                  <li key={i}>✔ {item}</li>
+                  <li key={i}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 21 20"
+                      fill="none"
+                      style={{ verticalAlign: "middle", marginRight: "8px" }}
+                    >
+                      <path
+                        d="M17.1666 5L7.99992 14.1667L3.83325 10"
+                        stroke="#22C55E"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    {item}
+                  </li>
                 ))}
               </ul>
               <button
@@ -191,7 +209,7 @@ function PlansSection() {
 
         {isMobile && (
           <button className="plans_nav-btn right-plans" onClick={nextSlide}>
-            →
+            <img src={arrowdir} alt="Passar" />
           </button>
         )}
       </div>

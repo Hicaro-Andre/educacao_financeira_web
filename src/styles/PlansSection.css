@@ -5,30 +5,37 @@
   padding-top: 80px;
   margin-top: 40px;
 }
+
 .plans_container h1 {
   color: #050505;
   font-size: 2rem;
   font-weight: 600;
   line-height: 2.5rem;
+  animation: fadeInTop 1s ease forwards;
+  opacity: 0;
 }
+
 .plans_container p {
   color: #050505;
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.0625rem;
 }
+
 .plans_subtitle {
   font-size: 0.85rem;
   max-width: 600px;
   margin: 0.5rem auto 1.5rem;
   color: #333;
 }
+
 .plans_indicator-container {
   display: flex;
   justify-content: center;
   gap: 0.5rem;
   margin-bottom: 1rem;
 }
+
 .plans_indicator {
   width: 26px;
   height: 12px;
@@ -36,9 +43,11 @@
   border: 1.5px solid #000;
   background: transparent;
 }
+
 .plans_indicator.active {
   background: #26433b;
 }
+
 .plans_carousel-wrapper {
   position: relative;
   display: flex;
@@ -56,14 +65,15 @@
   scroll-behavior: smooth;
   justify-content: center;
   flex-wrap: nowrap;
+  align-items: stretch;
   padding-bottom: 1rem;
   padding: 5px;
 }
 
 .plans_card {
+  box-sizing: border-box;
   position: relative;
-  flex: 0 0 auto;
-  width: clamp(240px, 100%, 260px);
+  flex: 0 0 240px;
   padding: 0.625rem 1.875rem;
   display: flex;
   flex-direction: column;
@@ -74,23 +84,34 @@
   box-shadow: 0px 3px 9.7px 2px #000;
   height: 100%;
   flex-shrink: 0;
+
+  /* Animação de entrada */
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
 }
+
 .plans_card.hidden {
   display: none;
 }
+
 .plans_card h2 {
   color: #050505;
-  font-size: 1.25rem;
+  font-size: 20px;
+  font-style: normal;
   font-weight: 700;
-  line-height: 1.875rem;
-  text-align: start;
+  line-height: 30px;
+  align-self: flex-start;
+  border: solid;
 }
+
 .plans_card .price {
   color: #1c4140;
   font-size: 1.59375rem;
   font-weight: 700;
   line-height: 2.25rem;
+  align-self: flex-start;
 }
+
 .plans_card .desc {
   color: #4b5563;
   font-size: 0.875rem;
@@ -98,11 +119,13 @@
   line-height: 1.25rem;
   text-align: start;
 }
+
 .plans_card .duration {
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.875rem;
 }
+
 .plans_card ul {
   color: #050505;
   font-size: 0.875rem;
@@ -110,18 +133,22 @@
   line-height: 1.25rem;
   text-align: start;
 }
+
 .plans_card ul li {
   font-size: 0.85rem;
   margin-bottom: 0.5rem;
   list-style: none;
 }
+
 .plans_card-0 {
   background: #fff;
 }
+
 .plans_card-1,
 .plans_card-3 {
   background: #1c4140;
 }
+
 .plans_card-1 h2,
 .plans_card-1 .price,
 .plans_card-1 .type,
@@ -138,12 +165,13 @@
 .plans_card-3 ul li {
   color: #fff;
 }
+
 .plans_cta-btn {
   position: absolute;
-  bottom: -25px; /* Metade para fora (ajuste conforme necessário) */
+  bottom: -25px;
   left: 50%;
   transform: translateX(-50%);
-  width: 131px; /* Largura do botão */
+  width: 131px;
   height: 42px;
   background: #1c4140;
   color: white;
@@ -153,8 +181,8 @@
   cursor: pointer;
   text-align: center;
   font-weight: bold;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para efeito 3D */
-  z-index: 1; /* Garante que fique acima de outros elementos */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 
 .plans_card-1 .plans_cta-btn,
@@ -163,6 +191,7 @@
   border: 1px solid #1c4140;
   color: #1c4140;
 }
+
 .plans_nav-btn {
   position: absolute;
   top: 40%;
@@ -172,9 +201,11 @@
   font-size: 2rem;
   cursor: pointer;
 }
+
 .left-plans {
   left: 0;
 }
+
 .right-plans {
   right: 0;
 }
@@ -194,8 +225,7 @@
   }
 
   .plans_card {
-    flex: 0 0 auto;
-    width: clamp(240px, 50%, 260px);
+    flex: 0 0 240px;
     scroll-snap-align: start;
     margin-right: 1rem;
   }
@@ -218,5 +248,38 @@
     flex: 0 1 calc(25% - 1.5rem);
     width: clamp(240px, 100%, 260px);
     margin-right: 0;
+  }
+}
+
+/* 🔽 Remove animações abaixo de 768px */
+@media (max-width: 767px) {
+  .plans_container h1,
+  .plans_card {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* 🔁 Keyframes de animação */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInTop {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

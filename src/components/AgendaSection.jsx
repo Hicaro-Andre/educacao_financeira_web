@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
 import "../styles/AgendaSection.css";
 
 function AgendaSection() {
@@ -8,7 +8,7 @@ function AgendaSection() {
   const emailJsConfig = {
     serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
     templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-    userId: import.meta.env.VITE_EMAILJS_USER_ID
+    userId: import.meta.env.VITE_EMAILJS_USER_ID,
   };
 
   // Verifica se as variáveis de ambiente estão carregadas
@@ -21,7 +21,8 @@ function AgendaSection() {
     {
       title: "Plano Essencial",
       price: "Gratuito",
-      description: "Ideal para quem está começando e quer dar o primeiro passo sem compromisso.",
+      description:
+        "Ideal para quem está começando e quer dar o primeiro passo sem compromisso.",
       duration: "1 sessão de 1 hora",
       items: [
         "Exercício prático para identificar desafios financeiros do casal",
@@ -31,7 +32,8 @@ function AgendaSection() {
     {
       title: "Plano Básico",
       price: "R$ 450",
-      description: "Ideal para casais que querem mais controle sobre suas finanças e um plano de ação prático.",
+      description:
+        "Ideal para casais que querem mais controle sobre suas finanças e um plano de ação prático.",
       duration: "3 sessões de 1 hora",
       items: [
         "Como alinhar a visão financeira do casal com princípios cristãos",
@@ -45,7 +47,8 @@ function AgendaSection() {
       title: "Plano Intermediário",
       price: "R$ 600",
       type: "ou 2x sem juros",
-      description: "Ideal para casais que querem sair da instabilidade financeira e construir um futuro próspero.",
+      description:
+        "Ideal para casais que querem sair da instabilidade financeira e construir um futuro próspero.",
       duration: "5 sessões de 1 hora",
       items: [
         "Tudo do plano anterior +",
@@ -60,7 +63,8 @@ function AgendaSection() {
       title: "Plano Avançado",
       price: "R$ 1000",
       type: "ou 4x sem juros",
-      description: "Ideal para casais que desejam viver a verdadeira liberdade financeira sem abrir mão dos princípios bíblicos.",
+      description:
+        "Ideal para casais que desejam viver a verdadeira liberdade financeira sem abrir mão dos princípios bíblicos.",
       duration: "8 sessões de 1 hora + acompanhamento",
       items: [
         "Tudo dos planos anteriores +",
@@ -74,7 +78,9 @@ function AgendaSection() {
     },
   ];
 
-  const initialPlan = selectedPlanFromState || availablePlans.find((plan) => plan.title === "Plano Essencial");
+  const initialPlan =
+    selectedPlanFromState ||
+    availablePlans.find((plan) => plan.title === "Plano Essencial");
 
   const [selectedPlan, setSelectedPlan] = useState(initialPlan);
   const [formData, setFormData] = useState({
@@ -133,7 +139,11 @@ function AgendaSection() {
   };
 
   const handleSend = async () => {
-    if (!emailJsConfig.serviceId || !emailJsConfig.templateId || !emailJsConfig.userId) {
+    if (
+      !emailJsConfig.serviceId ||
+      !emailJsConfig.templateId ||
+      !emailJsConfig.userId
+    ) {
       console.error("Configurações do EmailJS não encontradas!");
       alert("Erro de configuração. Contate o suporte.");
       return;
@@ -157,7 +167,7 @@ function AgendaSection() {
 
       console.log("E-mail enviado com sucesso:", response);
       alert("Agendamento enviado! Entraremos em contato em breve.");
-      
+
       // Reset do formulário
       setFormData({
         name: "",
@@ -184,6 +194,57 @@ function AgendaSection() {
         <div className="form-content">
           <div className="form-section">
             <h2 className="plan-title">Agendamento - {selectedPlan.title}</h2>
+            {/* mobile*/}
+            <div className="selected-plan-card">
+              <h3>{selectedPlan.title}</h3>
+              <p className="price">{selectedPlan.price}</p>
+              {selectedPlan.type && <p className="type">{selectedPlan.type}</p>}
+              <p className="description">{selectedPlan.description}</p>
+              {/* <p className="duration">{selectedPlan.duration}</p> */}
+              {/* <ul>
+              {selectedPlan.items.map((item, index) => (
+                <li key={index}>• {item}</li>
+              ))}
+            </ul> */}
+            </div>
+
+            {/* desktop*/}
+            <div className="selected-plan-card-desk">
+              <h3>{selectedPlan.title}</h3>
+              <p className="price">{selectedPlan.price}</p>
+              {selectedPlan.type && <p className="type">{selectedPlan.type}</p>}
+              <p className="description">{selectedPlan.description}</p>
+              <p className="duration">{selectedPlan.duration}</p>
+              <ul>
+                {selectedPlan.items.map((item, index) => (
+                  <li
+                    key={index}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "8px",
+                    }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                    >
+                      <path
+                        d="M16.6668 5L7.50016 14.1667L3.3335 10"
+                        stroke="#22C55E"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
 
             <form onSubmit={handleSubmit} className="form">
               <label>
@@ -212,7 +273,9 @@ function AgendaSection() {
                   onChange={handleChange}
                   required
                 />
-                {formErrors.name && <p className="error-text">{formErrors.name}</p>}
+                {formErrors.name && (
+                  <p className="error-text">{formErrors.name}</p>
+                )}
               </label>
 
               <label>
@@ -226,7 +289,9 @@ function AgendaSection() {
                   onChange={handleChange}
                   required
                 />
-                {formErrors.email && <p className="error-text">{formErrors.email}</p>}
+                {formErrors.email && (
+                  <p className="error-text">{formErrors.email}</p>
+                )}
               </label>
 
               <label>
@@ -240,7 +305,9 @@ function AgendaSection() {
                   onChange={handleChange}
                   required
                 />
-                {formErrors.phone && <p className="error-text">{formErrors.phone}</p>}
+                {formErrors.phone && (
+                  <p className="error-text">{formErrors.phone}</p>
+                )}
               </label>
 
               <label>
@@ -253,7 +320,9 @@ function AgendaSection() {
                   onChange={handleChange}
                   required
                 />
-                {formErrors.date && <p className="error-text">{formErrors.date}</p>}
+                {formErrors.date && (
+                  <p className="error-text">{formErrors.date}</p>
+                )}
               </label>
 
               <p className="time-note">Horário a combinar</p>
@@ -263,19 +332,6 @@ function AgendaSection() {
               </button>
             </form>
           </div>
-
-          <div className="selected-plan-card">
-            <h3>{selectedPlan.title}</h3>
-            <p className="price">{selectedPlan.price}</p>
-            {selectedPlan.type && <p className="type">{selectedPlan.type}</p>}
-            <p className="description">{selectedPlan.description}</p>
-            <p className="duration">{selectedPlan.duration}</p>
-            <ul>
-              {selectedPlan.items.map((item, index) => (
-                <li key={index}>• {item}</li>
-              ))}
-            </ul>
-          </div>
         </div>
       </div>
 
@@ -283,15 +339,27 @@ function AgendaSection() {
         <div className="modal-overlay">
           <div className="modal">
             <h3>Confirme suas informações:</h3>
-            <p><strong>Plano:</strong> {selectedPlan.title}</p>
-            <p><strong>Nome:</strong> {formData.name}</p>
-            <p><strong>Email:</strong> {formData.email}</p>
-            <p><strong>Telefone:</strong> {formData.phone}</p>
-            <p><strong>Data:</strong> {formData.date}</p>
-            <p><strong>Horário:</strong> A combinar</p>
+            <p>
+              <strong>Plano:</strong> {selectedPlan.title}
+            </p>
+            <p>
+              <strong>Nome:</strong> {formData.name}
+            </p>
+            <p>
+              <strong>Email:</strong> {formData.email}
+            </p>
+            <p>
+              <strong>Telefone:</strong> {formData.phone}
+            </p>
+            <p>
+              <strong>Data:</strong> {formData.date}
+            </p>
+            <p>
+              <strong>Horário:</strong> A combinar
+            </p>
             <div className="modal-buttons">
-              <button 
-                onClick={handleSend} 
+              <button
+                onClick={handleSend}
                 className="submit-button"
                 disabled={isSending}
               >
