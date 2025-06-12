@@ -1,24 +1,39 @@
+/* Ajuste de rolagem */
 #principles {
   scroll-margin-top: 70px;
 }
 
+/* Estilos gerais da seção */
 .principles {
   width: 100%;
   padding: 40px 16px;
-  background-color: #fffdf9;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 40px;
   color: #050505;
+
+  /* Transição de entrada */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
+/* Ativado ao rolar */
+.principles.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Título */
 .principles__title h3 {
   font-size: 24px;
   font-weight: 600;
   text-align: center;
+  margin-top: 50px;
 }
 
+/* Cards */
 .principles__cards {
   display: flex;
   flex-direction: column;
@@ -36,13 +51,13 @@
 .principles__card-item h3 {
   margin: 0 0 8px;
   font-size: 18px;
-	text-align: center;
+  text-align: center;
 }
 
 .principles__card-item p {
   margin: 0;
   font-size: 14px;
-	text-align: center;
+  text-align: center;
 }
 
 /* Conteúdo Giseli */
@@ -56,8 +71,10 @@
   gap: 24px;
   width: 100%;
   max-width: 1150px;
+  margin-bottom: 50px;
 }
 
+/* Perfil */
 .principles__perfil {
   display: flex;
   flex-direction: column;
@@ -82,27 +99,49 @@
   font-weight: 500;
 }
 
+/* Container */
 .principles__container {
   display: flex;
   flex-direction: column;
   gap: 20px;
   font-size: 14px;
-	text-align: center;
+  text-align: center;
 }
 
-#diferencial, 
+/* Diferenciais */
+#diferencial,
 #oferecemos {
   font-weight: 600;
   font-size: 1rem;
-	text-align: center;
+  text-align: center;
 }
 
+/* Lista */
 .principles__lista {
   padding-left: 20px;
-  list-style: disc;
-	text-align: start;
+  list-style: none;
+  text-align: start;
 }
 
+.principles__lista li {
+  position: relative;
+  padding-left: 30px;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.principles__lista li::before {
+  content: "◆";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: #C7A239;
+}
+
+/* Metodologia */
 .principles__metodologia p {
   font-style: italic;
   font-weight: 500;

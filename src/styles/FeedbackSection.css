@@ -3,6 +3,7 @@
   text-align: center;
   color: #1a1a1a;
   overflow: hidden;
+  background-color: #FFFDF9;
 }
 
 .feedback_container h2 {
@@ -13,7 +14,7 @@
 .feedback-subtitle {
   font-size: 0.85rem;
   color: #555;
-  max-width: 85%;
+  max-width: 842px;
   margin: 0 auto 2rem;
   line-height: 1.4;
 }
@@ -152,6 +153,8 @@
   align-items: center;
   gap: 0.5rem;
   justify-content: center;
+
+  
 }
 
 .autor img {

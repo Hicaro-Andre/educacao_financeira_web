@@ -1,27 +1,50 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import "../styles/PrinciplesSection.css";
-import giseliImage from '../assets/images/principles/foto-giseli.png';
+import giseliImage from "../assets/images/principles/foto-giseli.png";
 
 function PrinciplesSection() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const section = document.getElementById("principles");
+      if (section) {
+        const sectionTop = section.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (sectionTop < windowHeight - 100) {
+          setVisible(true);
+        }
+      }
+    };
+    
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Executa no carregamento inicial
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const principles = [
     {
       title: "Administração Responsável",
-      description: "Acreditamos que os recursos são uma responsabilidade dada por Deus. Nossa abordagem foca na mordomia fiel, ajudando casais a gerenciar suas finanças com sabedoria e alinhados aos princípios cristãos, promovendo unidade no casamento."
+      description:
+        "Acreditamos que os recursos são uma responsabilidade dada por Deus. Nossa abordagem foca na mordomia fiel, ajudando casais a gerenciar suas finanças com sabedoria e alinhados aos princípios cristãos, promovendo unidade no casamento.",
     },
- {
+    {
       title: "Planejamento com Propósito",
-      description: "Nosso planejamento vai além das finanças tradicionais, ajudando casais a alcançar uma prosperidade equilibrada alinhada aos valores cristãos, evitando o endividamento e buscando um futuro sustentável."
+      description:
+        "Nosso planejamento vai além das finanças tradicionais, ajudando casais a alcançar uma prosperidade equilibrada alinhada aos valores cristãos, evitando o endividamento e buscando um futuro sustentável.",
     },
-
     {
       title: "Generosidade",
-      description: "Ensinamos que a generosidade é uma expressão de fé e gratidão, que fortalece o relacionamento e cria um legado duradouro. Ao invés de apenas focar no acúmulo de bens, mostramos como a generosidade traz prosperidade tanto material quanto espiritual."
-    }
-   
+      description:
+        "Ensinamos que a generosidade é uma expressão de fé e gratidão, que fortalece o relacionamento e cria um legado duradouro. Ao invés de apenas focar no acúmulo de bens, mostramos como a generosidade traz prosperidade tanto material quanto espiritual.",
+    },
   ];
 
   return (
-    <section className="principles" id="principles">
+    <section className={`principles ${visible ? "show" : ""}`} id="principles">
       <div className="principles__title">
         <h3>Nossos Princípios Financeiros Cristãos</h3>
       </div>
@@ -49,12 +72,14 @@ function PrinciplesSection() {
               proporcionando uma abordagem única que fortalece tanto a vida
               financeira quanto o relacionamento do casal.
             </p>
-            <p id='oferecemos'>Oferecemos</p>
+            <p id="oferecemos">Oferecemos</p>
           </div>
 
           <ul className="principles__lista">
             <li>Abordagem personalizada, adaptada às necessidades do casal.</li>
-            <li>Foco na unidade do casamento, ajudando a tomar decisões financeiras juntos.</li>
+            <li>
+              Foco na unidade do casamento, ajudando a tomar decisões financeiras juntos.
+            </li>
             <li>Legado duradouro, criando um futuro próspero e alinhado com os valores cristãos.</li>
           </ul>
 
