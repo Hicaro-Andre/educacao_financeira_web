@@ -1,31 +1,234 @@
-.mentoria {
-  padding: 2rem 1rem;
-  background-color: #f9fafb;
-  text-align: center;
+
+
+/* === DESKTOP (1024px+) === */
+@media (min-width: 1024px) {
+ .hero-section{
+  height: 100vh;
+  background-color: #1c4140;
+ }
+ .sobre-a-mentoria {
+  	position: relative;
+  	font-weight: 600;
+  	font-family: 'Playfair Display';
+}
+.conhea-mais-sobre {
+  	width: 516px;
+  	position: relative;
+  	font-size: 20px;
+  	font-weight: 600;
+  	display: inline-block;
+  	height: 119px;
+  	flex-shrink: 0;
+}
+.conhea-nossos-planos {
+  	position: relative;
+}
+.botao {
+  	width: 195px;
+  	border-radius: 30px;
+  	background-color: #1c4140;
+  	border: 1px solid rgba(125, 96, 0, 0.71);
+  	box-sizing: border-box;
+  	height: 35px;
+  	overflow: hidden;
+  	flex-shrink: 0;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 3px 17px;
+  	text-align: center;
+  	font-size: 16px;
+  	color: #fffdf9;
+}
+.titulo {
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: center;
+  	gap: 20px;
+}
+.foto-2-icon {
+  	position: absolute;
+  	top: 211.5px;
+  	left: 35px;
+  	width: 245px;
+  	height: 320px;
+  	overflow: hidden;
+  	object-fit: cover;
+}
+.foto-1-icon {
+  	position: absolute;
+  	top: 89.5px;
+  	left: 462px;
+  	width: 245px;
+  	height: 320px;
+  	overflow: hidden;
+  	object-fit: cover;
+}
+.foto-principal-icon {
+  	position: absolute;
+  	top: 74.5px;
+  	left: 204px;
+  	border-radius: 30px;
+  	width: 349px;
+  	height: 457px;
+  	overflow: hidden;
+  	object-fit: cover;
+}
+.dvidas-e-desorganizao {
+  	width: 265px;
+  	position: relative;
+  	font-weight: 800;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-shrink: 0;
+}
+.texto-4 {
+  	position: absolute;
+  	top: 134.5px;
+  	left: 0px;
+  	border-radius: 30px;
+  	background-color: #1c4140;
+  	overflow: hidden;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 10px;
+}
+.mais-de {
+  	margin: 0;
+}
+.p {
+  	margin: 0;
+  	font-size: 36px;
+  	line-height: 30px;
+}
+.mais-de-70-container {
+  	position: relative;
+  	font-weight: 800;
+}
+.dos-casais-afirmam {
+  	width: 245px;
+  	position: relative;
+  	font-size: 16px;
+  	font-weight: 800;
+  	text-align: left;
+  	display: flex;
+  	align-items: center;
+  	height: 58px;
+  	flex-shrink: 0;
+}
+.texto-3 {
+  	position: absolute;
+  	top: 469.5px;
+  	left: 34px;
+  	border-radius: 30px;
+  	background-color: #fffdf9;
+  	overflow: hidden;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 10px;
+  	gap: 5px;
+  	font-size: 24px;
+  	color: #1c4140;
+}
+.menos-de-10 {
+  	width: 78px;
+  	position: relative;
+  	font-weight: 800;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-shrink: 0;
+}
+.dos-brasileiros-afirmam {
+  	width: 158px;
+  	position: relative;
+  	font-size: 16px;
+  	font-weight: 800;
+  	text-align: left;
+  	display: flex;
+  	align-items: center;
+  	flex-shrink: 0;
+}
+.texto-2 {
+  	position: absolute;
+  	top: 396.5px;
+  	left: 452px;
+  	border-radius: 30px;
+  	background-color: #1c4140;
+  	overflow: hidden;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 10px;
+  	gap: 5px;
+  	font-size: 20px;
+}
+.apenas-1-em {
+  	width: 312px;
+  	position: relative;
+  	font-weight: 800;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-shrink: 0;
+}
+.texto-1 {
+  	position: absolute;
+  	top: 60.5px;
+  	left: 401px;
+  	border-radius: 30px;
+  	background-color: #fffdf9;
+  	overflow: hidden;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 10px;
+  	color: #1c4140;
+}
+.caixa {
+  	width: 675px;
+  	position: relative;
+  	height: 646px;
+  	text-align: center;
+  	font-size: 16px;
+  	color: #fffdf9;
+}
+.titulo-parent {
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: flex-start;
+  	gap: 10px;
+}
+.hero-section {
+  	width: 100%;
+  	position: relative;
+  	background: linear-gradient(90.01deg, #faeebd, #fcf6dc 49.5%, #fffefb);
+  	height: 630px;
+  	overflow: hidden;
+  	flex-shrink: 0;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 65px 10px;
+  	box-sizing: border-box;
+  	text-align: left;
+  	font-size: 64px;
+  	color: #1c4140;
+  	font-family: Lato;
 }
 
-.mentoria-texto h2 {
-  font-size: 2rem;
-  color: #1f2937;
-  margin-bottom: 0.5rem;
-}
 
-.mentoria-texto p {
-  font-size: 1rem;
-  color: #4b5563;
-  max-width: 600px;
-  margin: 0 auto 2rem;
-}
 
-.imagem-completa-container {
-  display: flex;
-  justify-content: center;
-}
 
-.imagem-completa {
-  width: 100%;
-  max-width: 800px;
-  height: auto;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
