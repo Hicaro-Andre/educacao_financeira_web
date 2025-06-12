@@ -5,6 +5,7 @@ header {
   left: 0;
   width: 100%;
   z-index: 1000;
+  background-color: #FFFDF9;
 }
 
 .menu__nav {

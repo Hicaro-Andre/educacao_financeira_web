@@ -43,8 +43,8 @@ function Home() {
           />
         </button>
 
-        {/* Botão Voltar ao Topo */}
-        <button 
+     
+        {/* <button 
           className="btn-float back-to-top"
           onClick={scrollToTop}
         >
@@ -54,7 +54,7 @@ function Home() {
             style={{ width: '16px' }} 
           />
           <span>Voltar ao Topo</span>
-        </button>
+        </button> */}
       </div>
     </>
   );

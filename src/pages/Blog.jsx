@@ -36,8 +36,8 @@ function Blog() {
                 />
               </button>
       
-              {/* Botão Voltar ao Topo */}
-              <button 
+             
+              {/* <button 
                 className="btn-float back-to-top"
                 onClick={scrollToTop}
               >
@@ -47,7 +47,7 @@ function Blog() {
                   style={{ width: '16px' }} 
                 />
                 Voltar ao Topo
-              </button>
+              </button> */}
             </div>
     </>
   );

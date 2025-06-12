@@ -57,8 +57,8 @@ function TipsSection() {
   ];
 
   return (
-    <section className="dicas">
-      <div className="dicas__content">
+    <section className="tips">
+      <div className="tips__content">
         <h3>Conteúdo e Dicas</h3>
         <p>
           Confira minha seleção de livros e e-books recomendados para ajudá-lo
@@ -68,7 +68,7 @@ function TipsSection() {
         </p>
       </div>
 
-      <div className="dicas__books" ref={booksRef}>
+      <div className="tips__books" ref={booksRef}>
         {books.map((book) => (
           <div className="books" key={book.id}>
             <img
