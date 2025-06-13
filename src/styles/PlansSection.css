@@ -68,7 +68,6 @@ body {
   padding: 5px;
   max-width: 1300px;
   /* min-width: 300px; */
-  border: 1px solid #22c55e;
 }
 
 
@@ -84,8 +83,6 @@ body {
   padding-bottom: 4rem;
   padding: 5px;
   min-width: 200px;
-
-  border: solid;
 }
 
 .plans_card {
