@@ -4,96 +4,80 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 1rem;
+  padding: 2rem 1rem;
+  margin-top: 80px;
+  background-color: #FFFDF9;
 }
 
-/* Container do formulário e card */
+/* Container do formulário */
 .form-container {
   width: 100%;
   max-width: 1200px;
   border-radius: 16px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
 }
 
 .form-content {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  padding: 1.5rem;
+  gap: 2rem;
+  padding: 2rem;
 }
 
 /* Seção do formulário */
 .form-section {
-  order: 1;
   flex: 1;
 }
 
-/* Card do plano selecionado */
+/* Card Mobile */
 .selected-plan-card {
-  background-color: #1c4140;
+  background-color: white;
+  border: 2px solid rgba(125, 96, 0, 0.71);
+  border-radius: 1rem;
   padding: 1.5rem;
-  border-radius: 10px;
-  animation: fadeIn 0.6s ease;
-  order: 2;
-}
-.selected-plan-card-desk {
-  display: none;
+  margin-bottom: 1.5rem;
+  color: #1c4140;
 }
 
 .selected-plan-card h3 {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
 .selected-plan-card .price {
-  font-weight: 600;
-  color: #fff;
-  margin: 0.4rem 0;
   font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0.5rem 0;
 }
 
 .selected-plan-card .type {
   font-size: 0.9rem;
-  color: #ffff;
-  margin: 0.2rem 0 0.8rem 0;
+  margin-bottom: 0.8rem;
 }
 
 .selected-plan-card .description {
   font-size: 0.95rem;
-  color: #fff;
-  line-height: 1.4;
-  margin: 0.8rem 0;
+  line-height: 1.5;
 }
 
-.selected-plan-card .duration {
-  font-size: 0.9rem;
-  color: #1f3f36;
-  font-weight: 500;
-  margin: 0.8rem 0;
+/* Card Verde Mobile */
+.selected-plan-card.plano-verde {
+  background-color: #1c4140;
+  color: white;
+  border-color: white;
 }
 
-.selected-plan-card ul {
-  padding-left: 1.2rem;
-  margin: 0.8rem 0 0 0;
+.plano-verde h3,
+.plano-verde .price,
+.plano-verde .type,
+.plano-verde .description {
+  color: white;
 }
 
-.selected-plan-card li {
-  margin-bottom: 0.4rem;
-  font-size: 0.9rem;
-  color: #333;
-  line-height: 1.4;
-}
-
-/* Título do formulário */
-.plan-title {
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: #1f3f36;
-  text-align: center;
-  margin-bottom: 1.5rem;
+/* Card Desktop */
+.selected-plan-card-desk {
+  display: none;
 }
 
 /* Formulário */
@@ -110,296 +94,25 @@
   color: #333;
 }
 
-.form input,
-.form select {
-  margin-top: 0.4rem;
+.form select,
+.form input {
   padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 8px;
+  margin-top: 0.4rem;
   font-size: 1rem;
-  transition: border-color 0.3s ease;
 }
 
-.form input:focus,
-.form select:focus {
-  border-color: #1f3f36;
-  outline: none;
-}
-
-/* Botão de envio */
 .submit-button {
-  background-color: #1f3f36;
-  color: #fff;
-  padding: 0.85rem;
-  border: none;
-  border-radius: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  font-size: 1rem;
-  margin-top: 0.5rem;
-}
-
-.submit-button:hover {
-  background-color: #295147;
-  transform: translateY(-2px);
-}
-
-.submit-button:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
-  transform: none;
-}
-
-/* Modal */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.modal {
-  background: white;
-  padding: 2rem;
-  border-radius: 8px;
-  max-width: 400px;
-  width: 90%;
-  text-align: left;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-.modal h3 {
-  margin-top: 0;
-  color: #1f3f36;
-}
-
-.modal p {
-  margin: 0.5rem 0;
-}
-
-.modal-buttons {
-  margin-top: 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.back-button {
-  background-color: #ccc;
-  color: #333;
-  border: none;
-  padding: 0.75rem;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  flex: 1;
-  transition: background-color 0.3s ease;
-}
-
-.back-button:hover {
-  background-color: #bbb;
-}
-
-/* Nota de horário */
-.time-note {
-  margin-top: -0.5rem;
-  margin-bottom: 1rem;
-  font-style: italic;
-  color: #555;
-  font-size: 0.9rem;
-}
-
-/* Erros */
-.error-input {
-  border: 1px solid red !important;
-  background-color: #ffe6e6;
-}
-
-.error-text {
-  color: red;
-  font-size: 0.85rem;
-  margin-top: 4px;
-  margin-bottom: 10px;
-}
-
-/* Animação */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (min-width: 768px) {
-
-  .selected-plan-card-desk {
-    max-width: 350px;
-    display: flex;
-    width: 250px;
-    height: auto;
-    padding: 10px 30px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
-    border-radius: 30px;
-    border: 3px solid #1c4140;
-    background: #fff;
-    box-shadow: 0px 3px 9.7px 2px #1c4140;
-  }
-  .selected-plan-card {
-    display: none;
-  }
-}/* Container principal */
-.form-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 1rem;
-}
-
-/* Container do formulário e card */
-.form-container {
-  width: 100%;
-  max-width: 1200px;
-  border-radius: 16px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
-}
-
-.form-content {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  padding: 1.5rem;
-}
-
-/* Seção do formulário */
-.form-section {
-  order: 1;
-  flex: 1;
-}
-
-/* Card do plano selecionado */
-.selected-plan-card {
   background-color: #1c4140;
-  padding: 1.5rem;
-  border-radius: 10px;
-  animation: fadeIn 0.6s ease;
-  order: 2;
-}
-.selected-plan-card-desk {
-  display: none;
-}
-
-.selected-plan-card h3 {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: #fff;
-}
-
-.selected-plan-card .price {
-  font-weight: 600;
-  color: #fff;
-  margin: 0.4rem 0;
-  font-size: 1.2rem;
-}
-
-.selected-plan-card .type {
-  font-size: 0.9rem;
-  color: #ffff;
-  margin: 0.2rem 0 0.8rem 0;
-}
-
-.selected-plan-card .description {
-  font-size: 0.95rem;
-  color: #fff;
-  line-height: 1.4;
-  margin: 0.8rem 0;
-}
-
-.selected-plan-card .duration {
-  font-size: 0.9rem;
-  color: #1f3f36;
-  font-weight: 500;
-  margin: 0.8rem 0;
-}
-
-.selected-plan-card ul {
-  padding-left: 1.2rem;
-  margin: 0.8rem 0 0 0;
-}
-
-.selected-plan-card li {
-  margin-bottom: 0.4rem;
-  font-size: 0.9rem;
-  color: #333;
-  line-height: 1.4;
-}
-
-/* Título do formulário */
-.plan-title {
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: #1f3f36;
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-/* Formulário */
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.form label {
-  display: flex;
-  flex-direction: column;
-  font-size: 0.95rem;
-  color: #333;
-}
-
-.form input,
-.form select {
-  margin-top: 0.4rem;
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
-}
-
-.form input:focus,
-.form select:focus {
-  border-color: #1f3f36;
-  outline: none;
-}
-
-/* Botão de envio */
-.submit-button {
-  background-color: #1f3f36;
-  color: #fff;
+  color: white;
   padding: 0.85rem;
   border: none;
-  border-radius: 10px;
-  font-weight: bold;
+  border-radius: 8px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  font-size: 1rem;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
 }
 
 .submit-button:hover {
@@ -407,75 +120,11 @@
   transform: translateY(-2px);
 }
 
-.submit-button:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
-  transform: none;
-}
-
-/* Modal */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.modal {
-  background: white;
-  padding: 2rem;
-  border-radius: 8px;
-  max-width: 400px;
-  width: 90%;
-  text-align: left;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-.modal h3 {
-  margin-top: 0;
-  color: #1f3f36;
-}
-
-.modal p {
-  margin: 0.5rem 0;
-}
-
-.modal-buttons {
-  margin-top: 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.back-button {
-  background-color: #ccc;
-  color: #333;
-  border: none;
-  padding: 0.75rem;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  flex: 1;
-  transition: background-color 0.3s ease;
-}
-
-.back-button:hover {
-  background-color: #bbb;
-}
-
-/* Nota de horário */
 .time-note {
-  margin-top: -0.5rem;
-  margin-bottom: 1rem;
   font-style: italic;
-  color: #555;
+  color: #666;
   font-size: 0.9rem;
+  margin-top: -0.5rem;
 }
 
 /* Erros */
@@ -487,39 +136,66 @@
 .error-text {
   color: red;
   font-size: 0.85rem;
-  margin-top: 4px;
-  margin-bottom: 10px;
+  margin-top: 0.25rem;
 }
 
-/* Animação */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+/* Desktop */
 @media (min-width: 768px) {
-
-  .selected-plan-card-desk {
-    max-width: 350px;
-    display: flex;
-    width: 250px;
-    height: auto;
-    padding: 10px 30px;
-    flex-direction: column;
+  .form-content {
+    flex-direction: row;
+    gap: 3rem;
     align-items: flex-start;
-    gap: 5px;
-    border-radius: 30px;
-    border: 3px solid #1c4140;
-    background: #fff;
-    box-shadow: 0px 3px 9.7px 2px #1c4140;
   }
+
   .selected-plan-card {
     display: none;
+  }
+
+  .selected-plan-card-desk {
+    display: block;
+    flex: 1;
+    max-width: 350px;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    border: 3px solid #1c4140;
+    background: white;
+    position: sticky;
+    top: 2rem;
+  }
+
+  /* Cards Verdes Desktop */
+  .plans_card-1.selected-plan-card-desk,
+  .plans_card-3.selected-plan-card-desk {
+    background-color: #1c4140;
+    border-color: white;
+    color: white;
+  }
+
+  .plans_card-1.selected-plan-card-desk h3,
+  .plans_card-1.selected-plan-card-desk .price,
+  .plans_card-1.selected-plan-card-desk .type,
+  .plans_card-1.selected-plan-card-desk .description,
+  .plans_card-3.selected-plan-card-desk h3,
+  .plans_card-3.selected-plan-card-desk .price,
+  .plans_card-3.selected-plan-card-desk .type,
+  .plans_card-3.selected-plan-card-desk .description {
+    color: white;
+  }
+
+  .plans_card-1.selected-plan-card-desk ul,
+  .plans_card-3.selected-plan-card-desk ul {
+    padding-left: 0;
+    margin-top: 1rem;
+  }
+
+  .plans_card-1.selected-plan-card-desk li,
+  .plans_card-3.selected-plan-card-desk li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    list-style: none;
+    font-size: 0.9rem;
+    line-height: 1.4;
   }
 }
