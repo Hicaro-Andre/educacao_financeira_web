@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/PlansSection.css";
-import arrowesq from '../assets/images/plans/arrow-esq.svg';
-import arrowdir from '../assets/images/plans/arrow-dir.svg'
+import arrowesq from "../assets/images/plans/arrow-esq.svg";
+import arrowdir from "../assets/images/plans/arrow-dir.svg";
 
 const plans = [
   {
     title: "Plano Essencial",
     price: "Gratuito",
-    description:
-      "Ideal para quem está começando",
-    duration: "1 sessão de 1 hora",
+    description: "Ideal para quem está começando",
+    duration: "Duração: 1 sessão de 1 hora",
     items: [
       "Exercício prático para identificar desafios financeiros do casal",
       "Conceitos básicos",
@@ -19,9 +18,8 @@ const plans = [
   {
     title: "Plano Básico",
     price: "R$ 450",
-    description:
-      "Ideal para casais que querem mais controle",
-    duration: "3 sessões de 1 hora",
+    description: "Ideal para casais que querem mais controle",
+    duration: "Duração: 3 sessões de 1 hora",
     items: [
       "Como alinhar a visão financeira do casal",
       "Planejamento financeiro",
@@ -35,7 +33,7 @@ const plans = [
     type: "ou 2x sem juros",
     description:
       "Ideal para casais que querem sair da instabilidade financeira",
-    duration: "5 sessões de 1 hora",
+    duration: "Duração: 5 sessões de 1 hora",
     items: [
       "Tudo do plano anterior +",
       "Acompanhamento por WhatsApp",
@@ -48,9 +46,8 @@ const plans = [
     title: "Plano Avançado",
     price: "R$ 1000",
     type: "ou 4x sem juros",
-    description:
-      "Ideal para casais que desejam viver a verdadeira liberdade",
-    duration: "8 sessões de 1 hora + acompanhamento",
+    description: "Ideal para casais que desejam viver a verdadeira liberdade",
+    duration: "Duração: 8 sessões de 1 hora + acompanhamento",
     items: [
       "Tudo dos planos anterior +",
       "Diagnóstico financeiro",
@@ -112,8 +109,8 @@ function PlansSection() {
       <div className="plans_carousel-wrapper">
         {isMobile && (
           <button className="plans_nav-btn left-plans" onClick={prevSlide}>
-  <img src={arrowesq} alt="Voltar" />
-</button>
+            <img src={arrowesq} alt="Voltar" />
+          </button>
         )}
 
         <div className="plans_cards-wrapper">
