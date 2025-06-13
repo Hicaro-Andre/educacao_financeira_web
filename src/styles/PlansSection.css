@@ -13,6 +13,7 @@ body {
   padding-top: 80px;
   margin-top: 40px;
   overflow: hidden;
+  
 }
 
 .plans_container h1 {
@@ -64,6 +65,7 @@ body {
   align-items: center;
   padding: 5px;
   margin-top: 30px;
+  
 }
 
 .plans_cards-wrapper {
@@ -75,17 +77,17 @@ body {
   justify-content: center;
   flex-wrap: nowrap;
   align-items: stretch;
-  padding-bottom: 4rem; /* espaço extra para botão não colar no fim da tela */
+  padding-bottom: 4rem;
   padding: 5px;
-
-  border: solid;
+  
+  
 }
 
 .plans_card {
   position: relative;
   flex: 0 0 240px;
   padding: 0.925rem 1.875rem;
-  padding-bottom: 3.5rem; /* espaço interno extra para o botão */
+  padding-bottom: 3.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -99,8 +101,7 @@ body {
   opacity: 0;
   overflow: visible;
   margin-bottom: 30px;
-
-  border: solid;
+  
 }
 
 .plans_card.hidden {
@@ -109,13 +110,13 @@ body {
 
 .plans_card h2 {
   color: #050505;
-font-size: 20px;
-font-style: normal;
-font-weight: 700;
-line-height: 30px; 
-width: 81px;
-text-align: start;
-align-self: flex-start;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px; 
+  width: 81px;
+  text-align: start;
+  align-self: flex-start;
 }
 
 .plans_card .price {
@@ -125,6 +126,7 @@ align-self: flex-start;
   line-height: 2.25rem;
   align-self: flex-start;
 }
+
 .plans_card .type {
   align-self: flex-start;
 }
@@ -186,10 +188,10 @@ align-self: flex-start;
 
 .plans_cta-btn {
   position: absolute;
-  bottom: -21px; /* metade do botão para fora (altura/2 - ajuste) */
+  bottom: -21px;
   left: 50%;
   transform: translateX(-50%);
-  width: 131px;
+  width: 160px; /* Aumentado para acomodar texto + ícone */
   height: 42px;
   background: #1c4140;
   color: white;
@@ -201,6 +203,20 @@ align-self: flex-start;
   font-weight: bold;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.plans_cta-btn svg path {
+  stroke: white;
+}
+
+/* Cards verdes - stroke verde */
+.plans_card-1 .plans_cta-btn svg path,
+.plans_card-3 .plans_cta-btn svg path {
+  stroke: #1c4140; /* Verde escuro para combinar */
 }
 
 .plans_card-1 .plans_cta-btn,
@@ -208,6 +224,11 @@ align-self: flex-start;
   background: #fff;
   border: 1px solid #1c4140;
   color: #1c4140;
+}
+
+.plans_card-1 .plans_cta-btn svg,
+.plans_card-3 .plans_cta-btn svg {
+  fill: #1c4140;
 }
 
 .plans_nav-btn {

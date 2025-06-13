@@ -6,7 +6,7 @@
   min-height: 100vh;
   padding: 2rem 1rem;
   margin-top: 80px;
-  background-color: #FFFDF9;
+ 
 }
 
 /* Container do formulário */
@@ -140,7 +140,7 @@
 }
 
 /* Desktop */
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .form-content {
     flex-direction: row;
     gap: 3rem;

@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/PlansSection.css";
-import arrowesq from "../assets/images/plans/arrow-esq.svg";
-import arrowdir from "../assets/images/plans/arrow-dir.svg";
+import arrowLeft from "../assets/images/plans/arrow-esq.svg";
+import arrowRight from "../assets/images/plans/arrow-dir.svg";
 
 const plans = [
   {
     title: "Plano Essencial",
     price: "Gratuito",
     description: "Ideal para quem está começando",
-    duration: "Duração: 1 sessão de 1 hora",
+    duration: "1 sessão de 1 hora",
     items: [
       "Exercício prático para identificar desafios financeiros do casal",
       "Conceitos básicos",
@@ -19,7 +19,7 @@ const plans = [
     title: "Plano Básico",
     price: "R$ 450",
     description: "Ideal para casais que querem mais controle",
-    duration: "Duração: 3 sessões de 1 hora",
+    duration: "3 sessões de 1 hora",
     items: [
       "Como alinhar a visão financeira do casal",
       "Planejamento financeiro",
@@ -33,7 +33,7 @@ const plans = [
     type: "ou 2x sem juros",
     description:
       "Ideal para casais que querem sair da instabilidade financeira",
-    duration: "Duração: 5 sessões de 1 hora",
+    duration: "5 sessões de 1 hora",
     items: [
       "Tudo do plano anterior +",
       "Acompanhamento por WhatsApp",
@@ -47,9 +47,9 @@ const plans = [
     price: "R$ 1000",
     type: "ou 4x sem juros",
     description: "Ideal para casais que desejam viver a verdadeira liberdade",
-    duration: "Duração: 8 sessões de 1 hora + acompanhamento",
+    duration: "8 sessões de 1 hora + acompanhamento",
     items: [
-      "Tudo dos planos anterior +",
+      "Tudo dos planos anteriores +",
       "Diagnóstico financeiro",
       "Planejamento para aposentadoria e herança",
       "Estratégias avançadas de investimentos",
@@ -74,9 +74,7 @@ function PlansSection() {
   }, []);
 
   const handleAgendar = (plan) => {
-    navigate("/agenda", {
-      state: { selectedPlan: plan },
-    });
+    navigate("/agenda", { state: { selectedPlan: plan } });
   };
 
   const nextSlide = () => {
@@ -85,6 +83,12 @@ function PlansSection() {
 
   const prevSlide = () => {
     setCurrent((prev) => (prev - 1 + plans.length) % plans.length);
+  };
+
+  const getPlanClass = (index) => {
+    if (plans[index].title.includes("Básico")) return "plans_card-1";
+    if (plans[index].title.includes("Avançado")) return "plans_card-3";
+    return "";
   };
 
   return (
@@ -109,7 +113,7 @@ function PlansSection() {
       <div className="plans_carousel-wrapper">
         {isMobile && (
           <button className="plans_nav-btn left-plans" onClick={prevSlide}>
-            <img src={arrowesq} alt="Voltar" />
+            <img src={arrowLeft} alt="Voltar" />
           </button>
         )}
 
@@ -119,7 +123,7 @@ function PlansSection() {
               key={index}
               className={`plans_card ${
                 isMobile && index !== current ? "hidden" : ""
-              } plans_card-${index}`}
+              } ${getPlanClass(index)}`}
             >
               <h2>{plan.title}</h2>
               <p className="price">{plan.price}</p>
@@ -135,14 +139,18 @@ function PlansSection() {
                       height="20"
                       viewBox="0 0 21 20"
                       fill="none"
-                      style={{ verticalAlign: "middle", marginRight: "8px" }}
                     >
                       <path
                         d="M17.1666 5L7.99992 14.1667L3.83325 10"
-                        stroke="#22C55E"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        stroke={
+                          plan.title.includes("Básico") ||
+                          plan.title.includes("Avançado")
+                            ? "white"
+                            : "#22C55E"
+                        }
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                     {item}
@@ -170,25 +178,21 @@ function PlansSection() {
                   >
                     <path
                       d="M5.177 1.50006V4.50006"
-                      stroke="white"
                       stroke-linecap="round"
                       stroke-linejoin="round"
                     />
                     <path
                       d="M9.85425 1.50006V4.50006"
-                      stroke="white"
                       stroke-linecap="round"
                       stroke-linejoin="round"
                     />
                     <path
                       d="M11.6081 3.00006H3.42318C2.77741 3.00006 2.25391 3.67163 2.25391 4.50006V15.0001C2.25391 15.8285 2.77741 16.5001 3.42318 16.5001H11.6081C12.2538 16.5001 12.7773 15.8285 12.7773 15.0001V4.50006C12.7773 3.67163 12.2538 3.00006 11.6081 3.00006Z"
-                      stroke="white"
                       stroke-linecap="round"
                       stroke-linejoin="round"
                     />
                     <path
                       d="M2.25391 7.50006H12.7773"
-                      stroke="white"
                       stroke-linecap="round"
                       stroke-linejoin="round"
                     />
@@ -206,7 +210,7 @@ function PlansSection() {
 
         {isMobile && (
           <button className="plans_nav-btn right-plans" onClick={nextSlide}>
-            <img src={arrowdir} alt="Passar" />
+            <img src={arrowRight} alt="Avançar" />
           </button>
         )}
       </div>
