@@ -13,6 +13,7 @@ body {
   padding-top: 80px;
   margin-top: 40px;
   overflow: hidden;
+
   
 }
 
@@ -63,24 +64,28 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 30px auto;
   padding: 5px;
-  margin-top: 30px;
-  
+  max-width: 1300px;
+  /* min-width: 300px; */
+  border: 1px solid #22c55e;
 }
+
 
 .plans_cards-wrapper {
   display: flex;
   flex-direction: row;
   gap: 1.5rem;
-  overflow-x: auto;
+  
   scroll-behavior: smooth;
   justify-content: center;
   flex-wrap: nowrap;
   align-items: stretch;
   padding-bottom: 4rem;
   padding: 5px;
-  
-  
+  min-width: 200px;
+
+  border: solid;
 }
 
 .plans_card {
@@ -100,8 +105,8 @@ body {
   animation: fadeInUp 1s ease forwards;
   opacity: 0;
   overflow: visible;
+  min-width: 180px;
   margin-bottom: 30px;
-  
 }
 
 .plans_card.hidden {
@@ -113,7 +118,7 @@ body {
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
-  line-height: 30px; 
+  line-height: 30px;
   width: 81px;
   text-align: start;
   align-self: flex-start;
@@ -186,12 +191,15 @@ body {
   color: #fff;
 }
 
+/* ✅ BOTÃO AJUSTADO */
 .plans_cta-btn {
   position: absolute;
   bottom: -21px;
   left: 50%;
   transform: translateX(-50%);
-  width: 160px; /* Aumentado para acomodar texto + ícone */
+  width: fit-content;
+  max-width: 180px;
+  min-width: 131px;
   height: 42px;
   background: #1c4140;
   color: white;
@@ -199,26 +207,25 @@ body {
   border-radius: 20px;
   border: 1px solid rgba(125, 96, 0, 0.71);
   cursor: pointer;
-  text-align: center;
   font-weight: bold;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 1;
+
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 8px;
+  justify-content: center;
+  transition: all 0.3s ease;
 }
 
-.plans_cta-btn svg path {
-  stroke: white;
+.plans_cta-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: white;
+  transition: fill 0.3s ease;
 }
 
-/* Cards verdes - stroke verde */
-.plans_card-1 .plans_cta-btn svg path,
-.plans_card-3 .plans_cta-btn svg path {
-  stroke: #1c4140; /* Verde escuro para combinar */
-}
-
+/* ✅ BOTÃO NOS CARDS COM FUNDO VERDE */
 .plans_card-1 .plans_cta-btn,
 .plans_card-3 .plans_cta-btn {
   background: #fff;
@@ -231,23 +238,34 @@ body {
   fill: #1c4140;
 }
 
+/* ✅ NAVEGAÇÃO SETAS */
 .plans_nav-btn {
   position: absolute;
-  top: 40%;
+  top: 50%;
   transform: translateY(-50%);
   background: transparent;
   border: none;
   font-size: 2rem;
   cursor: pointer;
+  z-index: 10; /* Aumenta a camada */
 }
 
 .left-plans {
-  left: 0;
+  left: -25px; /* Afasta mais da borda do card se quiser */
+}
+.right-plans {
+  right: -25px;
+}
+@media (min-width: 360px) {
+.left-plans {
+  left: 0px; /* Afasta mais da borda do card se quiser */
+}
+.right-plans {
+  right: 0px;
+}
 }
 
-.right-plans {
-  right: 0;
-}
+/* ✅ RESPONSIVIDADE */
 
 /* Tablet */
 @media (min-width: 768px) {
@@ -290,7 +308,7 @@ body {
   }
 }
 
-/* Remove animações no mobile */
+/* ✅ REMOVE ANIMAÇÕES NO MOBILE */
 @media (max-width: 767px) {
   .plans_container h1,
   .plans_card {
@@ -300,7 +318,7 @@ body {
   }
 }
 
-/* Keyframes */
+/* ✅ KEYFRAMES */
 @keyframes fadeInUp {
   from {
     opacity: 0;
