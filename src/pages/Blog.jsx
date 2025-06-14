@@ -18,8 +18,11 @@ function Blog() {
   };
   return (
     <>
+     <div className="page-wrapper">
       <NavBar/>
+      <main>
       <BlogSection />
+      </main>
       <Footer/>
 
        {/* Botões flutuantes (agora estilizados externamente) */}
@@ -48,6 +51,7 @@ function Blog() {
                 />
                 Voltar ao Topo
               </button> */}
+            </div>
             </div>
     </>
   );
