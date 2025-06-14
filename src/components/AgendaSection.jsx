@@ -1,10 +1,16 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
+import emailjs from "@emailjs/browser";
 import "../styles/AgendaSection.css";
 
 function AgendaSection() {
   const { state } = useLocation();
   const selectedPlanFromState = state?.selectedPlan;
+
+  // Configurações do EmailJS
+  const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+  const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+  const userId = import.meta.env.VITE_EMAILJS_USER_ID;
 
   const availablePlans = [
     {
@@ -62,6 +68,9 @@ function AgendaSection() {
     date: "",
   });
   const [formErrors, setFormErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showConfirmationModal, setShowConfirmationModal] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   const handlePlanChange = (e) => {
     const planTitle = e.target.value;
@@ -71,13 +80,145 @@ function AgendaSection() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    
+    // Limitar o nome a 40 caracteres
+    if (name === 'name' && value.length > 40) {
+      return;
+    }
+    
+    // Permitir apenas números no telefone
+    if (name === 'phone') {
+      const numericValue = value.replace(/\D/g, '');
+      setFormData((prev) => ({ ...prev, [name]: numericValue }));
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
+    
     setFormErrors((prev) => ({ ...prev, [name]: "" }));
+  };
+
+  const validateForm = () => {
+    const errors = {};
+    let isValid = true;
+
+    // Validação do Nome (2-40 caracteres)
+    if (!formData.name.trim()) {
+      errors.name = "Nome é obrigatório";
+      isValid = false;
+    } else if (formData.name.trim().length < 2) {
+      errors.name = "Nome deve ter no mínimo 2 caracteres";
+      isValid = false;
+    } else if (formData.name.trim().length > 40) {
+      errors.name = "Nome deve ter no máximo 40 caracteres";
+      isValid = false;
+    }
+
+    // Validação do Email (provedores existentes e formato válido)
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const validProviders = [
+      'gmail.com',
+      'hotmail.com',
+      'outlook.com',
+      'yahoo.com',
+      'icloud.com',
+      'protonmail.com',
+      'live.com',
+      'bol.com.br',
+      'uol.com.br',
+      'terra.com.br',
+      'ig.com.br',
+      'r7.com',
+      'yahoo.com.br',
+      'aol.com',
+      'mail.com',
+      'zoho.com'
+    ];
+    
+    if (!formData.email.trim()) {
+      errors.email = "Email é obrigatório";
+      isValid = false;
+    } else if (!emailRegex.test(formData.email)) {
+      errors.email = "Email inválido";
+      isValid = false;
+    } else {
+      const [, domain] = formData.email.split('@');
+      if (!domain || !validProviders.includes(domain.toLowerCase())) {
+        errors.email = "Provedor de email não suportado";
+        isValid = false;
+      }
+      
+      const [localPart] = formData.email.split('@');
+      if (!localPart || localPart.length < 1) {
+        errors.email = "Email deve conter texto antes do @";
+        isValid = false;
+      }
+    }
+
+    // Validação do Telefone (apenas números e quantidade exata)
+    const phoneRegex = /^[0-9]{10,11}$/; // 10 ou 11 dígitos (com ou sem DDD)
+    const phoneDigits = formData.phone.replace(/\D/g, '');
+    if (!phoneDigits) {
+      errors.phone = "Telefone é obrigatório";
+      isValid = false;
+    } else if (!phoneRegex.test(phoneDigits)) {
+      errors.phone = "Telefone deve conter 10 ou 11 dígitos";
+      isValid = false;
+    }
+
+    // Validação da Data
+    if (!formData.date) {
+      errors.date = "Data é obrigatória";
+      isValid = false;
+    }
+
+    setFormErrors(errors);
+    return isValid;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Validação e envio do formulário
+    
+    if (!validateForm()) {
+      return;
+    }
+    
+    setShowConfirmationModal(true);
+  };
+
+  const confirmSubmission = async () => {
+    setIsSubmitting(true);
+    setShowConfirmationModal(false);
+
+    try {
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        date: formData.date,
+        plan: selectedPlan.title,
+        plan_price: selectedPlan.price,
+        plan_description: selectedPlan.description,
+      };
+
+      await emailjs.send(serviceId, templateId, templateParams, userId);
+      
+      setShowSuccessModal(true);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        date: "",
+      });
+    } catch (error) {
+      console.error("Erro ao enviar email:", error);
+      setShowSuccessModal(false);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const closeSuccessModal = () => {
+    setShowSuccessModal(false);
   };
 
   return (
@@ -122,8 +263,10 @@ function AgendaSection() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
+                  maxLength={40}
                   className={formErrors.name ? "error-input" : ""}
                 />
+                <div className="char-counter">{formData.name.length}/40</div>
                 {formErrors.name && <span className="error-text">{formErrors.name}</span>}
               </label>
 
@@ -146,6 +289,7 @@ function AgendaSection() {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
+                  maxLength={11}
                   className={formErrors.phone ? "error-input" : ""}
                 />
                 {formErrors.phone && <span className="error-text">{formErrors.phone}</span>}
@@ -163,10 +307,14 @@ function AgendaSection() {
                 {formErrors.date && <span className="error-text">{formErrors.date}</span>}
               </label>
 
-              <p className="time-note">Horário a combinar</p>
+              <p className="time-note">*Forma de pagamento e horário a combinar.</p>
 
-              <button type="submit" className="submit-button">
-                Confirmar Agendamento
+              <button 
+                type="submit" 
+                className="submit-button"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Enviando..." : "Enviar"}
               </button>
             </form>
           </div>
@@ -197,6 +345,65 @@ function AgendaSection() {
           </div>
         </div>
       </div>
+
+      {/* Modal de Confirmação */}
+      {showConfirmationModal && (
+        <div className="modal-overlay">
+          <div className="confirmation-modal">
+            <h3>Confirmar Agendamento</h3>
+            <div className="confirmation-details">
+              <p><strong>Nome:</strong> {formData.name}</p>
+              <p><strong>Email:</strong> {formData.email}</p>
+              <p><strong>Telefone:</strong> {formData.phone}</p>
+              <p><strong>Data:</strong> {formData.date}</p>
+              <p><strong>Plano:</strong> {selectedPlan.title} - {selectedPlan.price}</p>
+            </div>
+            <div className="modal-buttons">
+              <button 
+                onClick={() => setShowConfirmationModal(false)}
+                className="cancel-button"
+              >
+                Voltar
+              </button>
+              <button 
+                onClick={confirmSubmission}
+                className="confirm-button"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Enviando..." : "Confirmar"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Modal de Sucesso */}
+      {showSuccessModal && (
+        <div className="modal-overlay">
+          <div className="success-modal">
+            <svg 
+              width="60" 
+              height="60" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path 
+                d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" 
+                fill="#047857"
+              />
+            </svg>
+            <h3>Agendamento Enviado!</h3>
+            <p>Seu agendamento foi enviado com sucesso. Entraremos em contato em breve.</p>
+            <button 
+              onClick={closeSuccessModal}
+              className="success-button"
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -93,11 +93,11 @@ function PlansSection() {
 
   return (
     <section className="plans_container" id="plans">
-      <h1>Mentorias e Planos</h1>
+      {/* <h1>Mentorias e Planos</h1>
       <p className="plans_subtitle">
         Transforme a realidade financeira do seu casamento com nossas mentorias
         personalizadas.
-      </p>
+      </p> */}
 
       {isMobile && (
         <div className="plans_indicator-container">

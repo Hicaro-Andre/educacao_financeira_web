@@ -6,7 +6,6 @@
   min-height: 100vh;
   padding: 2rem 1rem;
   margin-top: 80px;
- 
 }
 
 /* Container do formulário */
@@ -14,6 +13,7 @@
   width: 100%;
   max-width: 1200px;
   border-radius: 16px;
+
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
@@ -28,6 +28,10 @@
 .form-section {
   flex: 1;
 }
+.plan-title {
+  text-align: center;
+  margin: 10px;
+}
 
 /* Card Mobile */
 .selected-plan-card {
@@ -35,8 +39,13 @@
   border: 2px solid rgba(125, 96, 0, 0.71);
   border-radius: 1rem;
   padding: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin: 1.5rem auto; /* Centraliza horizontalmente */
   color: #1c4140;
+  width: 90%; /* Largura responsiva */
+  max-width: 500px; /* Largura máxima */
+  box-shadow: 0 4px 15px rgba(125, 96, 0, 0.15);
+  transition: all 0.3s ease;
+  text-align: center; /* Centraliza o conteúdo interno */
 }
 
 .selected-plan-card h3 {
@@ -84,24 +93,62 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .form label {
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
   font-size: 0.95rem;
-  color: #333;
+  color: #2d3748;
+  position: relative;
 }
 
-.form select,
-.form input {
-  padding: 0.75rem;
-  border: 1px solid #ccc;
+.form input,
+.form select {
+  padding: 0.85rem 1rem;
+  border: 1px solid #e2e8f0;
   border-radius: 8px;
-  margin-top: 0.4rem;
-  font-size: 1rem;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  background-color: #f8fafc;
+  color: #1a202c;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
+
+.form input:focus,
+.form select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+  background-color: #fff;
+}
+
+.form select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+}
+
+/* ESTILOS DE ERRO */
+.error-input {
+  border-color: #fc8181 !important;
+  background-color: #fff5f5 !important;
+}
+
+.error-text {
+  color: #e53e3e;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+/* fim Formulário */
+
 
 .submit-button {
   background-color: #1c4140;
@@ -112,6 +159,9 @@
   font-weight: 600;
   cursor: pointer;
   margin-top: 1rem;
+  width: 100px;
+  align-self: center;
+  border-radius: 30px;
   transition: all 0.3s ease;
 }
 
@@ -121,32 +171,142 @@
 }
 
 .time-note {
-  font-style: italic;
-  color: #666;
-  font-size: 0.9rem;
-  margin-top: -0.5rem;
+  color: #050505;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 207.864%;
 }
 
-/* Erros */
-.error-input {
-  border: 1px solid red !important;
-  background-color: #ffe6e6;
+
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
-.error-text {
-  color: red;
-  font-size: 0.85rem;
+.confirmation-modal, .success-modal {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+.success-modal {
+  text-align: center;
+}
+
+.success-modal svg {
+  margin-bottom: 1rem;
+}
+
+.success-modal h3 {
+  color: #047857;
+  margin-bottom: 0.5rem;
+}
+
+.confirmation-details {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background-color: #f8fafc;
+  border-radius: 6px;
+}
+
+.confirmation-details p {
+  margin-bottom: 0.5rem;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.cancel-button {
+  background-color: #e2e8f0;
+  color: #334155;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cancel-button:hover {
+  background-color: #cbd5e1;
+}
+
+.confirm-button {
+  background-color: #047857;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.confirm-button:hover {
+  background-color: #059669;
+}
+
+.confirm-button:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
+}
+
+.success-button {
+  background-color: #047857;
+  color: white;
+  padding: 0.5rem 2rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.success-button:hover {
+  background-color: #059669;
+}
+.char-counter {
+  font-size: 0.75rem;
+  color: #718096;
+  text-align: right;
   margin-top: 0.25rem;
 }
 
+.char-counter:empty {
+  display: none;
+}
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 /* Desktop */
 @media (min-width: 1024px) {
   .form-content {
     flex-direction: row;
-    gap: 3rem;
+    gap: 10rem;
     align-items: flex-start;
   }
-
   .selected-plan-card {
     display: none;
   }
@@ -162,7 +322,26 @@
     position: sticky;
     top: 2rem;
   }
+  .selected-plan-card-desk ul{
+    list-style-type: none;
+  }
+  .selected-plan-card-desk h3 {
+    color: #050505;
+    width: 81px;
+    height: 60px;
 
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+    margin-bottom: 10px;
+  }
+  .selected-plan-card-desk .type {
+    margin-bottom: 10px;
+  }
+  .selected-plan-card-desk .description {
+    margin-bottom: 10px;
+  }
   /* Cards Verdes Desktop */
   .plans_card-1.selected-plan-card-desk,
   .plans_card-3.selected-plan-card-desk {
