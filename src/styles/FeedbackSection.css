@@ -91,35 +91,30 @@
 } */
 
 .arrow {
+  background: transparent;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.8);
   border: none;
-  border-radius: 50%;
   width: 35px;
   height: 35px;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   cursor: pointer;
   z-index: 3;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(125, 96, 0, 0.71);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  
+  
   transition: all 0.3s ease;
 }
 
-.arrow:hover {
-  background: rgba(255, 255, 255, 1);
-}
-
 .arrow-esq {
-  left: 10px;
+  left: -5px;
 }
 
 .arrow-dir {
-  right: 10px;
+  right: -5px;
 }
 
 /* .seta-esq {

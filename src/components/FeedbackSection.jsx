@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import "../styles/FeedbackSection.css";
 
@@ -94,7 +93,99 @@ function FeedbackSection() {
           className={`cardfeed ${isAtual ? "grande" : "pequeno"}`}
         >
           {isAtual && (
-            <button className="arrow arrow-esq" onClick={anterior}>❮</button>
+            <button className="arrow arrow-esq" onClick={anterior}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="21"
+                height="32"
+                viewBox="0 0 21 32"
+                fill="none"
+              >
+                <g filter="url(#filter0_d_430_359)">
+                  <path
+                    d="M14.8901 2.00002L5.99988 12.0156L14.8901 22.0312"
+                    stroke="url(#paint0_linear_430_359)"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    shape-rendering="crispEdges"
+                  />
+                </g>
+                <defs>
+                  <filter
+                    id="filter0_d_430_359"
+                    x="0.5"
+                    y="0.5"
+                    width="19.8901"
+                    height="31.0312"
+                    filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB"
+                  >
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix
+                      in="SourceAlpha"
+                      type="matrix"
+                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                      result="hardAlpha"
+                    />
+                    <feOffset dy="4" />
+                    <feGaussianBlur stdDeviation="2" />
+                    <feComposite in2="hardAlpha" operator="out" />
+                    <feColorMatrix
+                      type="matrix"
+                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                    />
+                    <feBlend
+                      mode="normal"
+                      in2="BackgroundImageFix"
+                      result="effect1_dropShadow_430_359"
+                    />
+                    <feBlend
+                      mode="normal"
+                      in="SourceGraphic"
+                      in2="effect1_dropShadow_430_359"
+                      result="shape"
+                    />
+                  </filter>
+                  <linearGradient
+                    id="paint0_linear_430_359"
+                    x1="14.6514"
+                    y1="16.7854"
+                    x2="3.8876"
+                    y2="12.1365"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#7D6000" stop-opacity="0.71" />
+                    <stop
+                      offset="0.195"
+                      stop-color="#D2B556"
+                      stop-opacity="0.69"
+                    />
+                    <stop
+                      offset="0.355"
+                      stop-color="#9E7A04"
+                      stop-opacity="0.63"
+                    />
+                    <stop
+                      offset="0.525"
+                      stop-color="#DEC369"
+                      stop-opacity="0.8"
+                    />
+                    <stop
+                      offset="0.7"
+                      stop-color="#977400"
+                      stop-opacity="0.69"
+                    />
+                    <stop
+                      offset="0.855"
+                      stop-color="#D5B859"
+                      stop-opacity="0.89"
+                    />
+                    <stop offset="1" stop-color="#846501" stop-opacity="0.94" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </button>
           )}
 
           <div className="feedback_depoimento-card">
@@ -102,12 +193,106 @@ function FeedbackSection() {
             <p className="feedback_texto">"{depoimentos[index].texto}"</p>
             <div className="feedback_autor">
               <img src={depoimentos[index].imagem} alt="Foto do casal" />
-              <p><strong>{depoimentos[index].autor}</strong></p>
+              <p>
+                <strong>{depoimentos[index].autor}</strong>
+              </p>
             </div>
           </div>
 
           {isAtual && (
-            <button className="arrow arrow-dir" onClick={proximo}>❯</button>
+            <button className="arrow arrow-dir" onClick={proximo}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="21"
+                height="32"
+                viewBox="0 0 21 32"
+                fill="none"
+              >
+                <g filter="url(#filter0_d_430_360)">
+                  <path
+                    d="M6 2.00002L14.8903 12.0156L6 22.0312"
+                    stroke="url(#paint0_linear_430_360)"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    shape-rendering="crispEdges"
+                  />
+                </g>
+                <defs>
+                  <filter
+                    id="filter0_d_430_360"
+                    x="0.5"
+                    y="0.5"
+                    width="19.8901"
+                    height="31.0312"
+                    filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB"
+                  >
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix
+                      in="SourceAlpha"
+                      type="matrix"
+                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                      result="hardAlpha"
+                    />
+                    <feOffset dy="4" />
+                    <feGaussianBlur stdDeviation="2" />
+                    <feComposite in2="hardAlpha" operator="out" />
+                    <feColorMatrix
+                      type="matrix"
+                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                    />
+                    <feBlend
+                      mode="normal"
+                      in2="BackgroundImageFix"
+                      result="effect1_dropShadow_430_360"
+                    />
+                    <feBlend
+                      mode="normal"
+                      in="SourceGraphic"
+                      in2="effect1_dropShadow_430_360"
+                      result="shape"
+                    />
+                  </filter>
+                  <linearGradient
+                    id="paint0_linear_430_360"
+                    x1="6.23875"
+                    y1="16.7854"
+                    x2="17.0025"
+                    y2="12.1365"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#7D6000" stop-opacity="0.71" />
+                    <stop
+                      offset="0.195"
+                      stop-color="#D2B556"
+                      stop-opacity="0.69"
+                    />
+                    <stop
+                      offset="0.355"
+                      stop-color="#9E7A04"
+                      stop-opacity="0.63"
+                    />
+                    <stop
+                      offset="0.525"
+                      stop-color="#DEC369"
+                      stop-opacity="0.8"
+                    />
+                    <stop
+                      offset="0.7"
+                      stop-color="#977400"
+                      stop-opacity="0.69"
+                    />
+                    <stop
+                      offset="0.855"
+                      stop-color="#D5B859"
+                      stop-opacity="0.89"
+                    />
+                    <stop offset="1" stop-color="#846501" stop-opacity="0.94" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </button>
           )}
         </div>
       );
@@ -126,9 +311,7 @@ function FeedbackSection() {
         própria história de sucesso, entre em contato conosco.
       </p>
 
-      <div className="feed_carrossel">
-        {getCardsVisiveis()}
-      </div>
+      <div className="feed_carrossel">{getCardsVisiveis()}</div>
     </section>
   );
 }
