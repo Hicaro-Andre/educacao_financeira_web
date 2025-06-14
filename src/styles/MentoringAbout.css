@@ -9,16 +9,18 @@
   overflow: hidden;
   z-index: 1;
   text-align: center;
+ 
 }
 
+
 .mentoring-about::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  background-image: url('../assets/images/hero/fundo-hero.jpg');
+  background-image: url("../assets/images/hero/fundo-hero.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -28,36 +30,43 @@
 }
 
 .mentoring-about h3 {
-  color: #1C4140;
-align-self: center;
-font-size: clamp(32px, 5vw, 64px);
-font-style: normal;
-font-weight: 600;
-line-height: normal;
+  color: #1c4140;
+  align-self: center;
+  font-size: clamp(32px, 5vw, 64px);
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-align: center;
 }
 
 .mentoring-about p {
-color: #1C4140;
-font-family: Lato;
-font-size: 20px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
-text-align: center;
+  color: #1c4140;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-align: center;
 }
-
+.mentoring-about picture {
+  display: flex;
+  flex-direction: column;
+}
 .mentoring-about img {
   width: 100%;
-  max-width: 500px;
+  max-width: 650px;
   height: auto;
   border-radius: 12px;
   position: relative;
   z-index: 1;
 }
 
+/* gambiarra dos botão */
+.plans-button{
+  display: none;
+}
 .plans-button {
   margin-top: 1.5rem;
-  background: #1C4140;
+  background: #1c4140;
   border-radius: 30px;
   align-self: center;
   border: 1px solid var(--gold, rgba(125, 96, 0, 0.71));
@@ -69,9 +78,9 @@ text-align: center;
   position: relative;
   z-index: 1;
 }
-.plans-button-mob{
-   margin-top: 1.5rem;
-  background: #1C4140;
+.plans-button-mob {
+  margin-top: 1.5rem;
+  background: #1c4140;
   border-radius: 30px;
   align-self: center;
   border: 1px solid var(--gold, rgba(125, 96, 0, 0.71));
@@ -82,7 +91,7 @@ text-align: center;
   transition: background 0.3s;
   position: relative;
   z-index: 1;
-  }
+}
 
 .plans-button:hover {
   background-color: #0c2f28;
@@ -107,20 +116,24 @@ text-align: center;
     align-items: flex-start; /* Garante alinhamento à esquerda */
   }
 
+
+
   /* Container da imagem (direita) */
   .mentoring-about picture {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-
   }
 
   .mentoring-about img {
-    max-width: 100%;
+    min-width: 500px;
   }
 
- 
+  .plans-button-mob{
+    display: none;
+  }
+  .plans-button{
+    display: block;
+  }
 }
-
- 
