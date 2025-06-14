@@ -5,7 +5,7 @@ header {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background-color: #1C4140;
+  background: #1C4140;
 }
 
 .menu__nav {
@@ -124,13 +124,14 @@ header {
   .nav {
     display: flex;
     justify-content: center;
-    background: #1C4140;
+    background: #ffff;
     position: relative;
     flex-direction: row;
     padding: 0;
     width: min(90%, 700px);
     border-radius: 15px 5px 15px 5px;
     box-shadow: none;
+    
   }
 
   .nav-close {
@@ -146,7 +147,7 @@ header {
   }
 
   .nav li a {
-    color: #FFFDF9;
+    color: black;
     -webkit-text-stroke-width: 0;
     font-size: 1rem;
     transition: all 0.3s ease;
