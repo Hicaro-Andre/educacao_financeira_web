@@ -34,7 +34,7 @@ const Benefits = () => {
       <div className="benefits-grid">
         <div className="benefits-list positive" ref={positiveRef}>
           <div className="section-header">
-            <h2>Para você se...</h2>
+            <h2>É Para você se...</h2>
           </div>
           <ul>
             <li>Deseja aprender a lidar com o dinheiro de forma bíblica e consciente</li>

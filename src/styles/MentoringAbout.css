@@ -13,7 +13,7 @@
 }
 
 
-.mentoring-about::before {
+/* .mentoring-about::before {
   content: "";
   position: absolute;
   top: 0;
@@ -27,7 +27,7 @@
   opacity: 0.25;
   z-index: 0;
   pointer-events: none;
-}
+} */
 
 .mentoring-about h3 {
   color: #1c4140;
@@ -37,6 +37,7 @@
   font-weight: 600;
   line-height: normal;
   text-align: center;
+
 }
 
 .mentoring-about p {
