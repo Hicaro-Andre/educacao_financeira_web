@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import "../styles/AgendaSection.css";
@@ -7,22 +7,10 @@ function AgendaSection() {
   const { state } = useLocation();
   const selectedPlanFromState = state?.selectedPlan;
 
-  // EmailJS configuration with validation
+  // Configurações do EmailJS
   const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
   const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
   const userId = import.meta.env.VITE_EMAILJS_USER_ID;
-
-  // Verify environment variables
-  useEffect(() => {
-  if (!serviceId || !templateId || !userId) {
-    console.error("Variáveis faltando:", {
-      serviceId,
-      templateId,
-      userId
-    });
-    setApiError("Configuração de email incompleta - contate o suporte");
-  }
-}, [serviceId, templateId, userId]);
 
   const availablePlans = [
     {
@@ -83,7 +71,6 @@ function AgendaSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
-  const [apiError, setApiError] = useState(null);
 
   const handlePlanChange = (e) => {
     const planTitle = e.target.value;
@@ -94,8 +81,12 @@ function AgendaSection() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     
-    if (name === 'name' && value.length > 40) return;
+    // Limitar o nome a 40 caracteres
+    if (name === 'name' && value.length > 40) {
+      return;
+    }
     
+    // Permitir apenas números no telefone
     if (name === 'phone') {
       const numericValue = value.replace(/\D/g, '');
       setFormData((prev) => ({ ...prev, [name]: numericValue }));
@@ -104,14 +95,13 @@ function AgendaSection() {
     }
     
     setFormErrors((prev) => ({ ...prev, [name]: "" }));
-    setApiError(null);
   };
 
   const validateForm = () => {
     const errors = {};
     let isValid = true;
 
-    // Name validation
+    // Validação do Nome (2-40 caracteres)
     if (!formData.name.trim()) {
       errors.name = "Nome é obrigatório";
       isValid = false;
@@ -123,13 +113,25 @@ function AgendaSection() {
       isValid = false;
     }
 
-    // Email validation
+    // Validação do Email (provedores existentes e formato válido)
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const validProviders = [
-      'gmail.com', 'hotmail.com', 'outlook.com', 'yahoo.com', 
-      'icloud.com', 'protonmail.com', 'live.com', 'bol.com.br',
-      'uol.com.br', 'terra.com.br', 'ig.com.br', 'r7.com',
-      'yahoo.com.br', 'aol.com', 'mail.com', 'zoho.com'
+      'gmail.com',
+      'hotmail.com',
+      'outlook.com',
+      'yahoo.com',
+      'icloud.com',
+      'protonmail.com',
+      'live.com',
+      'bol.com.br',
+      'uol.com.br',
+      'terra.com.br',
+      'ig.com.br',
+      'r7.com',
+      'yahoo.com.br',
+      'aol.com',
+      'mail.com',
+      'zoho.com'
     ];
     
     if (!formData.email.trim()) {
@@ -152,17 +154,18 @@ function AgendaSection() {
       }
     }
 
-    // Phone validation
+    // Validação do Telefone (apenas números e quantidade exata)
+    const phoneRegex = /^[0-9]{10,11}$/; // 10 ou 11 dígitos (com ou sem DDD)
     const phoneDigits = formData.phone.replace(/\D/g, '');
     if (!phoneDigits) {
       errors.phone = "Telefone é obrigatório";
       isValid = false;
-    } else if (!/^[0-9]{10,11}$/.test(phoneDigits)) {
+    } else if (!phoneRegex.test(phoneDigits)) {
       errors.phone = "Telefone deve conter 10 ou 11 dígitos";
       isValid = false;
     }
 
-    // Date validation
+    // Validação da Data
     if (!formData.date) {
       errors.date = "Data é obrigatória";
       isValid = false;
@@ -174,21 +177,17 @@ function AgendaSection() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!validateForm()) return;
+    
+    if (!validateForm()) {
+      return;
+    }
+    
     setShowConfirmationModal(true);
   };
 
   const confirmSubmission = async () => {
     setIsSubmitting(true);
     setShowConfirmationModal(false);
-    setApiError(null);
-
-    if (!serviceId || !templateId || !userId) {
-      console.error("Missing EmailJS configuration");
-      setApiError("Configuração do serviço de email incompleta");
-      setIsSubmitting(false);
-      return;
-    }
 
     try {
       const templateParams = {
@@ -201,14 +200,8 @@ function AgendaSection() {
         plan_description: selectedPlan.description,
       };
 
-      console.log("Sending data:", templateParams);
-      const response = await emailjs.send(serviceId, templateId, templateParams, userId);
-      console.log("EmailJS response:", response);
-
-      if (response.status !== 200) {
-        throw new Error(`EmailJS returned status ${response.status}`);
-      }
-
+      await emailjs.send(serviceId, templateId, templateParams, userId);
+      
       setShowSuccessModal(true);
       setFormData({
         name: "",
@@ -217,15 +210,8 @@ function AgendaSection() {
         date: "",
       });
     } catch (error) {
-      console.error("Submission error:", {
-        error,
-        serviceId,
-        templateId,
-        userId,
-        timestamp: new Date().toISOString()
-      });
-      
-      setApiError("Erro ao enviar formulário. Por favor, tente novamente mais tarde.");
+      console.error("Erro ao enviar email:", error);
+      setShowSuccessModal(false);
     } finally {
       setIsSubmitting(false);
     }
@@ -233,13 +219,6 @@ function AgendaSection() {
 
   const closeSuccessModal = () => {
     setShowSuccessModal(false);
-  };
-
-  // Email fallback
-  const handleMailtoFallback = () => {
-    const subject = `Agendamento - ${selectedPlan.title}`;
-    const body = `Nome: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0ATelefone: ${formData.phone}%0D%0AData: ${formData.date}%0D%0APlano: ${selectedPlan.title} - ${selectedPlan.price}`;
-    window.location.href = `mailto:seuemail@exemplo.com?subject=${encodeURIComponent(subject)}&body=${body}`;
   };
 
   return (
@@ -260,18 +239,6 @@ function AgendaSection() {
               {selectedPlan.type && <p className="type">{selectedPlan.type}</p>}
               <p className="description">{selectedPlan.description}</p>
             </div>
-
-            {apiError && (
-              <div className="error-message">
-                {apiError}
-                <button 
-                  onClick={handleMailtoFallback}
-                  className="fallback-button"
-                >
-                  Tentar enviar por email
-                </button>
-              </div>
-            )}
 
             <form onSubmit={handleSubmit} className="form">
               <label>
@@ -379,7 +346,7 @@ function AgendaSection() {
         </div>
       </div>
 
-      {/* Confirmation Modal */}
+      {/* Modal de Confirmação */}
       {showConfirmationModal && (
         <div className="modal-overlay">
           <div className="confirmation-modal">
@@ -410,7 +377,7 @@ function AgendaSection() {
         </div>
       )}
 
-      {/* Success Modal */}
+      {/* Modal de Sucesso */}
       {showSuccessModal && (
         <div className="modal-overlay">
           <div className="success-modal">
