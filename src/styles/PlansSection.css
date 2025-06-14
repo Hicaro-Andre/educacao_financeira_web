@@ -13,8 +13,7 @@ body {
   padding-top: 80px;
   margin-top: 40px;
   overflow: hidden;
-min-height: 100vh;
-  
+  min-height: 100vh;
 }
 
 .plans_container h1 {
@@ -67,22 +66,23 @@ min-height: 100vh;
   margin: 30px auto;
   padding: 5px;
   max-width: 1300px;
-  /* min-width: 300px; */
 }
 
-
+/* Mobile First (default) - Cards centralizados */
 .plans_cards-wrapper {
   display: flex;
   flex-direction: row;
   gap: 1.5rem;
-  
   scroll-behavior: smooth;
-  justify-content: center;
+  justify-content: center; /* Centraliza no mobile */
   flex-wrap: nowrap;
   align-items: stretch;
-  padding-bottom: 4rem;
-  padding: 5px;
+  padding: 5px 15px 4rem;
   min-width: 200px;
+  width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 }
 
 .plans_card {
@@ -104,6 +104,7 @@ min-height: 100vh;
   overflow: visible;
   min-width: 180px;
   margin-bottom: 30px;
+  scroll-snap-align: center; /* Alinha ao centro no scroll */
 }
 
 .plans_card.hidden {
@@ -188,7 +189,6 @@ min-height: 100vh;
   color: #fff;
 }
 
-/* ✅ BOTÃO AJUSTADO */
 .plans_cta-btn {
   position: absolute;
   bottom: -21px;
@@ -212,16 +212,14 @@ min-height: 100vh;
   gap: 8px;
   justify-content: center;
   transition: all 0.3s ease;
+  font-family: "Playfair Display";
+  font-weight: 500;
+  line-height: 16px;
+  font-style: normal;
+  font-size: 14px;
+  text-align: center;
 }
 
-.plans_cta-btn svg {
-  width: 18px;
-  height: 18px;
-  fill: white;
-  transition: fill 0.3s ease;
-}
-
-/* ✅ BOTÃO NOS CARDS COM FUNDO VERDE */
 .plans_card-1 .plans_cta-btn,
 .plans_card-3 .plans_cta-btn {
   background: #fff;
@@ -229,12 +227,10 @@ min-height: 100vh;
   color: #1c4140;
 }
 
-.plans_card-1 .plans_cta-btn svg,
-.plans_card-3 .plans_cta-btn svg {
-  fill: #1c4140;
+.plans_cta-btn svg path {
+  fill: none !important;
 }
 
-/* ✅ NAVEGAÇÃO SETAS */
 .plans_nav-btn {
   position: absolute;
   top: 50%;
@@ -243,44 +239,40 @@ min-height: 100vh;
   border: none;
   font-size: 2rem;
   cursor: pointer;
-  z-index: 10; /* Aumenta a camada */
+  z-index: 10;
 }
 
 .left-plans {
-  left: -25px; /* Afasta mais da borda do card se quiser */
-}
-.right-plans {
-  right: -25px;
-}
-@media (min-width: 360px) {
-.left-plans {
-  left: 0px; /* Afasta mais da borda do card se quiser */
+  left: 0px;
 }
 .right-plans {
   right: 0px;
 }
-}
 
-/* ✅ RESPONSIVIDADE */
-
-/* Tablet */
+/* Tablet (768px) - Scroll horizontal */
 @media (min-width: 768px) {
-  .plans_card.hidden {
-    display: block;
+  .plans_carousel-wrapper {
+    padding: 0 40px;
   }
-
+  
   .plans_cards-wrapper {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    justify-content: flex-start;
+    justify-content: flex-start; /* Alinha à esquerda */
+    padding-left: 0;
+    scroll-padding-left: 40px;
   }
-
+  
   .plans_card {
-    flex: 0 0 240px;
-    scroll-snap-align: start;
-    margin-right: 1rem;
+    scroll-snap-align: start; /* Alinha no início no scroll */
+  }
+  
+  .plans_card:first-child {
+    margin-left: 40px; /* Espaço inicial */
+  }
+  
+  .plans_card:last-child {
+    margin-right: 40px; /* Espaço final */
+    /* Garante que não quebre para baixo */
+    flex-shrink: 0;
   }
 
   .plans_nav-btn,
@@ -289,22 +281,25 @@ min-height: 100vh;
   }
 }
 
-/* Desktop */
+/* Desktop (1024px) - Mantém scroll horizontal */
 @media (min-width: 1024px) {
   .plans_cards-wrapper {
-    flex-wrap: wrap;
-    justify-content: center;
-    overflow-x: visible;
+    justify-content: flex-start; /* Continua alinhado à esquerda */
+    overflow-x: auto; /* Mantém scroll horizontal */
+    flex-wrap: nowrap; /* Impede quebra de linha */
   }
 
   .plans_card {
-    flex: 0 1 calc(25% - 1.5rem);
-    width: clamp(240px, 100%, 260px);
-    margin-right: 0;
+    flex: 0 0 240px; /* Largura fixa */
+    margin: 0 0.75rem 2rem;
+  }
+  
+  .plans_card:last-child {
+    margin-right: 40px; /* Espaço extra no último item */
   }
 }
 
-/* ✅ REMOVE ANIMAÇÕES NO MOBILE */
+/* Remove animações no mobile */
 @media (max-width: 767px) {
   .plans_container h1,
   .plans_card {
@@ -314,7 +309,6 @@ min-height: 100vh;
   }
 }
 
-/* ✅ KEYFRAMES */
 @keyframes fadeInUp {
   from {
     opacity: 0;

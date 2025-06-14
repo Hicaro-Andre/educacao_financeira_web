@@ -142,12 +142,7 @@ function PlansSection() {
                     >
                       <path
                         d="M17.1666 5L7.99992 14.1667L3.83325 10"
-                        stroke={
-                          plan.title.includes("Básico") ||
-                          plan.title.includes("Avançado")
-                            ? "white"
-                            : "#22C55E"
-                        }
+                        stroke="#22C55E" // Verde fixo
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -169,32 +164,13 @@ function PlansSection() {
                     gap: "8px",
                   }}
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="15"
-                    height="18"
-                    viewBox="0 0 15 18"
-                    fill="none"
-                  >
+                  <svg width="15" height="18" viewBox="0 0 15 18" fill="none">
                     <path
-                      d="M5.177 1.50006V4.50006"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M9.85425 1.50006V4.50006"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M11.6081 3.00006H3.42318C2.77741 3.00006 2.25391 3.67163 2.25391 4.50006V15.0001C2.25391 15.8285 2.77741 16.5001 3.42318 16.5001H11.6081C12.2538 16.5001 12.7773 15.8285 12.7773 15.0001V4.50006C12.7773 3.67163 12.2538 3.00006 11.6081 3.00006Z"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M2.25391 7.50006H12.7773"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      d="M5.177 1.5V4.5M9.854 1.5V4.5M11.608 3H3.423C2.777 3 2.254 3.672 2.254 4.5V15C2.254 15.828 2.777 16.5 3.423 16.5H11.608C12.254 16.5 12.777 15.828 12.777 15V4.5C12.777 3.672 12.254 3 11.608 3ZM2.254 7.5H12.777"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                   </svg>
                   <div>
