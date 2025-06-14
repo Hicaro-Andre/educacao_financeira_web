@@ -14,8 +14,11 @@ function Plans (){
   };
   return(
     <>
+     <div className="page-wrapper">
     <NavBar />
+     <main>
     <PlansSection />
+    </main>
     <Footer />
 
     {/* Botões flutuantes (agora estilizados externamente) */}
@@ -44,6 +47,7 @@ function Plans (){
               />
               Voltar ao Topo
             </button> */}
+          </div>
           </div>
     </>
   )
