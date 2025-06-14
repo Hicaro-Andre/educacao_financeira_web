@@ -14,10 +14,15 @@ function AgendaSection() {
 
   // Verify environment variables
   useEffect(() => {
-    if (!serviceId || !templateId || !userId) {
-      console.error("Missing EmailJS environment variables");
-    }
-  }, []);
+  if (!serviceId || !templateId || !userId) {
+    console.error("Variáveis faltando:", {
+      serviceId,
+      templateId,
+      userId
+    });
+    setApiError("Configuração de email incompleta - contate o suporte");
+  }
+}, [serviceId, templateId, userId]);
 
   const availablePlans = [
     {
