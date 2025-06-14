@@ -91,14 +91,14 @@ header {
 
 /* Efeitos para mobile */
 .nav li a:hover {
-  color: #FFD700;
+  color: #0f2a2a;
   text-decoration: underline;
-  text-decoration-color: #FFD700;
+  text-decoration-color: #0f2a2a;
 }
 
 .nav li a.active {
-  color: #FFD700;
-  border-bottom: 2px solid #FFD700;
+  color: #0f2a2a;
+  border-bottom: 2px solid #0f2a2a;
 }
 
 /* Responsivo Desktop */
@@ -147,7 +147,7 @@ header {
   }
 
   .nav li a {
-    color: black;
+    color: #1C4140;
     -webkit-text-stroke-width: 0;
     font-size: 1rem;
     transition: all 0.3s ease;
@@ -155,14 +155,14 @@ header {
 
   /* Efeitos para desktop */
   .nav li a:hover {
-    color: #FFD700;
+    color: #0f2a2a;
     text-decoration: underline;
-    text-decoration-color: #FFD700;
+    text-decoration-color: #0f2a2a;
   }
 
   .nav li a.active {
-    color: #FFD700;
-    border-bottom: 2px solid #FFD700;
+    color: #0f2a2a;
+    border-bottom: 2px solid #0f2a2a;
     text-decoration: none;
   }
 
