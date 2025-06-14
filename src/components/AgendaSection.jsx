@@ -331,13 +331,21 @@ function AgendaSection() {
             <ul>
               {selectedPlan.items.map((item, index) => (
                 <li key={index}>
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path 
-                      d="M16.6668 5L7.50016 14.1667L3.3335 10" 
-                      stroke={selectedPlan.title.includes('Básico') || selectedPlan.title.includes('Avançado') ? "white" : "#22C55E"}
-                      strokeWidth="2"
-                    />
-                  </svg>
+                  <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 21 20"
+                      fill="none"
+                    >
+                      <path
+                        d="M17.1666 5L7.99992 14.1667L3.83325 10"
+                        stroke="#22C55E"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
                   {item}
                 </li>
               ))}

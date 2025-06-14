@@ -142,7 +142,7 @@ function PlansSection() {
                     >
                       <path
                         d="M17.1666 5L7.99992 14.1667L3.83325 10"
-                        stroke="#22C55E" // Verde fixo
+                        stroke="#22C55E"
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
