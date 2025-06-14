@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import logo from '../assets/images/navbar/logo.svg';
+import logowhite from "../assets/images/navbar/logo-white.png"
 import '../styles/NavBar.css';
 
 function NavBar() {
@@ -31,7 +32,7 @@ function NavBar() {
       <div className="menu__nav">
         <div className="overlay-image" />
         <div className="logo">
-          <img src={logo} alt="Logo" />
+          <img src={logowhite} alt="Logo" />
         </div>
 
         <nav className="nav" ref={mobileMenuRef} id="mobileMenu">
