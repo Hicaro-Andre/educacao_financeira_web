@@ -8,39 +8,38 @@ import FeedbackSection from "../components/FeedbackSection";
 import Footer from "../components/Footer";
 import HeroAbout from "../components/HeroAbout";
 
-
-function About (){
-   // Função para voltar ao topo suavemente
+function About() {
+  // Função para voltar ao topo suavemente
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   };
-  return(
+  return (
     <>
-    <NavBar />
-    <HeroAbout />
-    <AboutSection />
-    <PrinciplesSection />
-    <FeedbackSection />
-    <Footer />
-    {/* Botões flutuantes (agora estilizados externamente) */}
-                <div className="floating-buttons">
-                  {/* Botão do WhatsApp */}
-                  <button 
-                    className="btn-float whatsapp-btn"
-                    onClick={() => window.open('https://wa.me/seunumerodeaqui', '_blank')}
-                  >
-                    <img 
-                      src={wpp} 
-                      alt="WhatsApp" 
-                      
-                    />
-                  </button>
-          
-                 
-                  {/* <button 
+      <div className="page-wrapper">
+        <NavBar />
+        <main>
+          <HeroAbout />
+          <AboutSection />
+          <PrinciplesSection />
+          <FeedbackSection />
+        </main>
+        <Footer />
+        {/* Botões flutuantes (agora estilizados externamente) */}
+        <div className="floating-buttons">
+          {/* Botão do WhatsApp */}
+          <button
+            className="btn-float whatsapp-btn"
+            onClick={() =>
+              window.open("https://wa.me/seunumerodeaqui", "_blank")
+            }
+          >
+            <img src={wpp} alt="WhatsApp" />
+          </button>
+
+          {/* <button 
                     className="btn-float back-to-top"
                     onClick={scrollToTop}
                   >
@@ -51,9 +50,10 @@ function About (){
                     />
                     Voltar ao Topo
                   </button> */}
-                </div>
+        </div>
+      </div>
     </>
-  )
+  );
 }
 
 export default About;

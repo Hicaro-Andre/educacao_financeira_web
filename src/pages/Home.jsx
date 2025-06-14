@@ -21,12 +21,15 @@ function Home() {
   };
   return (
     <>
+    <div className="page-wrapper">
       <NavBar />
+      <main>
       <HeroSection />
       <Introduction />
       {/* <Degrade /> */}
       <Benefits/>
       <TipsSection />
+      </main>
       <Footer />
 
       {/* Botões flutuantes (agora estilizados externamente) */}
@@ -55,6 +58,7 @@ function Home() {
           />
           <span>Voltar ao Topo</span>
         </button> */}
+      </div>
       </div>
     </>
   );
