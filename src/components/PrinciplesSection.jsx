@@ -1,30 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "../styles/PrinciplesSection.css";
 import giseliImage from "../assets/images/principles/foto-giseli.png";
 
 function PrinciplesSection() {
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const section = document.getElementById("principles");
-      if (section) {
-        const sectionTop = section.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        if (sectionTop < windowHeight - 100) {
-          setVisible(true);
-        }
-      }
-    };
-    
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Executa no carregamento inicial
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   const principles = [
     {
       title: "Administração Responsável",
@@ -44,7 +22,7 @@ function PrinciplesSection() {
   ];
 
   return (
-    <section className={`principles ${visible ? "show" : ""}`} id="principles">
+    <section className="principles show" id="principles">
       <div className="principles__title">
         <h3>Nossos Princípios Financeiros Cristãos</h3>
       </div>

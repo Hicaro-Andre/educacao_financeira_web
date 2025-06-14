@@ -1,0 +1,64 @@
+.mentoring-about {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  overflow: hidden;
+  z-index: 1;
+  text-align: center;
+  
+}
+
+.mentoring-about::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url('../assets/images/hero/fundo-hero.jpg'); 
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.25;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.mentoring-about h3 {
+  font-size: 1.8rem;
+  color: #050505;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.mentoring-about img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.plans-button {
+  margin-top: 1.5rem;
+  background-color: #0F4037;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+  position: relative;
+  z-index: 1;
+}
+
+.plans-button:hover {
+  background-color: #0c2f28;
+}
+
+

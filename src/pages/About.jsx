@@ -6,7 +6,8 @@ import AboutSection from "../components/AboutSection";
 import PrinciplesSection from "../components/PrinciplesSection";
 import FeedbackSection from "../components/FeedbackSection";
 import Footer from "../components/Footer";
-import HeroAbout from "../components/HeroAbout";
+import MentoringAbout from "../components/MentoringAbout";
+
 
 function About() {
   // Função para voltar ao topo suavemente
@@ -21,7 +22,7 @@ function About() {
       <div className="page-wrapper">
         <NavBar />
         <main>
-          <HeroAbout />
+          < MentoringAbout />
           <AboutSection />
           <PrinciplesSection />
           <FeedbackSection />
