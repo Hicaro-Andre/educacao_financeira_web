@@ -22,7 +22,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: left center;
-  opacity: 0.25; /* controle a intensidade */
+  opacity: 0.25; 
   z-index: 0;
   pointer-events: none;
 }
@@ -167,11 +167,7 @@ cursor: pointer;
   width: 400px;
 }
 }
-@media (min-width: 1440px) {
-.hero{
- height: 100vh;
-}
-}
+
 
 
 @keyframes fadeSlideUp {
