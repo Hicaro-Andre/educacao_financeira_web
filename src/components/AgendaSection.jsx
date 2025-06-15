@@ -37,8 +37,7 @@ function AgendaSection() {
       title: "Plano Intermediário",
       price: "R$ 600",
       type: "ou 2x sem juros",
-      description:
-        "Ideal para casais que querem sair da instabilidade financeira",
+      description: "Ideal para casais que querem sair da instabilidade financeira",
       items: [
         "Tudo do plano anterior +",
         "Acompanhamento por WhatsApp",
@@ -65,7 +64,6 @@ function AgendaSection() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    ddd: "11",
     phone: "",
     date: "",
   });
@@ -82,113 +80,120 @@ function AgendaSection() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
-    if (name === "name" && value.length > 40) {
+    
+    // Limitar o nome a 40 caracteres
+    if (name === 'name' && value.length > 40) {
       return;
     }
-
-    if (name === "phone") {
-      const numericValue = value.replace(/\D/g, "");
+    
+    // Permitir apenas números no telefone
+    if (name === 'phone') {
+      const numericValue = value.replace(/\D/g, '');
       setFormData((prev) => ({ ...prev, [name]: numericValue }));
     } else {
       setFormData((prev) => ({ ...prev, [name]: value }));
     }
-
+    
     setFormErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
   const validateForm = () => {
-  const errors = {};
-  let isValid = true;
+    const errors = {};
+    let isValid = true;
 
- 
-
-  if (!formData.name.trim()) {
-    errors.name = "Nome é obrigatório";
-    isValid = false;
-  } else if (formData.name.trim().length < 2) {
-    errors.name = "Nome deve ter no mínimo 2 caracteres";
-    isValid = false;
-  } else if (formData.name.trim().length > 40) {
-    errors.name = "Nome deve ter no máximo 40 caracteres";
-    isValid = false;
-  }
-
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const validProviders = [
-    "gmail.com",
-    "hotmail.com",
-    "outlook.com",
-    "yahoo.com",
-    "icloud.com",
-    "protonmail.com",
-    "live.com",
-    "bol.com.br",
-    "uol.com.br",
-    "terra.com.br",
-    "ig.com.br",
-    "r7.com",
-    "yahoo.com.br",
-    "aol.com",
-    "mail.com",
-    "zoho.com",
-  ];
-
-  if (!formData.email.trim()) {
-    errors.email = "Email é obrigatório";
-    isValid = false;
-  } else if (!emailRegex.test(formData.email)) {
-    errors.email = "Email inválido";
-    isValid = false;
-  } else {
-    const [, domain] = formData.email.split("@");
-    if (!domain || !validProviders.includes(domain.toLowerCase())) {
-      errors.email = "Provedor de email não suportado";
+    // Validação do Nome (2-40 caracteres)
+    if (!formData.name.trim()) {
+      errors.name = "Nome é obrigatório";
+      isValid = false;
+    } else if (formData.name.trim().length < 2) {
+      errors.name = "Nome deve ter no mínimo 2 caracteres";
+      isValid = false;
+    } else if (formData.name.trim().length > 40) {
+      errors.name = "Nome deve ter no máximo 40 caracteres";
       isValid = false;
     }
-  }
 
-// Validação do Telefone
-const phoneDigits = formData.phone.replace(/\D/g, '');
-const phoneRegex = /^\d{10,11}$/;
+    // Validação do Email (provedores existentes e formato válido)
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const validProviders = [
+      'gmail.com',
+      'hotmail.com',
+      'outlook.com',
+      'yahoo.com',
+      'icloud.com',
+      'protonmail.com',
+      'live.com',
+      'bol.com.br',
+      'uol.com.br',
+      'terra.com.br',
+      'ig.com.br',
+      'r7.com',
+      'yahoo.com.br',
+      'aol.com',
+      'mail.com',
+      'zoho.com'
+    ];
+    
+    if (!formData.email.trim()) {
+      errors.email = "Email é obrigatório";
+      isValid = false;
+    } else if (!emailRegex.test(formData.email)) {
+      errors.email = "Email inválido";
+      isValid = false;
+    } else {
+      const [, domain] = formData.email.split('@');
+      if (!domain || !validProviders.includes(domain.toLowerCase())) {
+        errors.email = "Provedor de email não suportado";
+        isValid = false;
+      }
+      
+      const [localPart] = formData.email.split('@');
+      if (!localPart || localPart.length < 1) {
+        errors.email = "Email deve conter texto antes do @";
+        isValid = false;
+      }
+    }
 
-if (!phoneDigits) {
-  errors.phone = "Telefone é obrigatório";
-  isValid = false;
-} else if (!phoneRegex.test(phoneDigits)) {
-  errors.phone = "Telefone deve conter 10 ou 11 dígitos";
-  isValid = false;
-}
+    // Validação do Telefone (apenas números e quantidade exata)
+    const phoneRegex = /^[0-9]{10,11}$/; // 10 ou 11 dígitos (com ou sem DDD)
+    const phoneDigits = formData.phone.replace(/\D/g, '');
+    if (!phoneDigits) {
+      errors.phone = "Telefone é obrigatório";
+      isValid = false;
+    } else if (!phoneRegex.test(phoneDigits)) {
+      errors.phone = "Telefone deve conter 10 ou 11 dígitos";
+      isValid = false;
+    }
 
-
-  if (!formData.date) {
+   
+  // Validação da Data
+// Validação da Data
+if (!formData.date) {
     errors.date = "Data é obrigatória";
     isValid = false;
-  } else {
+} else {
     const [year, month, day] = formData.date.split("-").map(Number);
     const selectedDate = new Date(year, month - 1, day);
-
+    
     const today = new Date();
-    today.setHours(0, 0, 0, 0);
+    today.setHours(0, 0, 0, 0); // Zera o horário para comparar apenas o dia
 
     if (selectedDate < today) {
-      errors.date = "Selecione uma data a partir de hoje";
-      isValid = false;
+        errors.date = "Selecione uma data a partir de hoje";
+        isValid = false;
     }
-  }
-
-  setFormErrors(errors);
-  return isValid;
-};
-
+}
+    setFormErrors(errors);
+    return isValid;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    
     if (!validateForm()) {
       return;
     }
-
+    
     setShowConfirmationModal(true);
   };
 
@@ -200,25 +205,25 @@ if (!phoneDigits) {
       const templateParams = {
         name: formData.name,
         email: formData.email,
-        phone: `(${formData.ddd}) ${formData.phone}`,
+        phone: formData.phone,
         date: formData.date,
         plan: selectedPlan.title,
         plan_price: selectedPlan.price,
         plan_description: selectedPlan.description,
       };
 
-      await emailjs.send(serviceId, templateId, templateParams);
-
+      await emailjs.send(serviceId, templateId, templateParams, userId);
+      
       setShowSuccessModal(true);
       setFormData({
         name: "",
         email: "",
-        ddd: "11",
         phone: "",
         date: "",
       });
     } catch (error) {
       console.error("Erro ao enviar email:", error);
+      setShowSuccessModal(false);
     } finally {
       setIsSubmitting(false);
     }
@@ -228,24 +233,19 @@ if (!phoneDigits) {
     setShowSuccessModal(false);
   };
 
-  // Obter data mínima (hoje) para o campo de data
-  const today = new Date().toISOString().split("T")[0];
-
   return (
     <div className="form-wrapper">
       <div className="form-container">
         <div className="form-content">
           <div className="form-section">
             <h2 className="plan-title">Agendamento - {selectedPlan.title}</h2>
-
-            <div
-              className={`selected-plan-card ${
-                selectedPlan.title.includes("Básico") ||
-                selectedPlan.title.includes("Avançado")
-                  ? "plano-verde"
-                  : ""
-              }`}
-            >
+            
+            {/* Mobile Card */}
+            <div className={`selected-plan-card ${
+              selectedPlan.title.includes('Básico') || selectedPlan.title.includes('Avançado') 
+                ? 'plano-verde' 
+                : ''
+            }`}>
               <h3>{selectedPlan.title}</h3>
               <p className="price">{selectedPlan.price}</p>
               {selectedPlan.type && <p className="type">{selectedPlan.type}</p>}
@@ -279,9 +279,7 @@ if (!phoneDigits) {
                   className={formErrors.name ? "error-input" : ""}
                 />
                 <div className="char-counter">{formData.name.length}/40</div>
-                {formErrors.name && (
-                  <span className="error-text">{formErrors.name}</span>
-                )}
+                {formErrors.name && <span className="error-text">{formErrors.name}</span>}
               </label>
 
               <label>
@@ -293,48 +291,39 @@ if (!phoneDigits) {
                   onChange={handleChange}
                   className={formErrors.email ? "error-input" : ""}
                 />
-                {formErrors.email && (
-                  <span className="error-text">{formErrors.email}</span>
-                )}
+                {formErrors.email && <span className="error-text">{formErrors.email}</span>}
               </label>
 
               <label>
-  Telefone:
+                Telefone:
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  maxLength={11}
+                  className={formErrors.phone ? "error-input" : ""}
+                />
+                {formErrors.phone && <span className="error-text">{formErrors.phone}</span>}
+              </label>
+
+              <label>
+  Data:
   <input
-    type="tel"
-    name="phone"
-    value={formData.phone}
+    type="date"
+    name="date"
+    value={formData.date}
     onChange={handleChange}
-    placeholder="(00) 90000-0000"
-    className={formErrors.phone ? "error-input phone-input" : "phone-input"}
+    min={new Date().toISOString().split('T')[0]}  // Esta linha desabilita dias anteriores
+    className={formErrors.date ? "error-input" : ""}
   />
-  {formErrors.phone && (
-    <span className="error-text">{formErrors.phone}</span>
-  )}
+  {formErrors.date && <span className="error-text">{formErrors.date}</span>}
 </label>
 
+              <p className="time-note">*Forma de pagamento e horário a combinar.</p>
 
-              <label>
-                Data:
-                <input
-                  type="date"
-                  name="date"
-                  value={formData.date}
-                  onChange={handleChange}
-                  min={today}
-                  className={formErrors.date ? "error-input" : ""}
-                />
-                {formErrors.date && (
-                  <span className="error-text">{formErrors.date}</span>
-                )}
-              </label>
-
-              <p className="time-note">
-                *Forma de pagamento e horário a combinar.
-              </p>
-
-              <button
-                type="submit"
+              <button 
+                type="submit" 
                 className="submit-button"
                 disabled={isSubmitting}
               >
@@ -342,16 +331,12 @@ if (!phoneDigits) {
               </button>
             </form>
           </div>
-
-          <div
-            className={`selected-plan-card-desk ${
-              selectedPlan.title.includes("Básico")
-                ? "plans_card-1"
-                : selectedPlan.title.includes("Avançado")
-                ? "plans_card-3"
-                : ""
-            }`}
-          >
+          
+          {/* Desktop Card */}
+          <div className={`selected-plan-card-desk ${
+            selectedPlan.title.includes('Básico') ? 'plans_card-1' :
+            selectedPlan.title.includes('Avançado') ? 'plans_card-3' : ''
+          }`}>
             <h3>{selectedPlan.title}</h3>
             <p className="price">{selectedPlan.price}</p>
             {selectedPlan.type && <p className="type">{selectedPlan.type}</p>}
@@ -360,20 +345,20 @@ if (!phoneDigits) {
               {selectedPlan.items.map((item, index) => (
                 <li key={index}>
                   <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 21 20"
-                    fill="none"
-                  >
-                    <path
-                      d="M17.1666 5L7.99992 14.1667L3.83325 10"
-                      stroke="#22C55E"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 21 20"
+                      fill="none"
+                    >
+                      <path
+                        d="M17.1666 5L7.99992 14.1667L3.83325 10"
+                        stroke="#22C55E"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
                   {item}
                 </li>
               ))}
@@ -382,36 +367,26 @@ if (!phoneDigits) {
         </div>
       </div>
 
+      {/* Modal de Confirmação */}
       {showConfirmationModal && (
         <div className="modal-overlay">
           <div className="confirmation-modal">
             <h3>Confirmar Agendamento</h3>
             <div className="confirmation-details">
-              <p>
-                <strong>Nome:</strong> {formData.name}
-              </p>
-              <p>
-                <strong>Email:</strong> {formData.email}
-              </p>
-              <p>
-                <strong>Telefone:</strong> ({formData.ddd}) {formData.phone}
-              </p>
-              <p>
-                <strong>Data:</strong> {formData.date}
-              </p>
-              <p>
-                <strong>Plano:</strong> {selectedPlan.title} -{" "}
-                {selectedPlan.price}
-              </p>
+              <p><strong>Nome:</strong> {formData.name}</p>
+              <p><strong>Email:</strong> {formData.email}</p>
+              <p><strong>Telefone:</strong> {formData.phone}</p>
+              <p><strong>Data:</strong> {formData.date}</p>
+              <p><strong>Plano:</strong> {selectedPlan.title} - {selectedPlan.price}</p>
             </div>
             <div className="modal-buttons">
-              <button
+              <button 
                 onClick={() => setShowConfirmationModal(false)}
                 className="cancel-button"
               >
                 Voltar
               </button>
-              <button
+              <button 
                 onClick={confirmSubmission}
                 className="confirm-button"
                 disabled={isSubmitting}
@@ -423,27 +398,28 @@ if (!phoneDigits) {
         </div>
       )}
 
+      {/* Modal de Sucesso */}
       {showSuccessModal && (
         <div className="modal-overlay">
           <div className="success-modal">
-            <svg
-              width="60"
-              height="60"
-              viewBox="0 0 24 24"
-              fill="none"
+            <svg 
+              width="60" 
+              height="60" 
+              viewBox="0 0 24 24" 
+              fill="none" 
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"
+              <path 
+                d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" 
                 fill="#047857"
               />
             </svg>
             <h3>Agendamento Enviado!</h3>
-            <p>
-              Seu agendamento foi enviado com sucesso. Entraremos em contato em
-              breve.
-            </p>
-            <button onClick={closeSuccessModal} className="success-button">
+            <p>Seu agendamento foi enviado com sucesso. Entraremos em contato em breve.</p>
+            <button 
+              onClick={closeSuccessModal}
+              className="success-button"
+            >
               OK
             </button>
           </div>
