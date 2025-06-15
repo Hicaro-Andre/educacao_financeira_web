@@ -4,9 +4,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100vh;
   gap: 5.625rem;
   padding-top: 50px;
-  height: 100vh;
+
   overflow: hidden;
   z-index: 1; /* Garante que o conteúdo fique acima do fundo */
 }
