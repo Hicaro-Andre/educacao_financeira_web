@@ -77,8 +77,8 @@ body {
   justify-content: center; /* Centraliza no mobile */
   flex-wrap: nowrap;
   align-items: stretch;
-  padding: 5px 15px 4rem;
-  min-width: 200px;
+  padding: 5px 15px 1rem;
+  min-width: 300px;
   width: 100%;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -102,9 +102,9 @@ body {
   animation: fadeInUp 1s ease forwards;
   opacity: 0;
   overflow: visible;
-  min-width: 180px;
+  min-width: 200px;
   margin-bottom: 30px;
-  scroll-snap-align: center; /* Alinha ao centro no scroll */
+  scroll-snap-align: center; 
 }
 
 .plans_card.hidden {
@@ -155,13 +155,28 @@ body {
   line-height: 1.25rem;
   text-align: start;
   padding-left: 0;
+
 }
 
 .plans_card ul li {
   font-size: 0.85rem;
   margin-bottom: 0.5rem;
   list-style: none;
+  gap: 12px;
 }
+.plans_card li {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espaçamento entre o SVG e o texto */
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 1rem;
+}
+.plans_card .plan-item-icon {
+    width: auto;
+    height: auto;
+    flex-shrink: 0;
+  }
 
 .plans_card-0 {
   background: #fff;
@@ -223,7 +238,7 @@ body {
 .plans_card-1 .plans_cta-btn,
 .plans_card-3 .plans_cta-btn {
   background: #fff;
-  border: 1px solid #1c4140;
+  border: 1px solid rgba(125, 96, 0, 0.71);
   color: #1c4140;
 }
 
@@ -233,7 +248,7 @@ body {
 
 .plans_nav-btn {
   position: absolute;
-  top: 50%;
+  top: 45%;
   transform: translateY(-50%);
   background: transparent;
   border: none;
@@ -243,10 +258,18 @@ body {
 }
 
 .left-plans {
-  left: 0px;
+  left: -20px;
 }
 .right-plans {
-  right: 0px;
+  right: -20px;
+}
+@media (max-width: 300px) {
+.left-plans {
+  left: -25px;
+}
+.right-plans {
+  right: -25px;
+}
 }
 
 /* Tablet (768px) - Scroll horizontal */
