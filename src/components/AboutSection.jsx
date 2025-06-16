@@ -36,6 +36,7 @@ function AboutSection() {
 
   return (
     <section className="about" id="about">
+      <h3>Fundamentos da Nossa Missão</h3>
 
       <div className="about_carousel" ref={carouselRef}>
         {cards.map((card, i) => (

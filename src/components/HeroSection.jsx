@@ -9,10 +9,7 @@ function HeroSection() {
     <section className="hero" id="hero">
       <div className="overlay-image" />
       <div className="hero__content">
-        <div className="hero_title">
-          <h1>Educação Financeira Pessoal e Familiar</h1>
-        </div>
-
+        <h1>Educação Financeira Pessoal e Familiar</h1>
         <div className="hero__sub-title">
           <p>
             Liberte-se das preocupações financeiras e prospere com princípios

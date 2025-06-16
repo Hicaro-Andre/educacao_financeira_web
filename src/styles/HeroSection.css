@@ -12,17 +12,17 @@
   z-index: 1; /* Garante que o conteúdo fique acima do fundo */
 }
 .hero::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  background-image: url('../assets/images/hero/fundo-hero.jpg');
+  background-image: url("../assets/images/hero/fundo-hero.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: left center;
-  opacity: 0.25; 
+  opacity: 0.25;
   z-index: 0;
   pointer-events: none;
 }
@@ -42,9 +42,7 @@
   pointer-events: none;
 } */
 
-
-
-.hero__content{
+.hero__content {
   display: flex;
   flex-direction: column;
   margin-top: 50px;
@@ -53,16 +51,16 @@
   gap: 1.5625rem;
   flex: 1 0 0;
 }
-.hero__title{
+.hero h1 {
   max-width: 32.375rem;
   align-self: center;
   transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
-.hero_title h1:hover {
+.hero h1:hover {
   transform: scale(1.04);
 }
-.hero__content h1{
-  color: #1C4140;
+.hero__content h1 {
+  color: #1c4140;
   text-align: center;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-size: 2.625rem;
@@ -72,11 +70,11 @@
   letter-spacing: 0.13125rem;
   width: 18.125rem;
 }
-.hero__sub-title{
+.hero__sub-title {
   max-width: 32.375rem;
   align-self: center;
 }
-.hero__content p{
+.hero__content p {
   color: #000;
   text-align: center;
   font-size: 1rem;
@@ -85,7 +83,7 @@
   line-height: normal;
   width: 290px;
 }
-.hero__comments{
+.hero__comments {
   display: flex;
   padding: 0rem 5.375rem;
   justify-content: center;
@@ -95,25 +93,25 @@
   align-self: stretch;
   flex-wrap: wrap;
   padding-bottom: 50px;
-  margin-bottom:80px;
+  margin-bottom: 80px;
 }
-.btn_hero{
-display: flex;
-padding: 7px 14px 7px 15px;
-justify-content: center;
-align-items: center;
-border-radius: 19px 19px 19px 19px;
-border: 2px solid rgba(125, 96, 0, 0.71);
-background: #163535;
-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.60);
-color: white;
-font-size: 16px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
-letter-spacing: 0.8px;
-transition: all 0.3s ease;
-cursor: pointer;
+.btn_hero {
+  display: flex;
+  padding: 7px 14px 7px 15px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 19px 19px 19px 19px;
+  border: 2px solid rgba(125, 96, 0, 0.71);
+  background: #163535;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.6);
+  color: white;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 .btn_hero:hover,
 .btn_hero:focus {
@@ -132,14 +130,14 @@ cursor: pointer;
 /* .btn_hero:hover img {
   transform: scale(1.1);
 } */
-.card-hero{
+.card-hero {
   width: 14rem;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 .card-hero:hover {
   transform: translateY(-8px);
 }
-.card-hero h2{
+.card-hero h2 {
   color: #000;
   text-align: center;
   font-size: 0.875rem;
@@ -158,17 +156,15 @@ cursor: pointer;
 
 /*! Responsivo do Hero */
 @media (min-width: 600px) {
-.hero__content h1{
- width: 32.375rem;
- font-size: 3rem;
- max-width: 32.375rem;
+  .hero__content h1 {
+    width: 32.375rem;
+    font-size: 3rem;
+    max-width: 32.375rem;
+  }
+  .hero__content p {
+    width: 400px;
+  }
 }
-.hero__content p{
-  width: 400px;
-}
-}
-
-
 
 @keyframes fadeSlideUp {
   from {
@@ -181,7 +177,8 @@ cursor: pointer;
   }
 }
 
-.hero__content, .btn_hero {
+.hero__content,
+.btn_hero {
   animation: fadeSlideUp 0.8s ease forwards;
   opacity: 0;
   animation-delay: 0.3s;
@@ -190,6 +187,3 @@ cursor: pointer;
 .btn_hero {
   animation-delay: 0.5s;
 }
-
-
-
