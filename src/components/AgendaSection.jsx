@@ -37,7 +37,8 @@ function AgendaSection() {
       title: "Plano Intermediário",
       price: "R$ 600",
       type: "ou 2x sem juros",
-      description: "Ideal para casais que querem sair da instabilidade financeira",
+      description:
+        "Ideal para casais que querem sair da instabilidade financeira",
       items: [
         "Tudo do plano anterior +",
         "Acompanhamento por WhatsApp",
@@ -80,20 +81,20 @@ function AgendaSection() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    
+
     // Limitar o nome a 40 caracteres
-    if (name === 'name' && value.length > 40) {
+    if (name === "name" && value.length > 40) {
       return;
     }
-    
+
     // Permitir apenas números no telefone
-    if (name === 'phone') {
-      const numericValue = value.replace(/\D/g, '');
+    if (name === "phone") {
+      const numericValue = value.replace(/\D/g, "");
       setFormData((prev) => ({ ...prev, [name]: numericValue }));
     } else {
       setFormData((prev) => ({ ...prev, [name]: value }));
     }
-    
+
     setFormErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
@@ -116,24 +117,24 @@ function AgendaSection() {
     // Validação do Email (provedores existentes e formato válido)
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const validProviders = [
-      'gmail.com',
-      'hotmail.com',
-      'outlook.com',
-      'yahoo.com',
-      'icloud.com',
-      'protonmail.com',
-      'live.com',
-      'bol.com.br',
-      'uol.com.br',
-      'terra.com.br',
-      'ig.com.br',
-      'r7.com',
-      'yahoo.com.br',
-      'aol.com',
-      'mail.com',
-      'zoho.com'
+      "gmail.com",
+      "hotmail.com",
+      "outlook.com",
+      "yahoo.com",
+      "icloud.com",
+      "protonmail.com",
+      "live.com",
+      "bol.com.br",
+      "uol.com.br",
+      "terra.com.br",
+      "ig.com.br",
+      "r7.com",
+      "yahoo.com.br",
+      "aol.com",
+      "mail.com",
+      "zoho.com",
     ];
-    
+
     if (!formData.email.trim()) {
       errors.email = "Email é obrigatório";
       isValid = false;
@@ -141,13 +142,13 @@ function AgendaSection() {
       errors.email = "Email inválido";
       isValid = false;
     } else {
-      const [, domain] = formData.email.split('@');
+      const [, domain] = formData.email.split("@");
       if (!domain || !validProviders.includes(domain.toLowerCase())) {
         errors.email = "Provedor de email não suportado";
         isValid = false;
       }
-      
-      const [localPart] = formData.email.split('@');
+
+      const [localPart] = formData.email.split("@");
       if (!localPart || localPart.length < 1) {
         errors.email = "Email deve conter texto antes do @";
         isValid = false;
@@ -156,7 +157,7 @@ function AgendaSection() {
 
     // Validação do Telefone (apenas números e quantidade exata)
     const phoneRegex = /^[0-9]{10,11}$/; // 10 ou 11 dígitos (com ou sem DDD)
-    const phoneDigits = formData.phone.replace(/\D/g, '');
+    const phoneDigits = formData.phone.replace(/\D/g, "");
     if (!phoneDigits) {
       errors.phone = "Telefone é obrigatório";
       isValid = false;
@@ -165,35 +166,34 @@ function AgendaSection() {
       isValid = false;
     }
 
-   
-  // Validação da Data
-// Validação da Data
-if (!formData.date) {
-    errors.date = "Data é obrigatória";
-    isValid = false;
-} else {
-    const [year, month, day] = formData.date.split("-").map(Number);
-    const selectedDate = new Date(year, month - 1, day);
-    
-    const today = new Date();
-    today.setHours(0, 0, 0, 0); // Zera o horário para comparar apenas o dia
+    // Validação da Data
+    // Validação da Data
+    if (!formData.date) {
+      errors.date = "Data é obrigatória";
+      isValid = false;
+    } else {
+      const [year, month, day] = formData.date.split("-").map(Number);
+      const selectedDate = new Date(year, month - 1, day);
 
-    if (selectedDate < today) {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0); // Zera o horário para comparar apenas o dia
+
+      if (selectedDate < today) {
         errors.date = "Selecione uma data a partir de hoje";
         isValid = false;
+      }
     }
-}
     setFormErrors(errors);
     return isValid;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
-    
+
     setShowConfirmationModal(true);
   };
 
@@ -213,7 +213,7 @@ if (!formData.date) {
       };
 
       await emailjs.send(serviceId, templateId, templateParams, userId);
-      
+
       setShowSuccessModal(true);
       setFormData({
         name: "",
@@ -239,13 +239,16 @@ if (!formData.date) {
         <div className="form-content">
           <div className="form-section">
             <h2 className="plan-title">Agendamento - {selectedPlan.title}</h2>
-            
+
             {/* Mobile Card */}
-            <div className={`selected-plan-card ${
-              selectedPlan.title.includes('Básico') || selectedPlan.title.includes('Avançado') 
-                ? 'plano-verde' 
-                : ''
-            }`}>
+            <div
+              className={`selected-plan-card ${
+                selectedPlan.title.includes("Básico") ||
+                selectedPlan.title.includes("Avançado")
+                  ? "plano-verde"
+                  : ""
+              }`}
+            >
               <h3>{selectedPlan.title}</h3>
               <p className="price">{selectedPlan.price}</p>
               {selectedPlan.type && <p className="type">{selectedPlan.type}</p>}
@@ -278,8 +281,9 @@ if (!formData.date) {
                   maxLength={40}
                   className={formErrors.name ? "error-input" : ""}
                 />
-                <div className="char-counter">{formData.name.length}/40</div>
-                {formErrors.name && <span className="error-text">{formErrors.name}</span>}
+                {formErrors.name && (
+                  <span className="error-text">{formErrors.name}</span>
+                )}
               </label>
 
               <label>
@@ -291,39 +295,49 @@ if (!formData.date) {
                   onChange={handleChange}
                   className={formErrors.email ? "error-input" : ""}
                 />
-                {formErrors.email && <span className="error-text">{formErrors.email}</span>}
+                {formErrors.email && (
+                  <span className="error-text">{formErrors.email}</span>
+                )}
               </label>
 
-              <label>
-                Telefone:
-                <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  maxLength={11}
-                  className={formErrors.phone ? "error-input" : ""}
-                />
-                {formErrors.phone && <span className="error-text">{formErrors.phone}</span>}
-              </label>
+              <div className="phone-date-container">
+                <label>
+                  Telefone:
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    maxLength={11}
+                    className={formErrors.phone ? "error-input" : ""}
+                  />
+                  {formErrors.phone && (
+                    <span className="error-text">{formErrors.phone}</span>
+                  )}
+                </label>
 
-              <label>
-  Data:
-  <input
-    type="date"
-    name="date"
-    value={formData.date}
-    onChange={handleChange}
-    min={new Date().toISOString().split('T')[0]}  // Esta linha desabilita dias anteriores
-    className={formErrors.date ? "error-input" : ""}
-  />
-  {formErrors.date && <span className="error-text">{formErrors.date}</span>}
-</label>
+                <label>
+                  Data:
+                  <input
+                    type="date"
+                    name="date"
+                    value={formData.date}
+                    onChange={handleChange}
+                    min={new Date().toISOString().split("T")[0]}
+                    className={formErrors.date ? "error-input" : ""}
+                  />
+                  {formErrors.date && (
+                    <span className="error-text">{formErrors.date}</span>
+                  )}
+                </label>
+              </div>
 
-              <p className="time-note">*Forma de pagamento e horário a combinar.</p>
+              <p className="time-note">
+                *Forma de pagamento e horário a combinar.
+              </p>
 
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 className="submit-button"
                 disabled={isSubmitting}
               >
@@ -331,12 +345,17 @@ if (!formData.date) {
               </button>
             </form>
           </div>
-          
+
           {/* Desktop Card */}
-          <div className={`selected-plan-card-desk ${
-            selectedPlan.title.includes('Básico') ? 'plans_card-1' :
-            selectedPlan.title.includes('Avançado') ? 'plans_card-3' : ''
-          }`}>
+          <div
+            className={`selected-plan-card-desk ${
+              selectedPlan.title.includes("Básico")
+                ? "plans_card-1"
+                : selectedPlan.title.includes("Avançado")
+                ? "plans_card-3"
+                : ""
+            }`}
+          >
             <h3>{selectedPlan.title}</h3>
             <p className="price">{selectedPlan.price}</p>
             {selectedPlan.type && <p className="type">{selectedPlan.type}</p>}
@@ -345,20 +364,21 @@ if (!formData.date) {
               {selectedPlan.items.map((item, index) => (
                 <li key={index}>
                   <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      viewBox="0 0 21 20"
-                      fill="none"
-                    >
-                      <path
-                        d="M17.1666 5L7.99992 14.1667L3.83325 10"
-                        stroke="#22C55E"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                    className="plan-item-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 21 20"
+                    fill="none"
+                  >
+                    <path
+                      d="M17.1666 5L7.99992 14.1667L3.83325 10"
+                      stroke="#22C55E"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                   {item}
                 </li>
               ))}
@@ -373,20 +393,31 @@ if (!formData.date) {
           <div className="confirmation-modal">
             <h3>Confirmar Agendamento</h3>
             <div className="confirmation-details">
-              <p><strong>Nome:</strong> {formData.name}</p>
-              <p><strong>Email:</strong> {formData.email}</p>
-              <p><strong>Telefone:</strong> {formData.phone}</p>
-              <p><strong>Data:</strong> {formData.date}</p>
-              <p><strong>Plano:</strong> {selectedPlan.title} - {selectedPlan.price}</p>
+              <p>
+                <strong>Nome:</strong> {formData.name}
+              </p>
+              <p>
+                <strong>Email:</strong> {formData.email}
+              </p>
+              <p>
+                <strong>Telefone:</strong> {formData.phone}
+              </p>
+              <p>
+                <strong>Data:</strong> {formData.date}
+              </p>
+              <p>
+                <strong>Plano:</strong> {selectedPlan.title} -{" "}
+                {selectedPlan.price}
+              </p>
             </div>
             <div className="modal-buttons">
-              <button 
+              <button
                 onClick={() => setShowConfirmationModal(false)}
                 className="cancel-button"
               >
                 Voltar
               </button>
-              <button 
+              <button
                 onClick={confirmSubmission}
                 className="confirm-button"
                 disabled={isSubmitting}
@@ -402,24 +433,24 @@ if (!formData.date) {
       {showSuccessModal && (
         <div className="modal-overlay">
           <div className="success-modal">
-            <svg 
-              width="60" 
-              height="60" 
-              viewBox="0 0 24 24" 
-              fill="none" 
+            <svg
+              width="60"
+              height="60"
+              viewBox="0 0 24 24"
+              fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path 
-                d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" 
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"
                 fill="#047857"
               />
             </svg>
             <h3>Agendamento Enviado!</h3>
-            <p>Seu agendamento foi enviado com sucesso. Entraremos em contato em breve.</p>
-            <button 
-              onClick={closeSuccessModal}
-              className="success-button"
-            >
+            <p>
+              Seu agendamento foi enviado com sucesso. Entraremos em contato em
+              breve.
+            </p>
+            <button onClick={closeSuccessModal} className="success-button">
               OK
             </button>
           </div>

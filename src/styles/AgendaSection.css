@@ -13,8 +13,6 @@
   width: 100%;
   max-width: 1200px;
   border-radius: 16px;
-
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
 .form-content {
@@ -41,7 +39,7 @@
   padding: 1.5rem;
   margin: 1.5rem auto; /* Centraliza horizontalmente */
   color: #1c4140;
-  width: 90%; /* Largura responsiva */
+  width: 100%; /* Largura responsiva */
   max-width: 500px; /* Largura máxima */
   box-shadow: 0 4px 15px rgba(125, 96, 0, 0.15);
   transition: all 0.3s ease;
@@ -74,7 +72,7 @@
 .selected-plan-card.plano-verde {
   background-color: #1c4140;
   color: white;
-  border-color: white;
+  border: 1px solid var(--gold, rgba(125, 96, 0, 0.71));
 }
 
 .plano-verde h3,
@@ -101,9 +99,11 @@
 .form label {
   display: flex;
   flex-direction: column;
+  font-family: Lato;
   gap: 0.5rem;
   font-size: 0.95rem;
-  color: #2d3748;
+  font-weight: 600;
+  color: #000;
   position: relative;
 }
 
@@ -111,19 +111,21 @@
 .form select {
   padding: 0.85rem 1rem;
   border: 1px solid #e2e8f0;
-  border-radius: 8px;
   font-size: 0.95rem;
   transition: all 0.3s ease;
-  background-color: #f8fafc;
+  border-radius: 5px;
+  border: 1px solid var(--gold, rgba(125, 96, 0, 0.71));
+  background: #fffdf9;
   color: #1a202c;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .form input:focus,
 .form select:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+  border: 2px solid var(--gold, rgba(125, 96, 0, 0.71));
+  box-shadow: 0 0 0 4px
+    color-mix(in srgb, var(--gold, rgba(125, 96, 0, 0.71)) 20%);
   background-color: #fff;
 }
 
@@ -148,7 +150,6 @@
 }
 
 /* fim Formulário */
-
 
 .submit-button {
   background-color: #1c4140;
@@ -175,11 +176,9 @@
   text-align: center;
   font-size: 14px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 207.864%;
 }
-
-
 
 /* Modal Styles */
 .modal-overlay {
@@ -195,7 +194,8 @@
   z-index: 1000;
 }
 
-.confirmation-modal, .success-modal {
+.confirmation-modal,
+.success-modal {
   background-color: white;
   padding: 2rem;
   border-radius: 8px;
@@ -204,7 +204,9 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   animation: modalFadeIn 0.3s ease-out;
 }
-
+.confirmation-modal h3 {
+  text-align: center;
+}
 .success-modal {
   text-align: center;
 }
@@ -310,26 +312,69 @@
   .selected-plan-card {
     display: none;
   }
+  .form-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .plan-title {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .phone-date-container {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .phone-date-container label {
+    flex: 1;
+  }
+
+  .phone-date-container input {
+    width: 100%;
+  }
+
+  .form {
+    width: 100%;
+    max-width: 600px;
+  }
+  .form label:not(.phone-date-container label) {
+    width: 100%;
+  }
 
   .selected-plan-card-desk {
     display: block;
     flex: 1;
     max-width: 350px;
     padding: 2rem;
-    border-radius: 1.5rem;
-    border: 3px solid #1c4140;
+    border-radius: 15px;
+    margin-top: 70px;
+    border: 1px solid var(--gold, rgba(125, 96, 0, 0.71));
     background: white;
     position: sticky;
-    top: 2rem;
   }
-  .selected-plan-card-desk ul{
+  .selected-plan-card-desk ul {
     list-style-type: none;
+    padding-left: 0; /* Movido para cá para aplicar a todos */
+    margin-top: 1rem; /* Movido para cá para aplicar a todos */
+  }
+  .selected-plan-card-desk li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    list-style: none;
+    font-size: 0.9rem;
+    line-height: 1.4;
   }
   .selected-plan-card-desk h3 {
     color: #050505;
-    width: 81px;
-    height: 60px;
-
+    width: auto;
+    height: auto;
     font-size: 20px;
     font-style: normal;
     font-weight: 700;
@@ -342,12 +387,19 @@
   .selected-plan-card-desk .description {
     margin-bottom: 10px;
   }
+  .selected-plan-card-desk .plan-item-icon {
+    width: auto;
+    height: auto;
+    flex-shrink: 0;
+  }
   /* Cards Verdes Desktop */
   .plans_card-1.selected-plan-card-desk,
   .plans_card-3.selected-plan-card-desk {
     background-color: #1c4140;
     border-color: white;
     color: white;
+    border-radius: 15px;
+    border: 1px solid var(--gold, rgba(125, 96, 0, 0.71));
   }
 
   .plans_card-1.selected-plan-card-desk h3,
@@ -376,5 +428,11 @@
     list-style: none;
     font-size: 0.9rem;
     line-height: 1.4;
+  }
+
+  .submit-button {
+    align-self: center;
+    width: auto;
+    padding: 0.75rem 2rem;
   }
 }
