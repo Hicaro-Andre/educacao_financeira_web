@@ -1,57 +1,51 @@
 .mentoring-about {
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2rem 1rem;
+  padding: 6rem 1rem 2rem; /* Adiciona padding-top maior para não ficar atrás do menu fixo */
   overflow: hidden;
   z-index: 1;
   text-align: center;
- 
 }
 
-
-/* .mentoring-about::before {
+/* Fundo atrás do conteúdo */
+.mentoring-about::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
+  inset: 0;
   background-image: url("../assets/images/hero/fundo-hero.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   opacity: 0.25;
-  z-index: 0;
+  z-index: -1; /* Garante que fique sempre atrás do conteúdo */
   pointer-events: none;
-} */
+}
 
+/* Texto */
 .mentoring-about h3 {
   color: #1c4140;
-  align-self: center;
   font-size: clamp(32px, 5vw, 64px);
-  font-style: normal;
   font-weight: 600;
   line-height: normal;
-  text-align: center;
-
 }
 
 .mentoring-about p {
   color: #1c4140;
   font-size: 20px;
-  font-style: normal;
   font-weight: 600;
   line-height: normal;
-  text-align: center;
 }
+
+/* Imagem */
 .mentoring-about picture {
   display: flex;
   flex-direction: column;
 }
+
 .mentoring-about img {
   width: 100%;
   max-width: 650px;
@@ -61,80 +55,73 @@
   z-index: 1;
 }
 
-/* gambiarra dos botão */
-.plans-button{
-  display: none;
-}
-.plans-button {
-  margin-top: 1.5rem;
-  background: #1c4140;
-  border-radius: 30px;
-  align-self: center;
-  border: 1px solid var(--gold, rgba(125, 96, 0, 0.71));
-  color: white;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s;
-  position: relative;
-  z-index: 1;
-}
+/* Botões */
+.plans-button,
 .plans-button-mob {
   margin-top: 1.5rem;
   background: #1c4140;
   border-radius: 30px;
-  align-self: center;
-  border: 1px solid var(--gold, rgba(125, 96, 0, 0.71));
+  border: 1px solid rgba(125, 96, 0, 0.71);
   color: white;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
   cursor: pointer;
   transition: background 0.3s;
   position: relative;
-  z-index: 1;
+  align-self: center;
+  width: 250px;
+  z-index: 2;
 }
 
-.plans-button:hover {
+.plans-button:hover,
+.plans-button-mob:hover {
   background-color: #0c2f28;
 }
 
-/* --- Desktop (800px+) --- */
+/* --------- Desktop --------- */
 @media (min-width: 1024px) {
   .mentoring-about {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 5rem;
-    text-align: left; /* Alinha texto à esquerda */
+    padding: 6rem 5rem 2rem; /* Top maior pro menu fixo */
+    text-align: left;
   }
 
-  /* Container do texto + botão (esquerda) */
   .mentoring-about .text-content {
     flex: 1;
     padding-right: 3rem;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Garante alinhamento à esquerda */
+    align-items: flex-start;
   }
 
-
-
-  /* Container da imagem (direita) */
   .mentoring-about picture {
     flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: center;
   }
 
   .mentoring-about img {
     min-width: 500px;
   }
 
-  .plans-button-mob{
+  .plans-button {
+    display: block;
+  }
+
+  .plans-button-mob {
     display: none;
   }
-  .plans-button{
+}
+
+/* --------- Mobile --------- */
+@media (max-width: 1023px) {
+  .plans-button {
+    display: none;
+  }
+
+  .plans-button-mob {
     display: block;
   }
 }
