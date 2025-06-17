@@ -213,11 +213,11 @@ body {
   max-width: 180px;
   min-width: 131px;
   height: 42px;
-  background: #1c4140;
+   background: #163535;
   color: white;
   padding: 0.75rem 1.25rem;
   border-radius: 20px;
-  border: 1px solid rgba(125, 96, 0, 0.71);
+  border: 2px solid rgba(125, 96, 0, 0.71);
   cursor: pointer;
   font-weight: bold;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -234,14 +234,21 @@ body {
   font-size: 14px;
   text-align: center;
 }
+.plans_cta-btn:hover{
+ background-color: #0f2a2a;
+}
+
 
 .plans_card-1 .plans_cta-btn,
 .plans_card-3 .plans_cta-btn {
   background: #fff;
-  border: 1px solid rgba(125, 96, 0, 0.71);
+  border: 2px solid rgba(125, 96, 0, 0.71);
   color: #1c4140;
 }
-
+.plans_card-1 .plans_cta-btn:hover,
+.plans_card-3 .plans_cta-btn:hover {
+  background-color: #f9f6ff;
+}
 .plans_cta-btn svg path {
   fill: none !important;
 }

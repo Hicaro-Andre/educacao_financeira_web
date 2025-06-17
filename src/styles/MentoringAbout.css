@@ -111,21 +111,18 @@
 .plans-button,
 .plans-button-mob {
   margin-top: 2rem;
-  background: #1c4140;
+  background: #163535;
   border-radius: 30px;
-  border: 1px solid rgba(125, 96, 0, 0.71);
+  border: 2px solid rgba(125, 96, 0, 0.71);
   color: white;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
   cursor: pointer;
-  transition: background 0.3s, transform 0.3s;
   position: relative;
   align-self: center;
   width: 250px;
   z-index: 2;
   opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease-out 0.5s;
 }
 
 .mentoring-about.animate-in .plans-button,
@@ -136,7 +133,7 @@
 
 .plans-button:hover,
 .plans-button-mob:hover {
-  background-color: #0c2f28;
+  background-color: #0f2a2a;
   transform: translateY(-2px);
 }
 

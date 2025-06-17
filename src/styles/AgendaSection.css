@@ -213,10 +213,11 @@
 }
 
 .submit-button {
-  background-color: #1c4140;
+  background: #163535;
+  border: 2px solid rgba(125, 96, 0, 0.71);
   color: white;
   padding: 0.85rem;
-  border: none;
+  
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
@@ -228,7 +229,7 @@
 }
 
 .submit-button:hover {
-  background-color: #295147;
+ background-color: #0f2a2a;
   transform: translateY(-2px);
 }
 
@@ -313,16 +314,17 @@
 }
 
 .confirm-button {
-  background-color: #047857;
+  background: #163535;
   color: white;
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  border: 2px solid rgba(125, 96, 0, 0.71);
 }
 
 .confirm-button:hover {
-  background-color: #059669;
+  background-color: #0f2a2a;
 }
 
 .confirm-button:disabled {
@@ -331,17 +333,18 @@
 }
 
 .success-button {
-  background-color: #047857;
+  background: #163535;
   color: white;
   padding: 0.5rem 2rem;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   margin-top: 1rem;
+  border: 2px solid rgba(125, 96, 0, 0.71);
 }
 
 .success-button:hover {
-  background-color: #059669;
+  background-color: #0f2a2a;
 }
 .char-counter {
   font-size: 0.75rem;
@@ -385,14 +388,30 @@
     margin-bottom: 2rem;
   }
 
+  /* Updated phone-date-container for DDD, Phone and Date in same row */
   .phone-date-container {
     display: flex;
     gap: 1rem;
     width: 100%;
   }
 
-  .phone-date-container label {
+  .phone-date-container > .form-field-wrapper {
     flex: 1;
+  }
+
+  /* DDD field - fixed width */
+  .phone-date-container > .ddd-field {
+    flex: 0 0 80px;
+  }
+
+  /* Phone field - flexible width */
+  .phone-date-container > .phone-field {
+    flex: 2;
+  }
+
+  /* Date field - medium fixed width */
+  .phone-date-container > .form-field-wrapper:has(input[type="date"]) {
+    flex: 0 0 160px;
   }
 
   .phone-date-container input {
@@ -496,4 +515,7 @@
     width: auto;
     padding: 0.75rem 2rem;
   }
+
+
+  
 }
