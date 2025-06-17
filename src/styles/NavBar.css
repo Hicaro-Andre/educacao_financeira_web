@@ -35,9 +35,9 @@ header {
   display: none;
   flex-direction: column;
   backdrop-filter: blur(12px);
-  background: rgba(28, 65, 64, 0.85);
+  background: rgba(255, 253, 249, 0.70);
   border-radius: 30px 0 0 30px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 0px 4px 0px #1C4140;
   position: absolute;
   top: 0%;
   right: 0;
@@ -46,6 +46,9 @@ header {
   transition: opacity 0.5s ease, transform 0.5s ease;
   padding: 20px;
   z-index: 1000;
+}
+.nav svg{
+  align-self: center;
 }
 
 .nav.open {
@@ -59,6 +62,9 @@ header {
   margin: 5px;
   cursor: pointer;
   transition: transform 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .nav-close:hover {
@@ -107,7 +113,7 @@ header {
 
 .nav li a {
   text-decoration: none;
-  color: #FFFDF9;
+  color: #1C4140;
   text-align: center;
   font-size: 22px;
   font-weight: 700;
@@ -118,11 +124,11 @@ header {
 
 /* Hover e Active Mobile */
 .nav li a:hover {
-  color: #D9D9D9;
+  color: #3d6a69;
 }
 
 .nav li a.active {
-  color: #D9D9D9;
+  color: #3d6a69;
 }
 
 .nav li a.active::after {
@@ -130,7 +136,7 @@ header {
   display: block;
   width: 50%;
   height: 3px;
-  background-color: #D9D9D9;
+  background-color: #3d6a69;
   margin: 6px auto 0;
   border-radius: 10px;
 }
@@ -199,7 +205,8 @@ header {
   }
 
   .nav li a.active {
-    color: #05f3f3;
+    color: #326d6c;
+    font-weight: 800
   }
 
   .nav li a.active::after {

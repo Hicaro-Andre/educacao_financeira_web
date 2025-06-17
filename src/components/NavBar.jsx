@@ -1,22 +1,25 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import logo from '../assets/images/navbar/logo.svg';
-import logowhite from "../assets/images/navbar/logo-white.png"
+import logowhite from "../assets/images/navbar/logo-white.png";
 import '../styles/NavBar.css';
 
 function NavBar() {
   const mobileMenuRef = useRef(null);
   const location = useLocation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // 👈 Estado para controlar o menu
 
   const toggleMenu = () => {
     if (mobileMenuRef.current) {
       mobileMenuRef.current.classList.toggle('open');
+      setIsMenuOpen(!isMenuOpen); // 👈 Atualiza o estado
     }
   };
 
   const closeMenu = () => {
     if (mobileMenuRef.current) {
       mobileMenuRef.current.classList.remove('open');
+      setIsMenuOpen(false); // 👈 Fecha o menu
     }
   };
 
@@ -69,7 +72,17 @@ function NavBar() {
           </ul>
         </nav>
       </div>
-      <button className="menu-toggle" aria-label="Abrir menu" onClick={toggleMenu}>☰</button>
+
+      {/* 👇 Só aparece se o menu NÃO estiver aberto */}
+      {!isMenuOpen && (
+        <button
+          className="menu-toggle"
+          aria-label="Abrir menu"
+          onClick={toggleMenu}
+        >
+          ☰
+        </button>
+      )}
     </header>
   );
 }

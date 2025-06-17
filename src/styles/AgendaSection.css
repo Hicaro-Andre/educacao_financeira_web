@@ -87,6 +87,21 @@
   display: none;
 }
 
+/* Container para inputs com ícones */
+.input-with-icon {
+  position: relative;
+  width: 100%;
+}
+
+/* Posicionamento dos ícones dentro dos inputs */
+.status-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
 /* Formulário */
 .form {
   display: flex;
@@ -110,6 +125,7 @@
 .form input,
 .form select {
   padding: 0.85rem 1rem;
+  padding-right: 30px !important; /* Espaço para o ícone */
   border: 1px solid #e2e8f0;
   font-size: 0.95rem;
   transition: all 0.3s ease;
@@ -118,6 +134,7 @@
   background: #fffdf9;
   color: #1a202c;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 100%;
 }
 
 .form input:focus,
@@ -149,7 +166,16 @@
   margin-top: 0.25rem;
 }
 
-/* fim Formulário */
+/* Estilo dos ícones */
+.status-icon.success svg {
+  width: 16px;
+  height: 16px;
+}
+
+.status-icon.error svg {
+  width: 16px;
+  height: 16px;
+}
 
 .submit-button {
   background-color: #1c4140;
@@ -352,15 +378,15 @@
     max-width: 350px;
     padding: 2rem;
     border-radius: 15px;
-    margin-top: 70px;
+    margin-top: 25px;
     border: 1px solid var(--gold, rgba(125, 96, 0, 0.71));
     background: white;
     position: sticky;
   }
   .selected-plan-card-desk ul {
     list-style-type: none;
-    padding-left: 0; /* Movido para cá para aplicar a todos */
-    margin-top: 1rem; /* Movido para cá para aplicar a todos */
+    padding-left: 0;
+    margin-top: 1rem;
   }
   .selected-plan-card-desk li {
     display: flex;
