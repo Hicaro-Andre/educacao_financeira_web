@@ -4,26 +4,26 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100dvh;
+  min-height: 100%;
   gap: 5.625rem;
   padding-top: 50px;
-  overflow: hidden;
-  /* Removi o z-index: 1 pois não é necessário */
-}
 
+  overflow: hidden;
+  z-index: 1; /* Garante que o conteúdo fique acima do fundo */
+}
 .hero::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
+  min-height: 100%;
   width: 100%;
-  height: 100%; /* Alterado de min-height para height */
   background-image: url("../assets/images/hero/fundo-hero.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: left center;
   opacity: 0.25;
-  z-index: -1; /* Alterado para -1 para ficar ATRÁS do conteúdo */
+  z-index: 0;
   pointer-events: none;
 }
 
