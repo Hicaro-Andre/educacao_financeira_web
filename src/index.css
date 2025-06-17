@@ -63,22 +63,8 @@ a {
   align-self: flex-end;
 }
 
-.btn-float:hover {
-  transform: scale(1.05);
-}
 
-.back-to-top {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-}
 
-.back-to-top img {
-  border: solid 1px #ccc;
-  border-radius: 50%;
-  padding: 4px;
-}
 
 /* Responsividade */
 @media (min-width: 768px) {

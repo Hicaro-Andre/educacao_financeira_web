@@ -44,12 +44,12 @@ function PrinciplesSection() {
 
         <div className="principles__container">
           <div className="principles__diferencial">
-            <span id="diferencial">Nosso diferencial</span>
+            {/* <span id="diferencial">Nosso diferencial</span>
             <p>
               está em integrar princípios bíblicos à educação financeira,
               proporcionando uma abordagem única que fortalece tanto a vida
               financeira quanto o relacionamento do casal.
-            </p>
+            </p> */}
             <p id="oferecemos">Oferecemos</p>
           </div>
 

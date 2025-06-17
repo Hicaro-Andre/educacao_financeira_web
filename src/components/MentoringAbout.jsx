@@ -1,8 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../styles/MentoringAbout.css";
-import mentoringImage from "../assets/images/hero_about/heroabout-image.png"; // ajuste o caminho conforme sua estrutura de pastas
+import mentoringImage from "../assets/images/hero_about/heroabout-image.png";
 import mentoringImageSmall from "../assets/images/hero_about/heroabout-image.png";
+
 const MentoringAbout = () => {
+  useEffect(() => {
+    const section = document.querySelector('.mentoring-about');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    if (section) {
+      observer.observe(section);
+    }
+
+    return () => {
+      if (section) observer.unobserve(section);
+    };
+  }, []);
+
   return (
     <section className="mentoring-about">
       <div className="overlay-image" />
@@ -27,7 +47,7 @@ const MentoringAbout = () => {
       <picture>
         <source media="(min-width: 1200px)" srcSet={mentoringImageSmall} />
         <source media="(min-width: 800px)" srcSet={mentoringImageSmall} />
-        <img src={mentoringImageSmall} alt="Sobre a Mentoria" />
+        <img src={mentoringImageSmall} alt="Sobre a Mentoria" className="mentoring-image" />
         <button
           className="plans-button-mob"
           onClick={() => (window.location.href = "/plans")}

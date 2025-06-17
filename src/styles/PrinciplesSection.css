@@ -39,30 +39,44 @@
 .principles__cards {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
   width: 100%;
-  max-width: 768px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 16px;
 }
 
 .principles__card-item {
   border-radius: 16px;
-  padding: 20px;
-  text-align: left;
+  padding: 24px;
+  text-align: center;
   border: 1px solid var(--gold, rgba(125, 96, 0, 0.71));
   background: #FFFDF9;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); 
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 120px;
+}
+.principles__card-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
 }
 
 .principles__card-item h3 {
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   font-size: 18px;
-  text-align: center;
+  font-weight: 600;
+  color: #333;
 }
 
 .principles__card-item p {
   margin: 0;
   font-size: 14px;
-  text-align: center;
+  line-height: 1.5;
+  color: #555;
 }
 
 .principles__content {
@@ -113,7 +127,7 @@
 #diferencial,
 #oferecemos {
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 1.5rem;
   text-align: center;
 }
 
@@ -153,14 +167,30 @@
     font-size: 32px;
   }
 
-  .principles__cards {
-    flex-direction: row;
-    justify-content: center;
+.principles__cards {
+    flex-direction: row; /* Muda para linha */
+    flex-wrap: wrap; /* Permite quebra de linha se necessário */
+    justify-content: center; /* Centraliza os cards */
+    gap: 20px; /* Espaçamento entre cards */
+    padding: 0;
+    max-width: 1200px; /* Aumenta a largura máxima */
   }
 
-  .principles__card-item {
-    flex: 1;
-    max-width: 300px;
+   .principles__card-item {
+    flex: 1; /* Faz os cards se expandirem igualmente */
+    min-width: calc(50% - 40px); /* 2 cards por linha (considerando gap) */
+    max-width: calc(50% - 40px); /* 2 cards por linha */
+    padding: 24px;
+    min-height: 140px;
+  }
+
+ .principles__card-item h3 {
+    font-size: 20px;
+    margin-bottom: 14px;
+  }
+  
+  .principles__card-item p {
+    font-size: 15px;
   }
 
   .principles__content {
@@ -176,5 +206,12 @@
   .principles__container {
     padding-left: 30px;
     flex: 1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .principles__card-item {
+    min-width: calc(33.333% - 40px); /* 3 cards por linha */
+    max-width: calc(33.333% - 40px);
   }
 }
