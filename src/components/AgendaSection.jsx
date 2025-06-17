@@ -381,6 +381,7 @@ function AgendaSection() {
                           onChange={handleChange}
                           onBlur={handleBlur}
                           maxLength={2}
+                          placeholder="55"
                           className={formErrors.ddd ? "error-input" : ""}
                         />
                         {fieldStatus.ddd === "success" && (
