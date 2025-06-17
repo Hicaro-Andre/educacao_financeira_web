@@ -121,6 +121,12 @@
   color: #000;
   position: relative;
 }
+ .phone-date-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
 
 .form input,
 .form select {
@@ -153,7 +159,35 @@
   background-position: right 0.75rem center;
   background-size: 1rem;
 }
+.ddd-phone-wrapper {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+}
 
+.ddd-field {
+  flex: 0 0 65px;
+}
+
+.phone-field {
+  flex: 1;
+}
+
+.input-with-icon {
+  position: relative;
+}
+
+.input-with-icon input {
+  padding-right: 25px;
+  width: 100%;
+}
+
+.status-icon {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+}
 /* ESTILOS DE ERRO */
 .error-input {
   border-color: #fc8181 !important;

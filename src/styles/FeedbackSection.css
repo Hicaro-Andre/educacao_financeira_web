@@ -42,12 +42,12 @@
 
 
 .cardfeed.grande {
-  transform: scale(1.05);
+  transform: scale(1.05) translateX(0);
   z-index: 2;
   position: relative;
   width: 100%;
   max-width: 320px;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 }
 
 .cardfeed.pequeno {
@@ -58,6 +58,20 @@
   width: 310px;
   max-width: 360px;
   height: 250px;
+}
+.cardfeed.saindo-esquerda {
+  transform: translateX(-150%) scale(0.9);
+  opacity: 0;
+}
+
+.cardfeed.saindo-direita {
+  transform: translateX(150%) scale(0.9);
+  opacity: 0;
+}
+
+.cardfeed.entrando {
+  transform: translateX(0) scale(1.05);
+  opacity: 1;
 }
 
 .feedback_depoimento-card {

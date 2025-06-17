@@ -85,6 +85,7 @@ function AgendaSection() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    ddd: "",
     phone: "",
     date: "",
   });
@@ -95,6 +96,7 @@ function AgendaSection() {
   const [fieldStatus, setFieldStatus] = useState({
     name: null,
     email: null,
+    ddd: null,
     phone: null,
     date: null,
   });
@@ -113,8 +115,8 @@ function AgendaSection() {
       return;
     }
 
-    // Permitir apenas números no telefone
-    if (name === "phone") {
+    // Permitir apenas números no DDD e telefone
+    if (name === "ddd" || name === "phone") {
       const numericValue = value.replace(/\D/g, "");
       setFormData((prev) => ({ ...prev, [name]: numericValue }));
     } else {
@@ -156,11 +158,17 @@ function AgendaSection() {
       return { isValid: true };
     }
 
+    if (name === "ddd") {
+      const dddRegex = /^[0-9]{2}$/;
+      if (!value) return { isValid: false, error: "DDD é obrigatório" };
+      if (!dddRegex.test(value)) return { isValid: false, error: "DDD deve ter 2 dígitos" };
+      return { isValid: true };
+    }
+
     if (name === "phone") {
-      const phoneRegex = /^[0-9]{10,11}$/;
-      const phoneDigits = value.replace(/\D/g, "");
-      if (!phoneDigits) return { isValid: false, error: "Telefone é obrigatório" };
-      if (!phoneRegex.test(phoneDigits)) return { isValid: false, error: "Telefone deve conter 10 ou 11 dígitos" };
+      const phoneRegex = /^[0-9]{8,9}$/; // 8 ou 9 dígitos (sem DDD)
+      if (!value) return { isValid: false, error: "Telefone é obrigatório" };
+      if (!phoneRegex.test(value)) return { isValid: false, error: "Telefone deve conter 8 ou 9 dígitos" };
       return { isValid: true };
     }
 
@@ -228,7 +236,7 @@ function AgendaSection() {
       const templateParams = {
         name: formData.name,
         email: formData.email,
-        phone: formData.phone,
+        phone: `(${formData.ddd}) ${formData.phone}`,
         date: formData.date,
         plan: selectedPlan.title,
         plan_price: selectedPlan.price,
@@ -241,12 +249,14 @@ function AgendaSection() {
       setFormData({
         name: "",
         email: "",
+        ddd: "",
         phone: "",
         date: "",
       });
       setFieldStatus({
         name: null,
         email: null,
+        ddd: null,
         phone: null,
         date: null,
       });
@@ -270,7 +280,6 @@ function AgendaSection() {
 
           <div className="form-section">
             
-
             {/* Mobile Card */}
             <div className={`selected-plan-card ${
               selectedPlan.title.includes("Básico") ||
@@ -360,34 +369,66 @@ function AgendaSection() {
               </div>
 
               <div className="phone-date-container">
-                <div className="form-field-wrapper">
-                  <label>
-                    Telefone:
-                    <div className="input-with-icon">
-                      <input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        maxLength={11}
-                        className={formErrors.phone ? "error-input" : ""}
-                      />
-                      {fieldStatus.phone === "success" && (
-                        <span className="status-icon success">
-                          <CorrectIcon />
-                        </span>
+                <div className="ddd-phone-wrapper">
+                  <div className="form-field-wrapper ddd-field">
+                    <label>
+                      DDD:
+                      <div className="input-with-icon">
+                        <input
+                          type="tel"
+                          name="ddd"
+                          value={formData.ddd}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          maxLength={2}
+                          className={formErrors.ddd ? "error-input" : ""}
+                        />
+                        {fieldStatus.ddd === "success" && (
+                          <span className="status-icon success">
+                            <CorrectIcon />
+                          </span>
+                        )}
+                        {fieldStatus.ddd === "error" && (
+                          <span className="status-icon error">
+                            <ErrorIcon />
+                          </span>
+                        )}
+                      </div>
+                      {formErrors.ddd && (
+                        <span className="error-text">{formErrors.ddd}</span>
                       )}
-                      {fieldStatus.phone === "error" && (
-                        <span className="status-icon error">
-                          <ErrorIcon />
-                        </span>
+                    </label>
+                  </div>
+
+                  <div className="form-field-wrapper phone-field">
+                    <label>
+                      Telefone:
+                      <div className="input-with-icon">
+                        <input
+                          type="tel"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          maxLength={9}
+                          className={formErrors.phone ? "error-input" : ""}
+                        />
+                        {fieldStatus.phone === "success" && (
+                          <span className="status-icon success">
+                            <CorrectIcon />
+                          </span>
+                        )}
+                        {fieldStatus.phone === "error" && (
+                          <span className="status-icon error">
+                            <ErrorIcon />
+                          </span>
+                        )}
+                      </div>
+                      {formErrors.phone && (
+                        <span className="error-text">{formErrors.phone}</span>
                       )}
-                    </div>
-                    {formErrors.phone && (
-                      <span className="error-text">{formErrors.phone}</span>
-                    )}
-                  </label>
+                    </label>
+                  </div>
                 </div>
 
                 <div className="form-field-wrapper">
@@ -487,7 +528,7 @@ function AgendaSection() {
                 <strong>Email:</strong> {formData.email}
               </p>
               <p>
-                <strong>Telefone:</strong> {formData.phone}
+                <strong>Telefone:</strong> ({formData.ddd}) {formData.phone}
               </p>
               <p>
                 <strong>Data:</strong> {formData.date}
