@@ -27,6 +27,8 @@
   content: "";
   position: absolute;
   inset: 0;
+  height: 100%;
+  width: 100%;
   background-image: url("../assets/images/hero/fundo-hero.jpg");
   background-repeat: no-repeat;
   background-size: cover;
