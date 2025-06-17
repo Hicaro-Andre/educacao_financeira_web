@@ -47,11 +47,9 @@ header {
   width: 95px;
   z-index: 1000;
 }
-@media (min-width: 400px){
+@media (min-width: 350px){
 .nav {
-  
   width: 30%;
-  
 }
 }
 
