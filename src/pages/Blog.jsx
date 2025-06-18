@@ -30,7 +30,7 @@ function Blog() {
               {/* Botão do WhatsApp */}
               <button 
                 className="btn-float whatsapp-btn"
-                onClick={() => window.open('https://wa.me/seunumerodeaqui', '_blank')}
+                onClick={() => window.open('https://wa.me/48984927741', '_blank')}
               >
                 <img 
                   src={wpp} 
