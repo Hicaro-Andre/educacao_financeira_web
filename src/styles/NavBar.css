@@ -32,7 +32,7 @@ header {
 /* ===== NAV MOBILE ===== */
 .nav {
   display: none;
-  padding: 20px 10px 25px 22px;
+  padding: 20px 20px 25px 22px;
   flex-direction: column;
   align-items: center;
   position: absolute;
@@ -72,7 +72,7 @@ header {
   flex-direction: column;
   gap: 30px; 
   padding: 50px 0px;
-  list-style: none;
+  list-style: none;  
 }
 
 .nav li {
