@@ -126,12 +126,12 @@
 }
 
 /* ------------------- */
-/* Agrupamento DDD, Telefone e Data */
+/* Agrupamento DDD, Telefone e Data - MODIFICADO */
 /* ------------------- */
 
 .phone-date-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 1rem;
   width: 100%;
 }
@@ -139,21 +139,15 @@
 .phone-row {
   display: flex;
   gap: 1rem;
-  width: 100%;
-}
-
-.phone-row .ddd-field {
-  flex: 0 0 70px;
-}
-
-.phone-row .phone-field {
-  flex: 1;
+  width: 60%;
 }
 
 .date-field {
-  width: 70%;
+  width: 40%;
 }
-
+.phone-field {
+  width: 100%;
+}
 .form input,
 .form select {
   padding: 0.85rem 1rem;
@@ -366,31 +360,21 @@
   }
 }
 
-
-/* 🔥 Breakpoint específico para 500px → DDD, Telefone e Data lado a lado */
-@media (min-width: 575px) {
+/* Responsivo para mobile */
+@media (max-width: 768px) {
   .phone-date-container {
-    flex-direction: row;
-    gap: 1rem;
+    flex-direction: column;
   }
-
+  
   .phone-row {
-    flex-direction: row;
-    flex: 1;
+    width: 100%;
   }
-
-  .ddd-field {
-    flex: 0 0 80px;
-  }
-
-  .phone-field {
-    flex: 1;
-  }
-
+  
   .date-field {
-    flex: 0 0 160px;
+    width: 100%;
   }
 }
+
 /* Desktop (1024px+) */
 @media (min-width: 1024px) {
   .form-content {
@@ -494,4 +478,3 @@
     padding: 0.75rem 2rem;
   }
 }
-

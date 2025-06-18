@@ -132,24 +132,35 @@ function AgendaSection() {
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+  const { name, value } = e.target;
 
-    // Limitar o nome a 40 caracteres
-    if (name === "name" && value.length > 40) {
-      return;
-    }
+  if (name === "name" && value.length > 40) return;
 
-    // Permitir apenas números no DDD e telefone
-    if (name === "ddd" || name === "phone") {
-      const numericValue = value.replace(/\D/g, "");
-      setFormData((prev) => ({ ...prev, [name]: numericValue }));
+  if (name === "phone") {
+    const digits = value.replace(/\D/g, "");
+
+    let formattedPhone = "";
+
+    if (digits.length === 0) {
+      formattedPhone = "";
+    } else if (digits.length < 3) {
+      formattedPhone = `(${digits}`;
+    } else if (digits.length < 7) {
+      formattedPhone = `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+    } else if (digits.length < 11) {
+      formattedPhone = `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`;
     } else {
-      setFormData((prev) => ({ ...prev, [name]: value }));
+      formattedPhone = `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7, 11)}`;
     }
 
-    setFormErrors((prev) => ({ ...prev, [name]: "" }));
-    setFieldStatus((prev) => ({ ...prev, [name]: null }));
-  };
+    setFormData((prev) => ({ ...prev, [name]: formattedPhone }));
+  } else {
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  }
+
+  setFormErrors((prev) => ({ ...prev, [name]: "" }));
+  setFieldStatus((prev) => ({ ...prev, [name]: null }));
+};
 
   const validateField = (name, value) => {
     if (name === "name") {
@@ -205,21 +216,24 @@ function AgendaSection() {
       return { isValid: true };
     }
 
-    if (name === "ddd") {
-      const dddRegex = /^[0-9]{2}$/;
-      if (!value) return { isValid: false, error: "DDD é obrigatório" };
-      if (!dddRegex.test(value))
-        return { isValid: false, error: "DDD deve ter 2 dígitos" };
-      return { isValid: true };
-    }
+    
 
-    if (name === "phone") {
-      const phoneRegex = /^[0-9]{10,11}$/; // 8 ou 9 dígitos (sem DDD)
-      if (!value) return { isValid: false, error: "Telefone é obrigatório" };
-      if (!phoneRegex.test(value))
-        return { isValid: false, error: "Telefone deve conter 10 ou 11 dígitos" };
-      return { isValid: true };
-    }
+if (name === "phone") {
+  const digits = value.replace(/\D/g, "");
+
+  if (!digits) {
+    return { isValid: false, error: "Telefone é obrigatório" };
+  }
+
+  if (digits.length !== 11) {
+    return {
+      isValid: false,
+      error: "Digite o numero corretamente",
+    };
+  }
+
+  return { isValid: true };
+}
 
     if (name === "date") {
       if (!value) return { isValid: false, error: "Data é obrigatória" };
@@ -420,36 +434,7 @@ function AgendaSection() {
 
               <div className="phone-date-container">
                 <div className="phone-row">
-                  <div className="ddd-field">
-                    <label>
-                      DDD
-                      <div className="input-with-icon">
-                        <input
-                          type="tel"
-                          name="ddd"
-                          value={formData.ddd}
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          maxLength={2}
-                          placeholder="55"
-                          className={formErrors.ddd ? "error-input" : ""}
-                        />
-                        {fieldStatus.ddd === "success" && (
-                          <span className="status-icon success">
-                            <CorrectIcon />
-                          </span>
-                        )}
-                        {fieldStatus.ddd === "error" && (
-                          <span className="status-icon error">
-                            <ErrorIcon />
-                          </span>
-                        )}
-                      </div>
-                      {formErrors.ddd && (
-                        <span className="error-text">{formErrors.ddd}</span>
-                      )}
-                    </label>
-                  </div>
+                
 
                   <div className="phone-field">
                     <label>
@@ -461,7 +446,7 @@ function AgendaSection() {
                           value={formData.phone}
                           onChange={handleChange}
                           onBlur={handleBlur}
-                          maxLength={11}
+                          maxLength={15}
                           className={formErrors.phone ? "error-input" : ""}
                         />
                         {fieldStatus.phone === "success" && (
