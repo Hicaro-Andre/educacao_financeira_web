@@ -193,10 +193,10 @@ function FeedbackSection() {
             <p className="feedback_destaque">"{depoimentos[index].destaque}"</p>
             <p className="feedback_texto">"{depoimentos[index].texto}"</p>
             <div className="feedback_autor">
-              <img src={depoimentos[index].imagem} alt="Foto do casal" />
               <p>
                 <strong>{depoimentos[index].autor}</strong>
               </p>
+              <img src={depoimentos[index].imagem} alt="Foto do casal" />
             </div>
           </div>
 
