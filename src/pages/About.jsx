@@ -29,29 +29,22 @@ function About() {
         </main>
         <Footer />
         {/* Botões flutuantes (agora estilizados externamente) */}
-        <div className="floating-buttons">
-          {/* Botão do WhatsApp */}
-          <button
-            className="btn-float whatsapp-btn"
-            onClick={() =>
-              window.open("https://wa.me/48984927741", "_blank")
-            }
-          >
-            <img src={wpp} alt="WhatsApp" />
-          </button>
-
-          {/* <button 
-                    className="btn-float back-to-top"
-                    onClick={scrollToTop}
+         <div className="floating-buttons">
+                  {/* Botão do WhatsApp com mensagem pré-definida */}
+                  <button
+                    className="btn-float whatsapp-btn"
+                    onClick={() => {
+                      const message =
+                        "Olá, estou buscando mais informações sobre as mentorias";
+                      window.open(
+                        `https://wa.me/48984927741?text=${encodeURIComponent(message)}`,
+                        "_blank"
+                      );
+                    }}
                   >
-                    <img 
-                      src={topo} 
-                      alt="Voltar ao topo" 
-                      style={{ width: '16px' }} 
-                    />
-                    Voltar ao Topo
-                  </button> */}
-        </div>
+                    <img src={wpp} alt="WhatsApp" />
+                  </button>
+                </div>
       </div>
     </>
   );

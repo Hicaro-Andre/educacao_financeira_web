@@ -12,40 +12,43 @@ import Benefits from "../components/Benefits";
 import Introduction from "../components/Introduction";
 
 function Home() {
-   // Função para voltar ao topo suavemente
+  // Função para voltar ao topo suavemente
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   };
   return (
     <>
-    <div className="page-wrapper">
-      <NavBar />
-      <main>
-      <HeroSection />
-      <Introduction />
-      {/* <Degrade /> */}
-      <Benefits/>
-      <TipsSection />
-      </main>
-      <Footer />
+      <div className="page-wrapper">
+        <NavBar />
+        <main>
+          <HeroSection />
+          <Introduction />
+          {/* <Degrade /> */}
+          <Benefits />
+          <TipsSection />
+        </main>
+        <Footer />
 
-      {/* Botões flutuantes (agora estilizados externamente) */}
-      <div className="floating-buttons">
-        {/* Botão do WhatsApp */}
-        <button 
-          className="btn-float whatsapp-btn"
-          onClick={() => window.open('https://wa.me/48984927741', '_blank')}
-        >
-          <img 
-            src={wpp} 
-            alt="WhatsApp" 
-            
-          />
-        </button>
-      </div>
+        {/* Botões flutuantes (agora estilizados externamente) */}
+        <div className="floating-buttons">
+          {/* Botão do WhatsApp com mensagem pré-definida */}
+          <button
+            className="btn-float whatsapp-btn"
+            onClick={() => {
+              const message =
+                "Olá, estou buscando mais informações sobre as mentorias";
+              window.open(
+                `https://wa.me/48984927741?text=${encodeURIComponent(message)}`,
+                "_blank"
+              );
+            }}
+          >
+            <img src={wpp} alt="WhatsApp" />
+          </button>
+        </div>
       </div>
     </>
   );
