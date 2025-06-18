@@ -45,19 +45,6 @@ function Home() {
             
           />
         </button>
-
-     
-        {/* <button 
-          className="btn-float back-to-top"
-          onClick={scrollToTop}
-        >
-          <img 
-            src={topo} 
-            alt="Voltar ao topo" 
-            style={{ width: '16px' }} 
-          />
-          <span>Voltar ao Topo</span>
-        </button> */}
       </div>
       </div>
     </>
