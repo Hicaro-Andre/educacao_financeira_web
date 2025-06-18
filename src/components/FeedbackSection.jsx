@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../styles/FeedbackSection.css";
 
 import casal1 from "../assets/images/feedback/foto-feed-1.png";
+import casal2 from "../assets/images/feedback/vite.svg"
 
 const depoimentos = [
   {
@@ -15,14 +16,14 @@ const depoimentos = [
     destaque: "2-Uma transformação que vai além das finanças!",
     texto:
       "A mentoria da Gisele não apenas nos ajudou a organizar nossas finanças, mas também trouxe uma nova perspectiva sobre como gerenciar o dinheiro dentro do nosso casamento.",
-    autor: "Carlos e Mariana, São Paulo",
-    imagem: casal1,
+    autor: "São PAulo",
+    imagem: casal2,
   },
   {
     destaque: "3-Uma transformação que vai além das finanças!",
     texto:
       "A mentoria da Gisele não apenas nos ajudou a organizar nossas finanças, mas também trouxe uma nova perspectiva sobre como gerenciar o dinheiro dentro do nosso casamento.",
-    autor: "Carlos e Mariana, São Paulo",
+    autor: "Flamengo",
     imagem: casal1,
   },
   {
@@ -30,7 +31,7 @@ const depoimentos = [
     texto:
       "A mentoria da Gisele não apenas nos ajudou a organizar nossas finanças, mas também trouxe uma nova perspectiva sobre como gerenciar o dinheiro dentro do nosso casamento.",
     autor: "Carlos e Mariana, São Paulo",
-    imagem: casal1,
+    imagem: casal2,
   },
   {
     destaque: "5-Uma transformação que vai além das finanças!",

@@ -6,11 +6,13 @@
   background-color: #FFFDF9;
 }
 
+/* Título */
 .feedback_container h2 {
   font-size: 1.4rem;
   margin-bottom: 0.5rem;
 }
 
+/* Texto de introdução */
 .feedback-subtitle {
   font-size: 0.85rem;
   color: #555;
@@ -19,6 +21,7 @@
   line-height: 1.4;
 }
 
+/* Carrossel */
 .feed_carrossel {
   display: flex;
   justify-content: center;
@@ -31,25 +34,35 @@
   width: 100%;
 }
 
+/* Wrapper para o movimento dos cards */
+.feed_carrossel-container {
+  display: flex;
+  gap: 1rem;
+  animation: slideCarrossel 15s linear infinite;
+}
+
+/* Cards */
 .cardfeed {
-  background: transparent; 
-  box-shadow: none;        
+  position: relative;
+  background: transparent;
+  box-shadow: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
 }
 
-
+/* Card principal */
 .cardfeed.grande {
   transform: scale(1.05) translateX(0);
-  z-index: 2;
+  z-index: 3;
   position: relative;
   width: 100%;
   max-width: 320px;
-  /* box-sizing: border-box; */
 }
 
+/* Cards menores */
 .cardfeed.pequeno {
   transform: scale(0.92);
   opacity: 0.6;
@@ -59,6 +72,8 @@
   max-width: 360px;
   height: 250px;
 }
+
+/* Animation states */
 .cardfeed.saindo-esquerda {
   transform: translateX(-150%) scale(0.9);
   opacity: 0;
@@ -74,36 +89,24 @@
   opacity: 1;
 }
 
+/* Card content */
 .feedback_depoimento-card {
-  background: white; /* Borda e fundo reais do card */
+  background: white;
   border: 2px solid var(--ouro-2, rgba(125, 96, 0, 0.71));
   border-radius: 1rem;
   padding: 1.5rem;
   height: 225px;
-  height: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+
 .cardfeed.grande .feedback_depoimento-card {
   width: 320px;
 }
-/* .seta {
-  background: none;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
-  color:  rgba(125, 96, 0, 0.71);
-  stroke-width: 3px;
-  stroke: rgba(125, 96, 0, 0.71);
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-} */
 
+/* Navigation arrows */
 .arrow {
   background: transparent;
   position: absolute;
@@ -118,8 +121,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  
   transition: all 0.3s ease;
 }
 
@@ -131,14 +132,7 @@
   right: -5px;
 }
 
-/* .seta-esq {
-  left: -2rem;
-}
-
-.seta-dir {
-  right: -2rem;
-} */
-
+/* Card content styling */
 .feedback_destaque {
   font-weight: bold;
   font-style: italic;
@@ -162,8 +156,6 @@
   align-items: center;
   gap: 0.5rem;
   justify-content: center;
-
-  
 }
 
 .autor img {
@@ -173,3 +165,8 @@
   object-fit: cover;
 }
 
+/* Animação para o efeito de carrossel */
+@keyframes slideCarrossel {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
