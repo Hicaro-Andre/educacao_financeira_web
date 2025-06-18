@@ -434,8 +434,6 @@ if (name === "phone") {
 
               <div className="phone-date-container">
                 <div className="phone-row">
-                
-
                   <div className="phone-field">
                     <label>
                       Telefone
