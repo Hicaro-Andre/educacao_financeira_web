@@ -41,7 +41,7 @@ function Home() {
               const message =
                 "Olá, estou buscando mais informações sobre as mentorias";
               window.open(
-                `https://wa.me/48984927741?text=${encodeURIComponent(message)}`,
+                `https://wa.me/+5548984927741?text=${encodeURIComponent(message)}`,
                 "_blank"
               );
             }}
