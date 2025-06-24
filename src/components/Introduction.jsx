@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import "../styles/Introduction.css";
-import teste from "../assets/images/intro/Frame 66.png";
 
 const Introduction = () => {
   const introRef = useRef(null);
@@ -47,12 +46,11 @@ const Introduction = () => {
           </div>
 
           <div className="intro__video fade-in-up">
-            <img
-              src={teste}
-              alt="Miniatura do vídeo"
-              className="intro__video-thumbnail"
-              loading="lazy"
-            />
+            <video
+              src="/videointrodução.mp4"
+              controls
+              className="intro__video-player"
+            ></video>
           </div>
         </div>
       </div>
